@@ -17,3 +17,65 @@
 
 <li><a href="https://github.com/pages-themes/slate/edit/master/chef.md">Chef</a></li>
 </ul>
+
+<h1 class="rich-diff-level-zero">AWS:</h1>
+<h3><span style="color: #993300;"><strong>Links:</strong></span></h3>
+<div class="changed rich-diff-level-zero">
+<ul>
+<li class="rich-diff-level-one"><a href="https://acloud.guru/" rel="nofollow">https://acloud.guru/</a>&nbsp;for questions&nbsp;</li>
+<li class="rich-diff-level-one"><a href="https://aws.amazon.com/free/" rel="nofollow">https://aws.amazon.com/free/</a></li>
+<li class="rich-diff-level-one"><a href="https://aws.amazon.com/certification/certified-solutions-architect-associate/" rel="nofollow">https://aws.amazon.com/certification/certified-solutions-architect-associate/</a></li>
+</ul>
+</div>
+<hr class="vicinity rich-diff-level-zero" />
+<div class="changed rich-diff-level-zero">
+<h3 class="rich-diff-level-one"><span style="color: #993300;">Block storage</span></h3>
+<p>Traditional block storage device &mdash; like a hard drive &mdash; over the network</p>
+<p>Cloud providers often have products (volumes) that can provision a block storage device of any size and attach it to your cloud instance.</p>
+<p>You can run your own using&nbsp;OpenStack Cinder,&nbsp;Ceph,&nbsp;or the built-in iSCSI service available on many NAS devices</p>
+</div>
+<div class="changed rich-diff-level-zero">
+<h4 class="rich-diff-level-one">Advantages:</h4>
+</div>
+<ul class="removed rich-diff-level-zero">
+<li class="rich-diff-level-one">You can easily take live <span style="color: #0000ff;">snapshots</span> of the entire device for backup purposes</li>
+<li class="rich-diff-level-one">Block storage devices can be <span style="color: #0000ff;">resized</span> to accommodate growing needs</li>
+<li class="rich-diff-level-one">You can easily <span style="color: #0000ff;">detach and move</span> block storage devices between machines</li>
+<li class="rich-diff-level-one">Block storage devices provide <span style="color: #0000ff;">low latency IO</span>, so they are suitable for use by databases.</li>
+<li>Block devices are well supported. Every programming language can easily read and write files</li>
+<li class="rich-diff-level-one">Well suited for storing data in <span style="color: #0000ff;">traditional databases</span>. Additionally, many legacy applications that require <span style="color: #0000ff;">normal filesystem storag</span>e will need to use a block storage device.</li>
+</ul>
+<p><strong>Disadvantages:</strong></p>
+<ul>
+<li>Storage is tied to one server at a time</li>
+<li>Blocks and filesystems have limited metadata about the blobs of information they're storing (creation date, owner, size). Any additional information about what you're storing will have to be handled at the application and database level, which is additional complexity for a developer to worry about</li>
+<li>You need to pay for all the block storage space you've allocated, even if you're not using it</li>
+<li>You can only access block storage through a running server</li>
+<li>Block storage needs more hands-on work and setup vs object storage (filesystem choices, permissions, versioning, backups, etc.)</li>
+</ul>
+<h3 class="rich-diff-level-one"><span style="color: #993300;">Object storage</span></h3>
+<p>Object storage is the storage and retrieval of unstructured blobs of data and metadata using an HTTP API.&nbsp;&nbsp;Instead of breaking files down into blocks to store it on disk using a filesystem, we deal with whole objects stored over the network.</p>
+<p>These objects could be an image file, logs, HTML files, or any self-contained blob of bytes. They are&nbsp;<em>unstructured</em>&nbsp;because there is no specific schema or format they need to follow.</p>
+<p>Object storage is useful for hosting static assets, saving user-generated content such as images and movies, storing backup files, and storing logs</p>
+<p>There are some self-hosted object storage solutions, though you will give up some of the benefits of a hosted solution (such as not having to worry about hard drives and scaling issues). You could try&nbsp;<a href="https://www.minio.io/">Minio</a>, a popular object storage server written in the Go language, or&nbsp;<a href="http://ceph.com/">Ceph</a>, or&nbsp;<a href="https://www.openstack.org/software/releases/ocata/components/swift">OpenStack Swift</a>.</p>
+<h4 class="rich-diff-level-one">Advantages:</h4>
+<p>&nbsp;</p>
+<ul>
+<li>A simple HTTP API, with clients available for all major operating systems and programming languages</li>
+<li>Object storage services charge only for the storage space you use</li>
+<li>Some object stores offer built-in CDN integration, which cache your assets around the globe to make downloads and page loads faster for your users</li>
+<li>Optional versioning means you can retrieve old versions of objects to recover from accidental overwrites of data</li>
+<li>Object storage services can easily scale from modest needs to really intense use-cases without the developer having to launch more resources or rearchitect to handle the load</li>
+<li>Using an object storage service means you don't have to maintain hard drives and RAID arrays, as that's handled by the service provider</li>
+<li>Being able to store chunks of metadata alongside your data blob can further simplify your application architecture</li>
+</ul>
+<h4 class="rich-diff-level-one">Disadvantages:</h4>
+<ul>
+<li>You can't use object storage services to back a traditional database, due to the high latency of such services</li>
+<li>Object storage doesn't allow you to alter just a piece of a data blob, you must read and write an entire object at once. This has some performance implications. For instance, on a filesystem, you can easily append a single line to the end of a log file. On an object storage system, you'd need to retrieve the object, add the new line, and write the entire object back. This makes object storage less ideal for data that changes very frequently</li>
+<li>Operating systems can't easily mount an object store like a normal disk. There are some clients and adapters to help with this, but in general, using and browsing an object store is not as simple as flipping through directories in a file browser</li>
+</ul>
+<h1><ins>
+<pre class="rich-diff-level-zero"><code class="rich-diff-level-one"></code></pre>
+</ins></h1>
+<hr class="vicinity rich-diff-level-zero" />
