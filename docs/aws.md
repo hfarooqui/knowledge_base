@@ -117,7 +117,7 @@ It then senses that this image has been uploaded and then based on the inputs th
   - Data Archival Service
   
 - **Snowball**
- - Snowball is a way to bring in large data into AWS data center
+ - Snowball is a way to bring in large amount data (terabytes) into AWS data center
  - Rather than transmitting it over the broadband line or Wi-Fi or whatever if you're bringing in terabytes, sometimes it is easier just to write it physically to a disc they then will send that into the AWS data center and then import it manually.
  
 - ** Storage Gateways**
@@ -140,3 +140,43 @@ Basically any relational database will sit inside RDS.
  Redshift is for data warehousing or business intelligence.
  
 #### Migration
+
+ - **AWS Migration Hub**
+ Tracking service that allows you to track your applications as you migrate them
+to AWS and integrates with other services within the migration framework.
+
+ - **Application Discovery Service**
+ Way of tracking dependencies for your applications
+
+ - ** Database Migration Service**
+Way to migrate your databases from on premise into AWS.
+
+- **Server MIgration Service**
+Enables you to migrate physical or virtual servers into AWS
+
+#### Network & Content Delivery
+
+ - **VPC**
+ Amazon Virtual Private Cloud can be thought of as Virtual Data Center
+ 
+ - **CloudFront**
+ Amazons Content Delivery Network (CDN)
+ But essentially what cloud front does is if you think about your media assets like your video files or your image files and if you've got users in Australia and your files are stored in say London what cloud front can do is actually store it closer to your users
+in Australia so that they don't have to go and access the information directly from London they can actually access it from an edge location nearest use instead.
+
+- **Route53**
+Amazon's DNService
+
+- **API Gateway**
+API Gateway is essentially a way of creating your own API for your other services to talk to.
+
+- **Direct Connect**
+Direct Connect as a way of running a dedicated line from your corporate head office or datacenter directly into Amazon and it will directly connect into your PC.
+
+- **Developer Tools**
+ - **CodeStart** is a way of getting a group of developers working together. It's a way of project managing your code. You basically set up your code and you have a continuous delivery toolchain and you can release your code within minutes so it's a way of collaborating with other developers who are working on a particular project.
+  - **CodeCommit** is a source control service. So you basically store your own private get repositories within code commit search. Just think of it as a place to store your code.
+  - **CodeBuild** Basically once you've got your code ready build it compile that code for you or run tests against it and then it will basically produce software packages that are ready to deploy.
+  - **CodeDeploy** automates application deployments to your instances but it can also do it to on premise instances as well as to your lambda functions.
+  - **CodePipeline** This is basically a continuous delivery service and use that sort of model and visualize and automate steps required to release your software.
+  - **X-Ray** is used to debug and to analyze your service applications. It has request tracings you can actually go in and find the root causes of issues and performance bottlenecks.
