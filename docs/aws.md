@@ -1,9 +1,5 @@
-# AWS:
-
-------------
-
 ## Concepts
-
+------------
 ### Block storage
 Traditional block storage device — like a hard drive — over the network
 
@@ -62,3 +58,85 @@ On an object storage system, you'd need to retrieve the object, add the new line
 - https://acloud.guru/ for questions
 - https://aws.amazon.com/free/
 - https://aws.amazon.com/certification/certified-solutions-architect-associate/
+
+
+## AWS
+
+1300+ services
+
+### AWS Global InfrastructureAWS Global Infrastructure
+
+#### Region
+Region is a **physical location** in the world which consists of 2 or more AZ (around 60)
+
+#### AZ
+- AZ is one or more discrete data center each with **redundant power, networking and connectivity** housed in seperate facility.
+
+#### Edge locations
+- Edge locations are simply **endpoints** for AWS which are used for caching content. Typically this consists of ** CDN, CloudFront**. There are more Edge locations than region (around 96)
+
+### Services
+#### Compute
+
+- **Elastic Compute Cloud** (EC2)
+Can have VM as well as physical dedicated machine
+
+- **EC2 Container service**
+Manage docker container at scale
+
+- **Elastic BeanStalk**
+For dev who don't understand AWS. They would upload their code and EBS would provision Autoscailing groups, load balancers, EC2 instances etc; Devs can focus on their code.
+
+- **Lambda **
+ - "A Clould guru" runs on Lambda.
+ - Code that you upload to the cloud. You dont have to worry about underlying physical or Virtual machines. Literally there's nothing to manage there's no operating systems or anything. All you worry about is your code.
+ - So give you an example you might have a you know main web site where people upload images and then want to overlay text on top of it.
+What you do is you could basically create a lambda function that puts the text over the top and it's triggered as soon as somebody uploads an image to your Web site.
+It then senses that this image has been uploaded and then based on the inputs that they give you would try to you know takes over that image and outputted that's a good example of lamda we will use Lamda
+
+- **Lightsail**
+ - Amazon's VPService or virtual private service service this is basically designed for people who just don't really want to understand anything about AWOS and the underlying infrastructure.They don't want to know about the PCs or security groups or anything like that. So essentially this just provision you with the server it'll give you a fixed IP address that you can log into the server from and will give you either ODP access for Windows or S-sh access for Linux. And then it comes with the really cool management console you can go in and manage that server using management console.
+ - Watered down version of EC2
+
+- **Batch**
+ - Used for batch computing in cloud
+
+
+#### Storage
+
+- **S3**
+  - Simple Storage Service (S3)
+  - Object based storage
+  - It has buckets where you upload your files
+  
+- **EFS**
+ - Elastic Flie Storage
+ - Attached to network
+
+- **Glacier**
+  - Data Archival Service
+  
+- **Snowball**
+ - Snowball is a way to bring in large data into AWS data center
+ - Rather than transmitting it over the broadband line or Wi-Fi or whatever if you're bringing in terabytes, sometimes it is easier just to write it physically to a disc they then will send that into the AWS data center and then import it manually.
+ 
+- ** Storage Gateways**
+ - Storage Gateway are essentially virtual appliances that you install in your datacenter or in your head office and then replicate information back to a S3.
+ 
+#### Database
+
+ - **RDS**
+Relational Database Service
+Supports most of the major databases including MySQL, Postgres, Oracle.
+Basically any relational database will sit inside RDS.
+
+ - **DynamoDB**
+ Non-Relational Database Service provided by Amazon
+
+ - **Elasticache**
+ Way of caching commonly queried things rather than DB service pulling it from Database
+
+ - **RedShift**
+ Redshift is for data warehousing or business intelligence.
+ 
+#### Migration
