@@ -173,10 +173,11 @@ API Gateway is essentially a way of creating your own API for your other service
 - **Direct Connect**
 Direct Connect as a way of running a dedicated line from your corporate head office or datacenter directly into Amazon and it will directly connect into your PC.
 
-- **Developer Tools**
+#### Developer Tools
+
  - **CodeStart** is a way of getting a group of developers working together. It's a way of project managing your code. You basically set up your code and you have a continuous delivery toolchain and you can release your code within minutes so it's a way of collaborating with other developers who are working on a particular project.
-  - **CodeCommit** is a source control service. So you basically store your own private get repositories within code commit search. Just think of it as a place to store your code.
-  - **CodeBuild** Basically once you've got your code ready build it compile that code for you or run tests against it and then it will basically produce software packages that are ready to deploy.
-  - **CodeDeploy** automates application deployments to your instances but it can also do it to on premise instances as well as to your lambda functions.
-  - **CodePipeline** This is basically a continuous delivery service and use that sort of model and visualize and automate steps required to release your software.
-  - **X-Ray** is used to debug and to analyze your service applications. It has request tracings you can actually go in and find the root causes of issues and performance bottlenecks.
+ - **CodeCommit** is a source control service. So you basically store your own private get repositories within code commit search. Just think of it as a place to store your code.
+ - **CodeBuild** Basically once you've got your code ready build it compile that code for you or run tests against it and then it will basically produce software packages that are ready to deploy.
+ - **CodeDeploy** automates application deployments to your instances but it can also do it to on premise instances as well as to your lambda functions.
+ - **CodePipeline** This is basically a continuous delivery service and use that sort of model and visualize and automate steps required to release your software.
+ - **X-Ray** is used to debug and to analyze your service applications. It has request tracings you can actually go in and find the root causes of issues and performance bottlenecks.
