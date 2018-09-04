@@ -1,11 +1,8 @@
 # AWS:
 
-### Links:
-https://acloud.guru/ for questions
-https://aws.amazon.com/free/
-https://aws.amazon.com/certification/certified-solutions-architect-associate/
-
 ------------
+
+## Concepts
 
 ### Block storage
 Traditional block storage device — like a hard drive — over the network
@@ -60,3 +57,8 @@ There are some self-hosted object storage solutions, though you will give up som
 2. Object storage **doesn't allow you to alter just a piece of a data blob**, you must read and write an entire object at once. This has some performance implications. For instance, on a filesystem, you can easily append a single line to the end of a log file.
 On an object storage system, you'd need to retrieve the object, add the new line, and write the entire object back. This makes object storage less ideal for data that changes very frequently
 3. Operating systems **can't easily mount an object store like a normal disk**. There are some clients and adapters to help with this, but in general, using and browsing an object store is not as simple as flipping through directories in a file browser
+
+### Links:
+- https://acloud.guru/ for questions
+- https://aws.amazon.com/free/
+- https://aws.amazon.com/certification/certified-solutions-architect-associate/
