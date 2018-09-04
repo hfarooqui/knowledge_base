@@ -181,3 +181,4 @@ Direct Connect as a way of running a dedicated line from your corporate head off
  - **CodeDeploy** automates application deployments to your instances but it can also do it to on premise instances as well as to your lambda functions.
  - **CodePipeline** This is basically a continuous delivery service and use that sort of model and visualize and automate steps required to release your software.
  - **X-Ray** is used to debug and to analyze your service applications. It has request tracings you can actually go in and find the root causes of issues and performance bottlenecks.
+ - **Cloud9** IDE environment. So this basically is a place where you can develop your code inside the AWS console. You don't even need to do it on your desktop any more you can do it inside a web browser.
