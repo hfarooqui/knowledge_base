@@ -182,3 +182,42 @@ Direct Connect as a way of running a dedicated line from your corporate head off
  - **CodePipeline** This is basically a continuous delivery service and use that sort of model and visualize and automate steps required to release your software.
  - **X-Ray** is used to debug and to analyze your service applications. It has request tracings you can actually go in and find the root causes of issues and performance bottlenecks.
  - **Cloud9** IDE environment. So this basically is a place where you can develop your code inside the AWS console. You don't even need to do it on your desktop any more you can do it inside a web browser.
+
+####Management Tools
+ - **CloudWatch**  Cloud watch cloud watch is a monitoring service.
+ - **CloudFormation** Way of scripting infratructure. Turns infrastructure into code
+ - **CloudTrail** Used to log changes to your AWS environment (Instance/S3/User/.. creation calls the API and CloudTrail logs that so called trail). Stores record for a week.
+ - **AWS Config** Basically monitors the configuration of your entire AWS environment and it has like point in time snapshot. You can go back in time and visualize your AWS environment.
+ - **OpsWork** Similar to BeanStalk but more roboust. Uses chef, puppet. It's a way of automating your environments.
+ - **ServiceCatalog** Way of managing catalogs of I.T. services that are approved for use. These can be anything from Virtual Machine images individual operating systems software databases all the way through to like complete multi-tier architecture. So it's just basically a catalog service. This is typically used by big organizations for basically governance and compliance requirements service
+ - **Systems Manager** Interface for managing your AWS resources. Typically used for EC2, Patch maintainance. For example, if you want to roll out a whole bunch of security patches across thousands of easy to instances it's easier to use systems manager.
+ - **Trusted Advisor**Trusted advisor will give you advice across multiple different disciplines will give you advice around security.
+ Tells you if you've left your ports open that could be a risk.
+ It also tells you if you're not using your AWS services as much as you can or as much as you think.
+ Can basically tell you how to save money.
+ - **Managed Service** If you don't want to have to worry about your EC2 instances or auto scaling (ElasticCache, RDS, AmazonMQ)
+
+**CloudFormation, CloudTrail, TrustedServices are important for SAA exam**
+
+####Media Services (NEW)
+  - **ElasticEncoder** Takes a Video recorded on Mac and resizes it to make sure it looks good on Android
+  - **MediaConvert**
+  - **MediaLive**
+  - **MediaPackage**
+  - **MediaStore**
+  - **MediaTailor**
+  
+####MachineLearning
+ - **SageMaker** Makes it really easy for developers to use deep learning when  coding for the environments
+ - **AmazonComprehend** Does sentiment analysis around data so tell you whether or not people saying good things or bad things about your products
+ - **DeepLens** It can actually the camera that you can buy. It itself can figure out what it is it's looking at and it's not connecting back to an AWS backend. It's actually doing this on the camera itself. So, you can create an app that would detect somebody coming to your front door. And whether or not you recognize that person or not and that the door should open for them or not.
+ - **Lex** This is what powers Alexa and it is a way of communicating with customers
+ - **MachineLearning**Difference between machine learning and deep learning is that deep learning is around neural networks whereas machine learning is sort of entry level. Deep learning is more intelligent the machine learning. 
+ With machine learning you throw a data set up into the AWS cloud. It will then analyze that data set and you basically give it some results and then it would determine whether or not based off that data set any new data, whether or not it will basically predict an outcome. Amazon themselves use it to recommend products from Amazon.com page uses MachineLearning
+- **Poly** basically takes text and converts it into speech. And you can choose different languages, regions, accent
+- **Rekognition** Essentially you upload a file and it will tell you what's in that file so it might be a picture and there is a dog on the beach playing you know with a bowl recognition will tell you dog Bache bowl and give you percentages as to you know accuracy. Likewise with video if you've got a guy walking up to a car and he opens a door and the dog gets in the back and they're at the beach. You can put that video up into recognition recognition tell you exactly what it recognizes within that video.
+- **Amazon translate** Translates english into other languages
+- **Amazon transcribe** Automatic speech recoginition. Converts speech to text
+
+####Analytics
+- **Athena**
