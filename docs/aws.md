@@ -220,4 +220,65 @@ Direct Connect as a way of running a dedicated line from your corporate head off
 - **Amazon transcribe** Automatic speech recoginition. Converts speech to text
 
 ####Analytics
-- **Athena**
+- **Athena** Allows you to run SQL queries for things in your S3 bucket. Lets say if you have different Excel or CSV spreadsheets in your S-3 bucket and you want to find out names of all your employees. You can actually design a SQL query which would go through and look at those objects in your bucket and then return results. It's completely serverless. There's no infrastructure to manage.
+- **EMR** Elastic Map Reduce used for processing large amount of data (for big data solutions)
+- **CloudSearch** Search service for AWS
+- **ElasticSearch** Search service for AWS
+- **Kinesis** Way to ingest large amount of data into AWS (Social media feed, tweets...)
+- **Kinesis Video Stream** 
+- **QuickSight** Amazon's business intellegence (BI) service
+- **Data Pipleline** Used to move your data between AWS services
+- **Glue** Used for ETL (Extract Transform Load). Migrate large amount of unstructured data - Extract>Transform>Load
+
+####Security, Identity & Compliance
+- **IAM** (Identity Access Management). Create Users, Groups, set Permissions
+- **Cognito** Way of doing device authentication. Here you can authenticate through your app on mobile device using FB, Gmail and then using Cognito service which would give you temporary access to AWS resources (E.g. Dynamo DB) for mobile devices
+- **GuardDuty** Monitors for melicious activity on your AWS account
+- **Inspector** Agent that you install on your EC 2instance and youc an run test against it (E.g. Does your EC2 instance have security vulnaribilities). Youc an scheduke it to run weekly, monthly...
+- **Macie** Scans your S3 bucket and looks for things that contains Personal Identifiable Information (PII) Example: Credit Card info, NAme, Addresses, SSN,
+- **Certificate Manager** Way of managing SSL cert. You get SSL certs for free if you are registering your service using Route53
+- **CloudHSM** (Hardware Security Module - Dedicated bits of hardware) Stores encrytption keys (public key, private key) also used to store other encryption keys
+- **Directory Services** Way of integrating Microsoft Directory service with AWS services
+- **WAF** (Web Application Firewall) Layer7 (application layer) firewall
+- **Shield** DDoS mitigation. Included with CloudFront, LB, Route53. Amazon would refun in case of DDoS attack.
+- **Artifact** This is great for audit and compliance. Essentially it's a portal for On-Demand access to download AWS compliant reports and you can also manage select agreements as well. So essentially it allows you to go in and you can download things like this Service Organisational Controls (SOC), Payment Card Industry (PCI) reports
+
+####Mobile Services
+- **Mobile Hub** is essentially a Management console. If you have mobile app, you can create mobile hub which would setup AWS services and then you can use AWS mobile SDK to connect your mobile app to AWS backend
+- **PinPoint** Way of using targated push notifications to drive mobile engagement. So basically if you want to push out a notification to your mobile users that  maybe they are near a restaurant and that you run like a groupon style app you say hey there is 50 percent off this restaurant if you go there in the next two hours something like that you can use pinpoint to do that service.
+- **App Sync** It basically automatically updates the data in web and mobile applications in real time and it also updates data for offline users as soon as they reconnect
+- **Device Farm** Way of actually testing your apps on real life devices like Android devices iPhone devices etc
+- **Mobile Analytics** Analytics service for mobile
+
+####AR/VR
+- **Sumerian** Sumerian lets you create AR, VR, 3D application quickly and easily. Essentially allows you to use common set of tools to create these environments
+
+####Application Integration
+- **Step Functions**
+- **Amazon MQ**
+- **SNS**
+- **SQS**
+- **SWF** (Simple Workflow Service)
+
+####Customer Engagement
+- **Connect**
+- **Simple EMail Service** Great way of sending EMails, Highly scalable
+
+####Business Productivity
+- **Alexa for Business**
+- **Chime** For video conferencing call.
+- **Work Docs** Way to safely and securly store your work related documents (like DropBox)
+- **WorkMail** Office365 version of Amazon
+
+####Desktop and App Streaming
+- **Workspaces**
+- **AppStream 2.0**
+
+####IoT
+- ** iOT**
+- **iOT Device Management**
+- **Amazon FreeRTOS**
+- **GreenGrass**
+
+####Game Development
+- **GameLift**
