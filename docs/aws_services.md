@@ -76,7 +76,7 @@ Region is a **physical location** in the world which consists of 2 or more AZ (a
 - Edge locations are simply **endpoints** for AWS which are used for caching content. Typically this consists of ** CDN, CloudFront**. There are more Edge locations than region (around 96)
 
 # Services
-------------
+
 #### Compute
 
 - **Elastic Compute Cloud** (EC2)
