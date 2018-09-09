@@ -200,7 +200,7 @@ Direct Connect as a way of running a dedicated line from your corporate head off
 **CloudFormation, CloudTrail, TrustedServices are important for SAA exam**
 
 ####Media Services (NEW)
-  - **ElasticEncoder** Takes a Video recorded on Mac and resizes it to make sure it looks good on Android
+  - **Elastic Transcoder** Takes a Video recorded on Mac and resizes it to make sure it looks good on Android
   - **MediaConvert**
   - **MediaLive**
   - **MediaPackage**
