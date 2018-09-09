@@ -282,3 +282,10 @@ Direct Connect as a way of running a dedicated line from your corporate head off
 
 ####Game Development
 - **GameLift**
+
+###OpsWorks vs CloudFormation
+CF is like Terraform, its is fully coded automation of almost every service in AWS. So use if you have a very extensive service that requires full description of environments or templated stacks to cover low level services like auto scaling, spot instance, redshift, Cloudwatch alarmss and much more. The configuration time is much more extensive, and time consuming.
+
+OW is basically AWS managed Chef. It has some great features for automation via the GUI, and you can configure most things. The great thing about Opsworks is that a good Devops can script the system, so someone that has little knowledge of infrastructure or cloud can still deploy apps super simply, and in very little time. However it is not as powerful as CF
+
+So i think of it as CFT for large environments / many users and OpsWorks for smaller solutions or Application/Solution Stacks
