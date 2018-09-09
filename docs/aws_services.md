@@ -1,5 +1,5 @@
 # Concepts
-------------
+
 ### Block storage
 Traditional block storage device — like a hard drive — over the network
 
