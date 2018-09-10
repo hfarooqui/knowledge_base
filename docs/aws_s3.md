@@ -24,6 +24,12 @@ E.g. https://s3-eu-west-1.amazonaws.com/hfarooquidocs
 		- Transfer Acceleration: Enables fast, easy and secure transfers of files over long distances between end users and S3 bucket. It takes advantage of Amazons CloudFront's globally distributed Edge locations (much closer to end user compared to S3 location). As the data arrives at Edge location it is routed to Amazons S3 over optimized network path
 - Lifecycle management (E.g. Delete files older than 30 days or move it from one storage tier to another)
 - Encryption
+ - Client side encryption
+ - Server side encryption
+  - with Amazon S3 Managed Keys (SSE-S3)
+  - With KMS (SSe-KMS)
+  - With customer provided keys (SSE-C)
+- By default buckets are private and all the files stored inside the bucket are private
 
 ###Data consistancy model for S3
 - Read after write consistancy for PUTS of new objects
