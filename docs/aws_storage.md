@@ -12,10 +12,10 @@ E.g. https://s3-eu-west-1.amazonaws.com/hfarooquidocs
 - 99.99% availability
 - 99.99999999999% (11 9's) durability (cannot lose file)
 - Tiered storage
- - S3 Standard: 99.99% availability, 99.99999999999% durability, stored reduntantly across multiple devices in multiple facilities, designed to sustain loss of 2 facilities concurrently. No retrival fee but most expsnsive.
-  - S3 IA (Infrequently accessed): For data that is accessed less frequently but require rapid access when needed. Cheaper compared to "S3 Standard" but you are charged a retrival fee
-  - S3 One Zone IA: Data stored only in one AZ. Cheaper than above tow tiers
-  - Glacier: Cheapest but used for data archival only. Expedidated, Standard or Bulk. Standard retrival takes around 3-5 hours
+ - **S3 Standard**: 99.99% availability, 99.99999999999% durability, stored reduntantly across multiple devices in multiple facilities, designed to sustain loss of 2 facilities concurrently. No retrival fee but most expsnsive.
+  - **S3 IA** (Infrequently accessed): For data that is accessed less frequently but require rapid access when needed. Cheaper compared to "S3 Standard" but you are charged a retrival fee
+  - **S3 One Zone IA**: Data stored only in one AZ. Cheaper than above tow tiers
+  - **Glacier**: Cheapest but used for data archival only. Expedidated, Standard or Bulk. Standard retrival takes around 3-5 hours
 - Charges are for:
 	- Storage
 	- Retrival/Requests
@@ -45,3 +45,15 @@ E.g. https://s3-eu-west-1.amazonaws.com/hfarooquidocs
  - ACL: Define permisssions for files in the bucket
  - S3 bucket policies: Applied at bucket level
  - Torrent: Useful for torrenting?
+
+###Versioning
+- Stores all versions of an Object (including all writes and even if you delete an object)
+- Great bakcup tool
+- Once enabled, versioning cannot be deleted only suspended
+- Integrates with lifecycle rules
+- Versioning MFA (multi factor authentication) delete feature adds extra layer of security
+- Versioning must be enabled on both, source and destination
+- Regions must be unique
+- Files in the source bucket are not replicated automatically. All the subsequent updated files will be replicated automatically
+- Delete markers are replicated
+- Deleting individual versions or delete markers will not be replicated
