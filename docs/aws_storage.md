@@ -24,13 +24,23 @@ E.g. https://s3-eu-west-1.amazonaws.com/hfarooquidocs
 	- Data Transfer Pricing
 		- Transfer Acceleration: Enables fast, easy and secure transfers of files over long distances between end users and S3 bucket. It takes advantage of Amazons CloudFront's globally distributed Edge locations (much closer to end user compared to S3 location). As the data arrives at Edge location it is routed to Amazons S3 over optimized network path
 - Lifecycle management (E.g. Delete files older than 30 days or move it from one storage tier to another)
-- Encryption
- - Client side encryption
- - Server side encryption
-  - with Amazon S3 Managed Keys (SSE-S3)
-  - With KMS (SSe-KMS)
-  - With customer provided keys (SSE-C)
-- By default buckets are private and all the files stored inside the bucket are private
+
+###Security & Encryption
+- By default buckets are **private** and all the files stored inside the bucket are private
+- S3 buckets can be configured to create **access logs** which logs all the requests made to S3 bucket
+- **Encryption**
+  - In Transit: Transfer data to and from bucket
+    - SSL/TLS
+  - At Rest
+   - Server side encryption
+     -  Amazon S3 Managed Keys (SSE-S3)
+	   Each object is encrypted with unique key employing strong multi factor authentication. Amazon encrypts and regulary rotates the master key. Amazon handles all the keys
+     -  Key Management Service (SSE-KMS)
+	   Comes with additional benifits and charge. Seperate permission for use for envalope key. Envalope key is the key that protects the data's encryption key. It provides Audit Trails feature as to who is using the key (who is decrypting what and when)
+     - Customer provided keys (SSE-C)
+	   You manage the key and Amazon manages the encryption
+    - Client side encryption
+   You encrypt the data on your client side and upload it
 
 ###Data consistancy model for S3
 - Read after write consistancy for PUTS of new objects
@@ -68,6 +78,23 @@ CDN is a content delivery network and is a system of ** distributed servers **(n
 **Origin:** The Origin of all the files that CDN will distribute. Could be EC2 instance, S3 bucket, ELB or Route 53. Origin does have to be an AWS resource, you can very well have your custom Origin
 **Edge Location:** Location where content will be cached. Edge locaiton are just read-only. You can write to the Edge location which will be later syncd with the Origin.
 Objects are cached to Edge location for the life of TTL. You can clear cached location but will be charged. Access for first user will always be slow as the contents will be downloaded and cached and downloaded to Edge location. All the subsequent request to the same content will be faster as it will be retrived from cached Edge locations.
+
+![Edge_locations](https://s3.amazonaws.com/hfcontents/kbimages/Edge_locations.png "Edge_locations")
+
+Regional Edge Caches are CloudFront locations that are deployed globally, at close proximity to your viewers. These locations sit between your origin server and the global edge locations that serve traffic directly to your viewers. As the popularity of your objects reduce, individual edge locations may evict those objects to make room for more popular content. Regional Edge Caches have larger cache width than any individual edge location, so your objects remain in cache longer at the nearest regional edge cache location. 
+
 **Distribution**: Name given to CDN which consists of collection of Edge locations
  - ** Web Distribution**: Typically used for websites
  - **RTMP**: Used for media streaming
+ 
+ ###Storage Gateway
+ - **File Gateway:** For flat files stored directly on S3
+ - **Volume Gateway:**
+  - **Storage Volume:** Entire dataset is store on-site and is asynchronously backedup to S3
+  - **Cached Volume:** Entire dataset is stored in S3 and only the most recently accessed data is cached on-site
+ -** Gateway Virtual Tape Library (VTL):** Used for backups and uses polular backup applications like NetBackup, Backup Exec, Veeam etc
+ ![Storage_Gateway](https://s3.amazonaws.com/hfcontents/kbimages/Storage_Gateway.png "Storage_Gateway")
+
+![Cached_Gateway](https://s3.amazonaws.com/hfcontents/kbimages/Cached_Gateway.png "Cached_Gateway")
+
+![VTL_Gateway](https://s3.amazonaws.com/hfcontents/kbimages/VTL_Gateway.png "VTL_Gateway")
