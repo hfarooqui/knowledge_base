@@ -16,6 +16,7 @@ E.g. https://s3-eu-west-1.amazonaws.com/hfarooquidocs
   - **S3 IA** (Infrequently accessed): For data that is accessed less frequently but require rapid access when needed. Cheaper compared to "S3 Standard" but you are charged a retrival fee
   - **S3 One Zone IA**: Data stored only in one AZ. Cheaper than above tow tiers
   - **Glacier**: Cheapest but used for data archival only. Expedidated, Standard or Bulk. Standard retrival takes around 3-5 hours
+![S3_Tiers](https://s3.amazonaws.com/hfcontents/kbimages/S3_Tiers.png "S3_Tiers")
 - Charges are for:
 	- Storage
 	- Retrival/Requests
@@ -57,3 +58,16 @@ E.g. https://s3-eu-west-1.amazonaws.com/hfarooquidocs
 - Files in the source bucket are not replicated automatically. All the subsequent updated files will be replicated automatically
 - Delete markers are replicated
 - Deleting individual versions or delete markers will not be replicated
+
+#Content Delivery Network (CDN)
+CDN is a content delivery network and is a system of ** distributed servers **(network) that deliver web pages and other web content to a user based on the geographic location of that user, the origin of the web page and a content delivery server.
+
+![CDN1](https://s3.amazonaws.com/hfcontents/kbimages/CDN1.png "CDN1")
+
+###Teminology
+**Origin:** The Origin of all the files that CDN will distribute. Could be EC2 instance, S3 bucket, ELB or Route 53. Origin does have to be an AWS resource, you can very well have your custom Origin
+**Edge Location:** Location where content will be cached. Edge locaiton are just read-only. You can write to the Edge location which will be later syncd with the Origin.
+Objects are cached to Edge location for the life of TTL. You can clear cached location but will be charged. Access for first user will always be slow as the contents will be downloaded and cached and downloaded to Edge location. All the subsequent request to the same content will be faster as it will be retrived from cached Edge locations.
+**Distribution**: Name given to CDN which consists of collection of Edge locations
+ - ** Web Distribution**: Typically used for websites
+ - **RTMP**: Used for media streaming
