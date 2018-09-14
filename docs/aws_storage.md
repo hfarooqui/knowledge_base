@@ -98,3 +98,28 @@ Regional Edge Caches are CloudFront locations that are deployed globally, at clo
 ![Cached_Gateway](https://s3.amazonaws.com/hfcontents/kbimages/Cached_Gateway.png "Cached_Gateway")
 
 ![VTL_Gateway](https://s3.amazonaws.com/hfcontents/kbimages/VTL_Gateway.png "VTL_Gateway")
+
+#Snowball
+
+Before Snowball Amazon used import/export disk which accelerates moving large amount of data in and out of AWS cloud using portable storage device for transport.
+Served the purpose if you had low internet bandwidth and had to transfer TB's of data. However, the problem was manging different types of disk with different connections. To overcome this issue Amazon came with Snowball.
+
+![Snowball](https://s3.amazonaws.com/hfcontents/kbimages/Snowball.png "Snowball")
+
+**Snowball**
+- PB scale data transport solution that uses secure applicance to transfer large amout of data in and out of AWS.
+- Simple, fast, secure and can cost as little as one fifth the cost of internet
+- 80TB Snowball in all the regions
+- Uses multiple layer of security including tamper resistant enclosures, 256-bit encryption
+- Once the data is transfered AWS performs a software erasure (cleanup) of Snowball appliance so that future customer is not able to recover the deleted data
+
+**Snowball Edge**
+- Is a 100TB of data transfer device which severs as little AWS datacenter with not just on board storage but also compute capabilities
+- Can cluster togather to form a local storage tier and process your data on-premise, heling ensure your applications continue to run even when they are not able to access the cloud
+
+**Snowmobile**
+- Massive safe container on the back of a truck
+- For PB or Exabyte of data
+- Would take around 6 months to transfer Exabytes of data with Snowmobile. Where as with 10 MBPS it would have taken 25 years
+
+![Snowmobile](https://s3.amazonaws.com/hfcontents/kbimages/Snowmobile.png "Snowmobile")
