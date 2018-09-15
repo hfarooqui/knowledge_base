@@ -123,3 +123,12 @@ Served the purpose if you had low internet bandwidth and had to transfer TB's of
 - Would take around 6 months to transfer Exabytes of data with Snowmobile. Where as with 10 MBPS it would have taken 25 years
 
 ![Snowmobile](https://s3.amazonaws.com/hfcontents/kbimages/Snowmobile.png "Snowmobile")
+
+#S3 Transfer Acceleration
+S3 transfer acceleration uses CloudFront's Edge location to accelerate your uploads to S3 bucket. instead of uploading directly to the S3 bucket you can use distinct url to upload directly to an Edge location which will than upload the file to S3. You will get the distinct url to upload to: <bucket_name>.s3-accelerate.amazonaws.com
+
+#Static (Serverless) website hosting
+- DomainName and Bucket name should be same for your static website (hosted with S3) to work
+- Format http://<bucket_name>.s3-website-<region>.amazonaws.com
+- Scales infinately
+- Its a static website. Cannot have php, aspx, javascript
