@@ -7,7 +7,7 @@
 - Unlimited storage but you pay for usage per GB
 - Files ares stored in buckets (Folder in cloud)
 - S3 is universal namespace i.e. name must be unique globally. 
-E.g. https://s3-eu-west-1.amazonaws.com/hfarooquidocs
+E.g. https://s3-<region>.amazonaws.com/<bucket_name>
 - You will receive HTTP 200 if file upload to S3 bucket was successful
 - 99.99% availability
 - 99.99999999999% (11 9's) durability (cannot lose file)
@@ -119,7 +119,7 @@ Served the purpose if you had low internet bandwidth and had to transfer TB's of
 
 **Snowmobile**
 - Massive safe container on the back of a truck
-- For PB or Exabyte of data
+- Strores 100 PB of data per container
 - Would take around 6 months to transfer Exabytes of data with Snowmobile. Where as with 10 MBPS it would have taken 25 years
 
 ![Snowmobile](https://s3.amazonaws.com/hfcontents/kbimages/Snowmobile.png "Snowmobile")
@@ -130,5 +130,6 @@ S3 transfer acceleration uses CloudFront's Edge location to accelerate your uplo
 #Static (Serverless) website hosting
 - DomainName and Bucket name should be same for your static website (hosted with S3) to work
 - Format http://<bucket_name>.s3-website-<region>.amazonaws.com
+- Serveless - Do not have to worry about EC2 instances or VM's
 - Scales infinately
 - Its a static website. Cannot have php, aspx, javascript
