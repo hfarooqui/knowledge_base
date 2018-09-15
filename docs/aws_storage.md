@@ -88,6 +88,7 @@ Regional Edge Caches are CloudFront locations that are deployed globally, at clo
  - **RTMP**: Used for media streaming
  
  ###Storage Gateway
+ If a on-premise virtual applicance which can be used to cache S3 locally at customers site
  - **File Gateway:** For flat files stored directly on S3
  - **Volume Gateway:**
   - **Storage Volume:** Entire dataset is store on-site and is asynchronously backedup to S3
