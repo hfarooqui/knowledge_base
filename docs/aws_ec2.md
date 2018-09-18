@@ -34,12 +34,12 @@ It's just a  virtual machine in the cloud and it reduces the time required to ob
 ![EC2_Types](https://s3.amazonaws.com/hfcontents/kbimages/EC2_Types.png "EC2_Types")
 FIGHT DR MC PX
 
-###System Status Check
+### System Status Check
 Checks wheather insatance is reachable
 These checks monitor if AWS systems required to use this instance and ensure they are functioning properly
 In case of failure reboot/terminate
 
-###Instance Status Check
+### Instance Status Check
 Makes sure you can get traffic to the operating system
 These checks monitor your software and network configuration for this instance
 In case of failure reboot the instance so that it gets launched on different host
@@ -56,10 +56,10 @@ In case of failure reboot the instance so that it gets launched on different hos
    If you create an inbound rule allowing traffic in, that traffic is automatically allowed back out again
  - You cannot block specific IP address using security groups instead use Network Access Control List (STATELESS)
  - You can specify allow rules but not deny rules
- 
-#Elastic Block Storage (EBS)
 
-###EBS Volume types
+# Elastic Block Storage (EBS)
+
+### EBS Volume types
  - **General Purpose SSD (GP2)**
   - General purpose, balances both price and performance
   - Ratio of 3 IOPS/GB with up to 10k IPOS with the ability to burst upto 3k IOPS for extended period of time for volumes at 3334 GiB and above
@@ -82,7 +82,7 @@ In case of failure reboot the instance so that it gets launched on different hos
   - These are ideal for workloads where data is accessed infrequently
   - Suitable for applications where the lowest storage cost is important
 
-###Volumes and Snapshots
+### Volumes and Snapshots
 - Volumes exists on EBS
  - Virtual Hard Disk
 - Snapshots exist on S3
@@ -94,7 +94,7 @@ In case of failure reboot the instance so that it gets launched on different hos
  - Volumes restored from encrypted snapshots are encrypted automatically
  - You can share snapshots only if they are encrypted
 
-###Snaphsot of Root Device Volumes
+### Snaphsot of Root Device Volumes
 - To take the snapshot of EBS volumes that serve as root device, you should stop the instance before taking the snapshot
 - You can create AMI's from EBS backed instances and snapshots
 - You can change EBS volume size and type on the fly (best practise is to stop the instance)
@@ -102,6 +102,6 @@ In case of failure reboot the instance so that it gets launched on different hos
 - To move EBS volume from one AZ to another, take a snaphot or image of it and then copy it to the new AZ/region
 
 
-#Explore
+# Explore
 - SG - All Outbound traffic is allowed vs If you create an inbound rule allowing traffic in, that traffic is automatically allowed back out again
 - EBS IOPS
