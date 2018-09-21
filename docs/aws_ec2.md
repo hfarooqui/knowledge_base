@@ -61,38 +61,38 @@ In case of failure reboot the instance so that it gets launched on different hos
 
 ### EBS Volume types
  - **General Purpose SSD (GP2)**
-  - General purpose, balances both price and performance
-  - Ratio of 3 IOPS/GB with up to 10k IPOS with the ability to burst upto 3k IOPS for extended period of time for volumes at 3334 GiB and above
+    - General purpose, balances both price and performance
+    - Ratio of 3 IOPS/GB with up to 10k IPOS with the ability to burst upto 3k IOPS for extended period of time for volumes at 3334 GiB and above
  - **Provisioned IOPS SSD (IO1)**
-  - Designed for IO intensive operations such as large relational or NoSQL DB's
-  - Use if needed more than 10k IOPS
-  - Provision upto 20k IOPS per volume
+    - Designed for IO intensive operations such as large relational or NoSQL DB's
+    - Use if needed more than 10k IOPS
+    - Provision upto 20k IOPS per volume
  - **Throughput optimized HDD (ST1)**
-  - Before SSD we had magnetic storage volume
-  - Big data
-  - Log processing
-  - Data warehousing
-  - Cannot be a boot volume
+    - Before SSD we had magnetic storage volume
+    - Big data
+    - Log processing
+    - Data warehousing
+    - Cannot be a boot volume
  - **Cold HDD (SC1)**
-  - Cannot be a root volume
-  - Low cost storage for infrequently accessed workloads
-  - File server
+    - Cannot be a root volume
+    - Low cost storage for infrequently accessed workloads
+    - File server
  - **Magnetic (Standard)**
-  - Lowest cost per gigabyte of all EBS volume types that is bootable
-  - These are ideal for workloads where data is accessed infrequently
-  - Suitable for applications where the lowest storage cost is important
+    - Lowest cost per gigabyte of all EBS volume types that is bootable
+    - These are ideal for workloads where data is accessed infrequently
+    - Suitable for applications where the lowest storage cost is important
 
 ### Volumes and Snapshots
 - Volumes exists on EBS
- - Virtual Hard Disk
+    - Virtual Hard Disk
 - Snapshots exist on S3
 - Snapshots are point in time copies of Volumes
 - Snapshots are incremental - this means that only the blocks that have changed since the last snapshots are moved to S3
 - **Security**
- - EBS root volumes of default AMI's cannot be encrypted
+    - EBS root volumes of default AMI's cannot be encrypted
  Snapshots of encrypted volumes are going to be encrypted automatically
- - Volumes restored from encrypted snapshots are encrypted automatically
- - You can share snapshots only if they are encrypted
+    - Volumes restored from encrypted snapshots are encrypted automatically
+    - You can share snapshots only if they are encrypted
 
 ### Snaphsot of Root Device Volumes
 - To take the snapshot of EBS volumes that serve as root device, you should stop the instance before taking the snapshot
