@@ -101,10 +101,10 @@ In case of failure reboot the instance so that it gets launched on different hos
 - EBS volume will always be in the same AZ as the instance
 - To move EBS volume from one AZ to another, take a snaphot or image of it and then copy it to the new AZ/region
 
-#Redundant Array of Independent Disk (RAID)
+# Redundant Array of Independent Disk (RAID)
 RAID arrays are used when you are not getting the desired IO
 
-###Types of RAID array
+### Types of RAID array
 
 - **RAID 0**:
   - Striped: Multiple disks striped (combined) togather to form a single volume
@@ -121,7 +121,7 @@ RAID arrays are used when you are not getting the desired IO
 - **RAID 10:**
   - Combination of RAID 0 and RAID 1.Striped and Mirrored. Good Redundancy and Good Performance
 
-###Taking Sanpshot of RAID array
+### Taking Sanpshot of RAID array
   - **Problem**
   Snapshot excludes data held in application and OS cache. This does not matter if using single volume RAID array. If using multiple multiple volumes in RAID array this can be problem due to independencies of RAID array
  - **Solution:**
@@ -131,7 +131,7 @@ RAID arrays are used when you are not getting the desired IO
 	 - Unmount RAID array
 	 - Stop EC2 instance
 
-###Volumes & Snapshots
+### Volumes & Snapshots
  - You can create an image out of EC2 instance
  - You can take a snaphot of Volumes
  - You can create and image from Volume
@@ -140,8 +140,51 @@ RAID arrays are used when you are not getting the desired IO
 - You can share snapshots only if they are encrypted
 - Snapshots of encrypted volumes are encrypted automatically
 - Volumes restored from encrypted snapshots are encrypted automatically
+
+# Amazon Machine Image (AMI)
+
+You can select AMI based on:
+ - Region
+ - Architecture (32/64 bit)
+ - Operating System
+ - Launch Permissions
+ - Storage for Root Device
+  - Instance backed (Ephemeral storage [not durable])
+    - Cannot be stopped
+	- If the host dies, you lose you lose your instance
+	- Root device is created from template stored in S3
+	- Provisioning is slow
+	- With instance termination, by default, root volume will be deleted. There is no wy to tell AWS to keep root volume device
+  - EBS backed
+    - Can be stopped
+	- Volume can be attached to another instance
+	- Root device is created from an EBS snapshot
+	- Provisioning is faster
+	- With instance termination, by default, root volume will be deleted However you can tell AWS to keep root volume device
+
+# Load Balancers
+ - VIrtual applicance (machine)
+ - Types
+  - **Application Load Balancer (ALB)**
+    - Best suited for load balancing HTTP/HTTPS traffic
+	- Operates at layer 7 and are application aware (X-forwarded, Sticky sessions)
+	  - X-Forwarded-For header: Forwards public IP of the client to EC2 instance passing through load balancers. Verious API's are available which can tell Country, Organisation where the Public IP request is coming from
+![x_forwaded](https://s3.amazonaws.com/hfcontents/kbimages/X-Forwaded.png "x_forwaded")
+
+  - ** Network Load Balancer (NLB)**
+    - Best suited for load balancing TCP traffic where extreme performane is required
+    - Operates at layer 4
+	- Capable of handling millions of requests per second while maintaining ultra low latencies
+
+  - **Classic/Elastic Load Balancers (CLB)**
+    - Legacy ELB
+	- You can load balance both HTTP/HTTPS and TCP traffic
+	- If application stops responding, ELB responds with 504 error (gateway timeout).
+	  It means application is not responding within the ideal timeout period. This could be either at Web server layer or Database layer
+	
 # Explore
 - SG - All Outbound traffic is allowed vs If you create an inbound rule allowing traffic in, that traffic is automatically allowed back out again
 - EBS IOPS
 - Why not always use RAID 10
 - Using Cassandra with RAID array
+- DMZ
