@@ -131,7 +131,7 @@ RAID arrays are used when you are not getting the desired IO
 	 - Unmount RAID array
 	 - Stop EC2 instance
 
-####Volumes & Snapshots
+###Volumes & Snapshots
  - You can create an image out of EC2 instance
  - You can take a snaphot of Volumes
  - You can create and image from Volume
