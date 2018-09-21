@@ -101,7 +101,47 @@ In case of failure reboot the instance so that it gets launched on different hos
 - EBS volume will always be in the same AZ as the instance
 - To move EBS volume from one AZ to another, take a snaphot or image of it and then copy it to the new AZ/region
 
+#Redundant Array of Independent Disk (RAID)
+RAID arrays are used when you are not getting the desired IO
 
+###Types of RAID array
+
+- **RAID 0**:
+  - Striped: Multiple disks striped (combined) togather to form a single volume
+  - No Redundancy: If any of the volume fails whole RAID array would fail
+  - Good Performance
+  - Typically used in gaming
+- **RAID 1**:
+  - Mirrored: You got one disk and you mirror exact copy of it to another disk
+  - Redundancy: If one disk fails you can still use the RAID array using another disk
+  - **RAID 5:**
+    - You get 3 disks or more and you are writing parity to another disk
+	- Amazon discourages you from making RAID 5 array on EBS volumes
+	- Parity is a checksum. If one of the disks fails, you can read the RAID array and using checksum you can find what the missing data is
+- **RAID 10:**
+  - Combination of RAID 0 and RAID 1.Striped and Mirrored. Good Redundancy and Good Performance
+
+###Taking Sanpshot of RAID array
+  - **Problem**
+  Snapshot excludes data held in application and OS cache. This does not matter if using single volume RAID array. If using multiple multiple volumes in RAID array this can be problem due to independencies of RAID array
+ - **Solution:**
+    Stop application from writing to the disk, Flush all caches to the disk.
+	This can be done using
+	 - Freeze the file system
+	 - Unmount RAID array
+	 - Stop EC2 instance
+
+#Volumes & Snapshots
+ - You can create an image out of EC2 instance
+ - You can take a snaphot of Volumes
+ - You can create and image from Volume
+ - You can transfer snapshot/volume from one region to another, make them public or transfer it to another AWS account
+- AWS provided AMI's are not encrypted
+- You can share snapshots only if they are encrypted
+- Snapshots of encrypted volumes are encrypted automatically
+- Volumes restored from encrypted snapshots are encrypted automatically
 # Explore
 - SG - All Outbound traffic is allowed vs If you create an inbound rule allowing traffic in, that traffic is automatically allowed back out again
 - EBS IOPS
+- Why not always use RAID 10
+- Using Cassandra with RAID array
