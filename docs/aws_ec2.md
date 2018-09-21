@@ -162,9 +162,13 @@ You can select AMI based on:
 	- Provisioning is faster
 	- With instance termination, by default, root volume will be deleted However you can tell AWS to keep root volume device
 
-# Load Balancers
- - VIrtual applicance (machine)
+# Elastic Load Balancers (ELB)
+ - Virtual applicance (machine)
+ - Instances monitored by ELB are reported as InService or OutofService
+ - Health checks check the instance health by talking to it
+ - Have their own DNS. Their IP address is not published since it might change
  - Types
+
   - **Application Load Balancer (ALB)**
     - Best suited for load balancing HTTP/HTTPS traffic
 	- Operates at layer 7 and are application aware (X-forwarded, Sticky sessions)
@@ -176,12 +180,15 @@ You can select AMI based on:
     - Operates at layer 4
 	- Capable of handling millions of requests per second while maintaining ultra low latencies
 
-  - **Classic/Elastic Load Balancers (CLB)**
+  - **Classic Load Balancers (CLB)**
     - Legacy ELB
 	- You can load balance both HTTP/HTTPS and TCP traffic
 	- If application stops responding, ELB responds with 504 error (gateway timeout).
 	  It means application is not responding within the ideal timeout period. This could be either at Web server layer or Database layer
-	
+
+# Misc
+  - One subnet One AZ
+
 # Explore
 - SG - All Outbound traffic is allowed vs If you create an inbound rule allowing traffic in, that traffic is automatically allowed back out again
 - EBS IOPS
