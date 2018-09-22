@@ -11,24 +11,24 @@ It's just a  virtual machine in the cloud and it reduces the time required to ob
   - Applications being developed or tested on Amazon EC2 for the first time
 
 - **Reserved**:
- - Provides you with a capacity reservation and offers significant discount on the hourly charge for an instance. 1 year or 3 year
- - Applications with steady state or predictable usage
- - Applications that require reserved capacity
- - Users can make upfront payment to reduce their total computing cost even further
-  - Standard RI's (upto 75% off on-demand)
-  - Convertable RI's (upto 54% off on-demand) features the ability to change the attributes of RI
-  - Scheduled RI's are available to launch within the time window you reserve
+  - Provides you with a capacity reservation and offers significant discount on the hourly charge for an instance. 1 year or 3 year
+  - Applications with steady state or predictable usage
+  - Applications that require reserved capacity
+  - Users can make upfront payment to reduce their total computing cost even further
+    - Standard RI's (upto 75% off on-demand)
+    - Convertable RI's (upto 54% off on-demand) features the ability to change the attributes of RI
+    - Scheduled RI's are available to launch within the time window you reserve
 
 - **Spot**:
-- Allows you to bid whatever price you want for instance capacity providing for even greater savings if your instances have flexible start and end time
- - Applications that have flexible start and end time
- - Applications that are feasible at very low compute prices
- - Users with an urgent need for large amount of additional computing capacity
+  - Allows you to bid whatever price you want for instance capacity providing for even greater savings if your instances have flexible start and end time
+  - Applications that have flexible start and end time
+  - Applications that are feasible at very low compute prices
+  - Users with an urgent need for large amount of additional computing capacity
 
 - **Dedicated Hosts**: 
-- Physical EC2 servers decicated for your use. Dedicated hosts can help you reduce cost by allowing you to use your existing server bound software licenses
-- Useful for regulatory requirements that do not allow multi-tenancy
-- Can be purchesed on-demand (hourly)
+  - Physical EC2 servers decicated for your use. Dedicated hosts can help you reduce cost by allowing you to use your existing server bound software licenses
+  - Useful for regulatory requirements that do not allow multi-tenancy
+  - Can be purchesed on-demand (hourly)
 
 ### EC2 instance types
 ![EC2_Types](https://s3.amazonaws.com/hfcontents/kbimages/EC2_Types.png "EC2_Types")
