@@ -71,6 +71,7 @@ Region is a **physical location** in the world which consists of 2 or more AZ (a
 
 #### AZ
 - AZ is one or more discrete data center each with **redundant power, networking and connectivity** housed in seperate facility.
+- One subnet One AZ
 
 #### Edge locations
 - Edge locations are simply **endpoints** for AWS which are used for caching content. Typically this consists of ** CDN, CloudFront**. There are more Edge locations than region (around 96)
