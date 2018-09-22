@@ -199,6 +199,89 @@ You can select AMI based on:
 
 CloudWatch is for Monitoring and logging whereas AuditTrails is for Auditing (Role/S3/User creation etc...)
 
+# EC2 instance metadata
+Instance metadata is data about your instance that you can use to configure or manage the running instance.
+
+[root@jump_host1.hf2254.aries.mobileiron.net 2018-09-22--07-34-17 ~ #] curl http://169.254.169.254/latest/meta-data/
+ami-id
+ami-launch-index
+ami-manifest-path
+block-device-mapping/
+events/
+hostname
+instance-action
+instance-id
+instance-type
+local-hostname
+local-ipv4
+mac
+metrics/
+network/
+placement/
+profile
+public-hostname
+public-ipv4
+public-keys/
+reservation-id
+security-groups
+
+# Placement Groups
+You can launch or start instances in a placement group, which determines how instances are placed on underlying hardware
+####Types
+You specify one of the following strategies for the group:
+  - **Cluster**
+    - A cluster placement group is a logical grouping of instances within a single Availability Zone. A placement group can span peered VPCs in the same region.
+    - Cluster placement groups are recommended for applications that benefit from low network latency, high network throughput, or both, and if the majority of the network traffic is between the instances in the group.
+	- To provide the lowest latency and the highest packet-per-second network performance for your placement group, choose an instance type that supports enhanced networking
+	- It is recommend that you launch the number of instances that you need in the placement group in a single launch request and that you use the same instance type for all instances in the placement group. If you try to add more instances to the placement group later, or if you try to launch more than one instance type in the placement group, you increase your chances of getting an insufficient capacity error.
+	- If you stop an instance in a placement group and then start it again, it still runs in the placement group. However, the start fails if there isn't enough capacity for the instance.
+	- If you receive a capacity error when launching an instance in a placement group that already has running instances, stop and start all of the instances in the placement group, and try the launch again. Restarting the instances may migrate them to hardware that has capacity for all the requested instances.
+	
+  - **Spread**
+    - A spread placement group is a group of instances that are each placed on distinct underlying hardware
+	- Spread placement groups are recommended for applications that have a small number of critical instances that should be kept separate from each other. Launching instances in a spread placement group reduces the risk of simultaneous failures that might occur when instances share the same underlying hardware
+	- Spread placement groups provide access to distinct hardware, and are therefore suitable for mixing instance types or launching instances over time
+	- A spread placement group can span multiple Availability Zones, and you can have a maximum of seven running instances per Availability Zone per group
+	- If you start or launch an instance in a spread placement group and there is insufficient unique hardware to fulfill the request, the request fails. Amazon EC2 makes more distinct hardware available over time, so you can try your request again later.
+
+#### Limitations
+  - The name you specify for a placement group must be unique within your AWS account for the region
+  - You can't merge placement groups
+  - An instance can be launched in one placement group at a time; it cannot span multiple placement groups
+  - Reserved Instances provide a capacity reservation for EC2 instances in a specific Availability Zone. The capacity reservation can be used by instances in a placement group. However, it is not possible to explicitly reserve capacity for a placement group.
+  - Instances with a tenancy of host cannot be launched in placement groups.
+
+#### Cluster Placement Group Rules
+  - The following are the only instance types that you can use when you launch an instance into a cluster placement group:
+    - General purpose: M4, M5, M5d
+	- Compute optimized: C3, C4, C5, C5d, cc2.8xlarge
+	- Memory optimized: cr1.8xlarge, R3, R4, R5, R5d, X1, X1e, z1d
+	- Storage optimized: D2, H1, hs1.8xlarge, I2, I3, i3.metal
+	- Accelerated computing: F1, G2, G3, P2, P3
+	- A cluster placement group can't span multiple Availability Zones
+
+- The maximum network throughput speed of traffic between two instances in a cluster placement group is limited by the slower of the two instances. For applications with high-throughput requirements, choose an instance type with 10–Gbps or 25–Gbps network connectivity.
+- Instances within a cluster placement group can use up to 10 Gbps for single-flow traffic.
+- Traffic to and from Amazon S3 buckets within the same region over the public IP address space or through a VPC endpoint can use all available instance aggregate bandwidth
+- You can launch multiple instance types into a cluster placement group. However, this reduces the likelihood that the required capacity will be available for your launch to succeed. We recommend using the same instance type for all instances in a cluster placement group.
+- Network traffic to the internet and over an AWS Direct Connect connection to on-premises resources is limited to 5 Gbps
+
+#### Spread Placement Group Rules
+ - A spread placement group supports a maximum of seven running instances per Availability Zone. For example, in a region with three Availability Zones, you can run a total of 21 instances in the group (seven per zone). If you try to start an eighth instance in the same zone and in the same spread placement group, the instance will not launch. If you need to have more than seven instances in an AZ, then the recommendation is to use multiple spread placement groups. This does not provide guarantees about the spread of instances between groups, but does ensure the spread for each group to limit impact from certain classes of failures
+ - Spread placement groups are not supported for Dedicated Instances or Dedicated Hosts
+
+# Elastic File System (EFS)
+-  File storage service for EC2
+- You can mount EFS to multiple instances (with EBS you cant')
+- EFS is block based storage
+- Supports NFSv4
+- Can scale upto Petabytes
+- Can support 1000s of NFS concurrent connections
+- Data is stored across multiple AZ's within a region
+- Pay only for what you use ($0.30/GB)
+- Read after write consistancy
+- EFS and corresponding instances need to reside under same SG
+
 # Misc
 - Bootstrap scripts
 
@@ -208,4 +291,5 @@ CloudWatch is for Monitoring and logging whereas AuditTrails is for Auditing (Ro
 - Why not always use RAID 10
 - Using Cassandra with RAID array
 - DMZ
-- Cloud Watch custom alarms
+- CloudWatch custom alarms (https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring_ec2.html)
+- Scaling down Auto-instance group
