@@ -200,10 +200,7 @@ You can select AMI based on:
 CloudWatch is for Monitoring and logging whereas AuditTrails is for Auditing (Role/S3/User creation etc...)
 
 # Misc
-  - One subnet One AZ
-  - IAM Role had Policy (defining all the actions you can perform)
-  - Role > Policy > Actions
-  - If you planning to use roles CLI from aws instance you should use IAM role. If using from your local machine use credentials
+- Bootstrap scripts
 
 # Explore
 - SG - All Outbound traffic is allowed vs If you create an inbound rule allowing traffic in, that traffic is automatically allowed back out again
