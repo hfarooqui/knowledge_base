@@ -186,8 +186,24 @@ You can select AMI based on:
 	- If application stops responding, ELB responds with 504 error (gateway timeout).
 	  It means application is not responding within the ideal timeout period. This could be either at Web server layer or Database layer
 
+# Cloud Watch
+ - **Dashboards**: Creates awesome dashboards to see what is happening with your AWS environment
+ - **Alarms**: allows you to set Alarms that notify you when perticular threasholds and hit
+ - **Logs**: CLoudWatch logs helps you to aggregate monitor and store logs
+ - Standard Monitoring is 5 minutes, Detailed Monitoring is 1 minute
+ - **Events**:
+   CloudWatch Events helps you to respond to state changes in your AWS resources. When your resources change state they automatically send events into an event stream. You can create rules that match selected events in the stream and route them to targets to take action. You can also use rules to take action on a pre-determined schedule. For example, you can configure rules to:
+    - Automatically invoke an AWS Lambda function to update DNS entries when an event notifies you that Amazon EC2 instance enters the Running state
+	- Direct specific API records from CloudTrail to a Kinesis stream for detailed analysis of potential security or availability risks
+	- Take a snapshot of an Amazon EBS volume on a schedule
+
+CloudWatch is for Monitoring and logging whereas AuditTrails is for Auditing (Role/S3/User creation etc...)
+
 # Misc
   - One subnet One AZ
+  - IAM Role had Policy (defining all the actions you can perform)
+  - Role > Policy > Actions
+  - If you planning to use roles CLI from aws instance you should use IAM role. If using from your local machine use credentials
 
 # Explore
 - SG - All Outbound traffic is allowed vs If you create an inbound rule allowing traffic in, that traffic is automatically allowed back out again
@@ -195,3 +211,4 @@ You can select AMI based on:
 - Why not always use RAID 10
 - Using Cassandra with RAID array
 - DMZ
+- Cloud Watch custom alarms
