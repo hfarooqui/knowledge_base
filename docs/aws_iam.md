@@ -11,6 +11,11 @@
 - Integrates with many different AWOS services
 - Supports PCI DSS compliance
 
+###Roles
+- IAM Role had Policy (defining all the actions you can perform)
+- Role > Policy > Actions
+- If you planning to use roles CLI from aws instance you should use IAM role. If using from your local machine use credentials
+  
 ####Pillers
 
 - Users: End users
