@@ -270,18 +270,6 @@ You specify one of the following strategies for the group:
  - A spread placement group supports a maximum of seven running instances per Availability Zone. For example, in a region with three Availability Zones, you can run a total of 21 instances in the group (seven per zone). If you try to start an eighth instance in the same zone and in the same spread placement group, the instance will not launch. If you need to have more than seven instances in an AZ, then the recommendation is to use multiple spread placement groups. This does not provide guarantees about the spread of instances between groups, but does ensure the spread for each group to limit impact from certain classes of failures
  - Spread placement groups are not supported for Dedicated Instances or Dedicated Hosts
 
-# Elastic File System (EFS)
--  File storage service for EC2
-- You can mount EFS to multiple instances (with EBS you cant')
-- EFS is block based storage
-- Supports NFSv4
-- Can scale upto Petabytes
-- Can support 1000s of NFS concurrent connections
-- Data is stored across multiple AZ's within a region
-- Pay only for what you use ($0.30/GB)
-- Read after write consistancy
-- EFS and corresponding instances need to reside under same SG
-
 # Misc
 - Bootstrap scripts
 
