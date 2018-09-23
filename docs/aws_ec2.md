@@ -270,6 +270,25 @@ You specify one of the following strategies for the group:
  - A spread placement group supports a maximum of seven running instances per Availability Zone. For example, in a region with three Availability Zones, you can run a total of 21 instances in the group (seven per zone). If you try to start an eighth instance in the same zone and in the same spread placement group, the instance will not launch. If you need to have more than seven instances in an AZ, then the recommendation is to use multiple spread placement groups. This does not provide guarantees about the spread of instances between groups, but does ensure the spread for each group to limit impact from certain classes of failures
  - Spread placement groups are not supported for Dedicated Instances or Dedicated Hosts
 
+# Lambda
+
+![Cloud_History](https://s3.amazonaws.com/hfcontents/kbimages/Cloud_History.png "Cloud_History")
+
+  - AWS Lambda is a compute service where you can upload your code and create a Lambda function
+  - AWS Lambda takes care of provisioning and managing the server required to run your code
+  - You dont have to worry about operating system, patches, load balancers, scaling
+  - You pay only for the compute time you consume - there is no charge when your code is not running.
+  - You can set up your code to automatically trigger from other AWS services or call it directly from any web or mobile app.
+  - Scales out automatically but does not scale up
+  - Lambda function can trigger another Lambda function or other AWS service
+  - Some triggers only available in certain regions
+  - Lambda is priced based on the number of requests and duration to execute that request. The price depends on the amount of memory allocated to your function
+  - Lambda function execution has threshold of 5 minutes
+  - Serverless, Continuous scaling, Cheap
+  - Usecase: You can use AWS Lambda to execute code in response to triggers such as changes in data, shifts in system state, or actions by users. Lambda can be directly triggered by AWS services such as S3, DynamoDB, Kinesis, SNS, and CloudWatch, or it can be orchestrated into workflows by AWS Step Functions. This allows you to build a variety of real-time serverless data processing systems.
+
+![Lambda_Usecase](https://s3.amazonaws.com/hfcontents/kbimages/Lambda_Usecase.png "Lambda_Usecase")
+
 # Misc
 - Bootstrap scripts
 
