@@ -14,7 +14,7 @@
   - Default number of seconds for ttl file on resource records
 - Name Server (NS) records: They are used by the top level Domain Servers to redirect traffic to the Content DNS server which contains Authoratative DNS records
 ![NS_Records](https://s3.amazonaws.com/hfcontents/kbimages/NS-Record.png "NS_Records")
-### Routing policies
+## Routing policies
 - **Address (A) Record**: It translates name of the domain to IP address
 
 - **TTL**: The lenght that a DNS record is cached on either a resolving server or the users own local PC is equal to the value of the TTL in seconds. Lower the TTL, faster the changes to DNS record take to propogate throughout the internet
@@ -28,31 +28,31 @@
 
 - **PTR records**: Used for reverse lookup
 
-**Simple Routing Policy**
+### Simple Routing Policy
 - One record with multiple IP address
 - Route53 returns all the values to the users in a random order
 ![Simple_Routing_Policy](https://s3.amazonaws.com/hfcontents/kbimages/Simple_Routing_Policy.png "Simple_Routing_Policy")
 
-**Weighted Routing Policy**
+### Weighted Routing Policy
 - Lets you split your traffic based on the weights assigned 
 - Can have more than one A record
 ![Weighted_Routing](https://s3.amazonaws.com/hfcontents/kbimages/Weighted_Routing.png "Weighted_Routing")
 
-**Latency-based Routing Policy**
+###  Latency-based Routing Policy
 - Lets you route your traffic based on lowest network latency for your end user (i.e. which region will give you fastest response time)
 ![Latency_based_Routing](https://s3.amazonaws.com/hfcontents/kbimages/Latency_based_Routing.png "Latency_based_Routing")
 
-**Failover Routing Policy**
+###  Failover Routing Policy
 - Used when you want to create Active/Passive setup
 - Route53 will monitor the health of your primary site using a health check
 - Health check monitors health of your endpoints
 ![Failover_Routing](https://s3.amazonaws.com/hfcontents/kbimages/Failover_Routing.png "Failover_Routing")
 
-**Geolocation Routing Policy**
+### Geolocation Routing Policy
 - Lets you choose where your traffic will be sent based on the geographic location of your users
 ![Geolocation_Routing](https://s3.amazonaws.com/hfcontents/kbimages/Geolocation_Routing.png "Geolocation_Routing")
 
-**Multivalue Routing Policy**
+### Multivalue Routing Policy
 - Similar to Simple routing policy but can have multiple A records and health checks associated with each record. Hence if one of the health check fails all the requests are redirected to healthy records.
 - Can have up to 12 multivalue answer records and route53 responds to DNS queries with up to 8 healthy records
 ![Multivalue_Routing](https://s3.amazonaws.com/hfcontents/kbimages/Multivalue_Routing.png "Multivalue_Routing")
