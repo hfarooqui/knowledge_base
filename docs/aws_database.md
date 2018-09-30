@@ -111,3 +111,19 @@
 - **Redis**
    - Populare open source in-memory key-value store that supports datastructure such as sorted sets and lists.
    - Supports Master/Slave replication and Multi-AZ which can be used to achive cross AZ redundancy
+
+## Aurora
+- MySQL-compatible relational database engine that combines speed and availability of high end commercial database with simplicity and cost effetiveness of open source DB's
+- Provides up to 5X better performance than MySQL at a price point one tenth that of commercial DB while delivering similar performance and availability
+- **Scaling**: 
+   - Initially start with 10GB, scales in 10GB increments upto 64TB (Storage autoscaling)
+   - Compute resources can scale up to 32vCPU's and 244GB of memory
+   - Scaling is done typically during maintainance window (involves downtime)
+- 2 copies of your data is store in each AZ (in all 6 copies)
+- Designed to handle loss up to 2 copies of data without affecting write availability and up to 3 copies without affecting read availability
+- Aurora storage is also self-healing. Data blocks and disks are scanned for errors and repaired automatically
+- 2 types of replicas are avaiable:
+   - **Aurora Replicas** (upto 15)
+      - Failover automatically occurs for Aurora Replicas
+   - **MySQL Replicas** (upto 5)
+      - Manually have to restore MySQL replica in case of failure
