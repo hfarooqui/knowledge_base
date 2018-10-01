@@ -47,3 +47,6 @@
 - NACL are stateless; responses to allowed inbound traffic are subject to rules defined for outbound traffic
 - Ephimeral ports, outbound rules only on network ACL
 - Block IP addresses using NACL and not security group
+- If creating internet facing load balancers all the subnets should have Internet Gateway attached to it
+
+### Flow Logs
