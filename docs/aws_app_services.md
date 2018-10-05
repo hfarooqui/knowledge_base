@@ -37,3 +37,27 @@
 - Long polling is economical
 
 ## Simple Workflow Service (SWF)
+- Makes it easy to coordinate work across distributed application components
+- Tasks represents verious processing steps in an application which can be performed  by executable code, web service, human interaction and scripts
+- Maximum workflow can be one year and it measured in seconds
+
+### SWF Workers
+- Programs that interact with SWF to get tasks, process received tasks, return the results
+
+### SWF Decider
+- Program that controls coordination of tasks i.e; their ordering, concurrency and scheduling according to application logic
+
+- SWF Brokers interaction between Workers and Decider
+- It allows decider to get consistant views into the progress of the tasks and initiate new tasks in an ongoing manner
+- At the sametime SWF stores tasks, assigns them to workers when they are ready and monitors their progress.
+- It ensures tasks are assigned only once and are not duplicated
+- Workers and decider does not have to keep track of the execution state. They can run independently and scale quickly
+
+### SWF Domains
+ - Your workflow, its execution and activity types are all scoped to a domain
+ - Domain isolate set of types, executions and task lists from others within the same account
+
+## SWS vs SQS
+ - SWF represents task oriented API's whereas SQS represents message oriented API's
+ - SWF ensures that task is assigned only once and never duplicated. Whereas with SQS you need to handle duplicate messages and may also need to ensure that message is processed only once
+ - SWF keeps track of all the tasks and events in application. Whereas with SQS you need to implement your own application level tracking especially if your application uses multiple queues
