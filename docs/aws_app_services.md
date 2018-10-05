@@ -12,18 +12,24 @@
  - Default retention period is 4 days
  - SQS gurantees that your message will be processed atleast once
 
+![SQS1](https://s3.amazonaws.com/hfcontents/kbimages/SQS1.png "SQS1")
+
+![SQS2](https://s3.amazonaws.com/hfcontents/kbimages/SQS2.png "SQS2")
+
  ### Standard Queues
   - Default queue type
   - Allows you to have unlimited number of transactions per second
   - Messages are delivered atleast once. Ocassionally more than one copy of message might be delivered out of order
   - Messages are generally delivered in the same order as they arrive
- 
+ ![SQS_Standard](https://s3.amazonaws.com/hfcontents/kbimages/SQS_Standard.png "SQS_Standard")
+
  ### FIFO queues
  - Messages are STRICTLY delivered in the same order as they arrive
  - Messages are delivered ONCE and remains in the queue until consumer processes and deletes it
  - Duplicates are not introduced in the queue
  - Limited to 300 transactions per second
- 
+![SQS_FIFO](https://s3.amazonaws.com/hfcontents/kbimages/SQS_FIFO.png "SQS_FIFO")
+
   ### Visibility timeout
  - Amount of time message is invisible in SQS queue after reader picks up that message. 
  - Provided that job is processed before the visibility timeout expires the message will than be deleted from the queue. If the message is not processed within that time, it will become visible to be picked up by another reader. 
@@ -40,6 +46,7 @@
 - Makes it easy to coordinate work across distributed application components
 - Tasks represents verious processing steps in an application which can be performed  by executable code, web service, human interaction and scripts
 - Maximum workflow can be one year and it measured in seconds
+![SWF1](https://s3.amazonaws.com/hfcontents/kbimages/SWF.png "SWF1")
 
 ### SWF Workers
 - Programs that interact with SWF to get tasks, process received tasks, return the results
@@ -56,8 +63,31 @@
 ### SWF Domains
  - Your workflow, its execution and activity types are all scoped to a domain
  - Domain isolate set of types, executions and task lists from others within the same account
+![SWF_Domain](https://s3.amazonaws.com/hfcontents/kbimages/SWF_Domain "SWF_Domain")
 
 ## SWS vs SQS
  - SWF represents task oriented API's whereas SQS represents message oriented API's
  - SWF ensures that task is assigned only once and never duplicated. Whereas with SQS you need to handle duplicate messages and may also need to ensure that message is processed only once
  - SWF keeps track of all the tasks and events in application. Whereas with SQS you need to implement your own application level tracking especially if your application uses multiple queues
+
+## Simple Notification Service (SNS)
+- Web service that makes it easy to setup, operate and send notifications from cloud
+- Instantenous PUSH based delivery (no polling)
+- Flexible delivery over multiple protocols
+- Provides developers with highly scalable, flexible and cost-effective solution to **PUBLISH (PUSH)** messages from an application and immediately deliver them to Subscribers or other applications
+- Push notifications to Apple, Google, Amazon and Windows devices
+- Besides PUSHING notifications to mobile devices SNS can also deliver notifications by SMS text or email to SQS or to any HTTP endpoint
+- SNS endpoint can also trigger lambda functions. When the message is published to SNS topic that has lambda function subscribed to it, the Lambda function is invoked with the message payload as input parameter. Lambda funciton can then manipulate the information in the message and send notification to other SNS topic or AWS services
+- SNS allows you to group multiple recipiants using topics.
+- **TOPIC**: Access point for allowing recipients to dynamically subscribe for identical copies of same notification. One topic can support deliveries to multiple endpoints. For example you can group togather iOS, ANdroid and SMS recipients. When you publish once to the topic SNS delivers appropriately formated copies of your message to each subscriber
+- To avoid message loss all the messages published to SNS are stored redundantly across multiple AZ
+
+## SNS vs SQS
+- Both are messaging services in AWS
+- SNS: Push based
+- SQS: Pull based
+
+## Elastic Transcoder
+- Allows you to convert media files from original source format into different format that will play on smartphones, tablets, PC's
+- Pay based on the minutes that you transcode and the resolution at which you transcode
+![Elastic_Transcoder](https://s3.amazonaws.com/hfcontents/kbimages/Elastic_Transcoder.png "Elastic_Transcoder")
