@@ -91,3 +91,54 @@
 - Allows you to convert media files from original source format into different format that will play on smartphones, tablets, PC's
 - Pay based on the minutes that you transcode and the resolution at which you transcode
 ![Elastic_Transcoder](https://s3.amazonaws.com/hfcontents/kbimages/Elastic_Transcoder.png "Elastic_Transcoder")
+
+## API Gateway
+- Fully managed service that makes it easy for developers to publish, maintain, monitor and secure API's at scale
+- "Front door" for applications to access data, business logic and functionality from your backend services (EC2 instances, AWS Lambda)
+
+### API Caching
+- Uses to cache your endpoint response
+- With caching you reduce number of calls to your endpoints and also improve latency of the requests
+- When you enable caching for a stage, API Gateway caches response from your endpoint for a specified TTL (in seconds)
+- API Gateway then responds to the requests by looking up endpoint response from the cache instead of making a request to your endpoint
+- Low cost and efficient
+- Scales effortlessly
+- You can throttle requests to prevent attacks
+- Connect to CloudWatch to log all requests
+
+### Same origin policy
+- Importent concept in web application security model. 
+- Under the policy web browser permits the scripts contained in a first web page to access data in the second web page but only if both the web pages have same origin (domains)
+
+### Cross Origin Resource Sharing (CORS)
+- When you need to access data across multiple domains
+- CORS is one way the server at the other end can relax the same origin policy
+- CORS is a mechanism that allows restricted resources on a web page to be requested by another domain outside the domain from which the first resource was served
+- "Error: Origin policy cannot be read at the remote resource?" You need to enable CORS on API Gateway
+
+## Kinesis
+- Platfrom on AWS where you can send your streaming data
+- Kinesis makes it easy to load and analyze streaming data and also providing the ability for you to build your own custom application for your business needs
+- **Streaming Data**: Data that is generated contineously by thousands of data sources, which typically sends in the data records simultaneously in small sizes E.g.
+    - Purchases from online stores
+	- Stocks
+	- Social network data
+	- Game data
+	- Geospatial data
+	- IoT sensory data
+
+### Kinesis Stream
+- Kinesis stream consists of shards. 
+    - 5 transactions per second for reads, upto a maximum total data read rate of 2MB/sec and upto 1000 records/second for writes, up to a maximum total data write rate of 1MB/sec
+- The total capacity of your stream is sum of the capacities of its shards
+- Data retention period is between 24 hours (default) upto 7 days
+
+### Kinesis Firehose
+- You dont have to worry about shards or streams and also consumers going and mining that data
+- Analytics of data is optional
+- No data retention window. As soon as the data arrives it is either analyzed or sent to S3 or other locations (RedShift via S3, ElasticSearch)
+- Automated way of doing Kinesis
+
+### Kinesis Analytics
+- Way of analysing data that is inside Kinesis
+- Allows you to run sql queries on data that exists in Kinesis Firehose or Kinesis Stream and the results are forwaded to S3, redshift or ElasticSearch cluster.
