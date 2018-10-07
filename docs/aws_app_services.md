@@ -132,13 +132,16 @@
     - 5 transactions per second for reads, upto a maximum total data read rate of 2MB/sec and upto 1000 records/second for writes, up to a maximum total data write rate of 1MB/sec
 - The total capacity of your stream is sum of the capacities of its shards
 - Data retention period is between 24 hours (default) upto 7 days
+![Kinesis_Streams](https://s3.amazonaws.com/hfcontents/kbimages/Kinesis_Streams.png "Kinesis_Streams")
 
 ### Kinesis Firehose
 - You dont have to worry about shards or streams and also consumers going and mining that data
 - Analytics of data is optional
 - No data retention window. As soon as the data arrives it is either analyzed or sent to S3 or other locations (RedShift via S3, ElasticSearch)
 - Automated way of doing Kinesis
+![Kinesis_Firehose](https://s3.amazonaws.com/hfcontents/kbimages/Kinesis_Firehose.png "Kinesis_Firehose")
 
 ### Kinesis Analytics
 - Way of analysing data that is inside Kinesis
 - Allows you to run sql queries on data that exists in Kinesis Firehose or Kinesis Stream and the results are forwaded to S3, redshift or ElasticSearch cluster.
+![Kinesis_Analytics](https://s3.amazonaws.com/hfcontents/kbimages/Kinesis_Analytics.png "Kinesis_Analytics")
