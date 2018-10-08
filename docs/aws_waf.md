@@ -139,3 +139,63 @@ Security in the cloud consists of 4 areas:
 - Foundations: VPC, IAM
 - Change Management: CloudTrail
 - Failure Management: CloudFormation, RDS failover
+
+## Performance Efficiency
+- Focuses on how to use computing resources effectively to meet your requirement and how to maintain that efficiency as demand changes and technology evolves
+
+### Design Principles
+- Democratize advanced technologies (use technology as servic - NoSQLDB, ML, Transcoding)
+- Go global in minutes
+- Use server-less architectures
+- Experiment more often
+
+### Definition
+Performance efficiency in the cloud consists of 4 areas
+- Compute
+- Storage
+- Database
+- Space-time trade-off
+
+#### Compute
+- How do you select appropriate instance type for your system?
+- How do you ensure that you continue to have the most appropriate instance type as new instance type features are introduced?
+- How do you monitor your instances post launch to ensure they are performing as expected?
+- How do you ensure quantity of your instances matches demand?
+
+#### Storage
+- Factors affecting storage
+    - Access methods - Block, File or Object
+    - Patterns of access - Random or Sequential
+    - Throughput required
+    - Frequency of access - Online, Offline or Archival
+    - Frequency of update - Worm, Dynamic
+    - Availability Constraints
+    - Durability Constraints
+
+- How to select the appropriate storage solution for your system?
+- How do you ensure that you continue to have the most appropriate storage solution as new storage solutions and features are launched?
+- How do you monitor your storage solutions to ensure it is performing as expected?
+- And how do you ensure that the capacity and throughput of your storage solutions matches demand?
+
+#### Database
+- DB solution depends on number of factors
+    -  Do you need database consistancy
+	- Do you need HA
+	- Do you need No-SQL
+	- Do you need DR
+- How do you select appropriate DB solution for your system
+- How do you ensure that you continue to have the most appropriate DB solution as new DB solutions and features are launched?
+- How do you monitor your DB to ensure it is performing as expected?
+- And how do you ensure that the capacity and throughput of your DB matches demand?
+
+#### Space-time trade-off
+- How do you select the appropriate proximity and caching solutions for your system?
+- How do you ensure that you continue to have the most appropriate proximity and caching solutions as new solutions are launched?
+- How do you monitor your proximity and caching solutions to ensure performance is expected?
+- How do you ensure that proximity and caching solutions you have matches demand?
+
+### Key AWS Services
+- Compute: Autoscaling
+- Storage: S3, EBS, Glacier
+- Database: RDS, DynamoDB, Redshift
+- Space-time tread-off: CloudFront, ElasticCache, RDS Read replica, Direct Connect
