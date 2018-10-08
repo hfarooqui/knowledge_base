@@ -92,5 +92,18 @@ Security in the cloud consists of 4 areas:
   - How are you enforcing network and host-level boundry protection? (NACL, SG, Public/Private Subnets, Bastion hosts)
   - How are you enforcing AWS service level protection (How are users accessing AWS console, Do you have groups setup, Multi-factor authentication, Strong password preotection, password rotation)
   - How are you protecting integrity of the operating system on your amazon EC2 instances (Is your OS hardened do you have AV installed on Windows OS instances)
-  - 
+
  **Detecive Controls**
+- Detect or identify security breach. AWS services to achieve this includes:
+      - CloudTrail (Logs every change to your AWS environment)
+      - CloudWatch (based on sudden spike in CPU - bitcoin mining)
+      - AWS config
+      - S3 (backup/restore)
+      - Glacier
+ - How are you capturing and analyzing AWS logs? Are you using any log management service
+
+#### Key AWS Services
+- Data Protection: You can encrypt your data both in-transit and at rest using ELB, EBS, S3 and RDS
+- Privilege Management: IAM, Multi-factor Authentication (MFA)
+- Infrastructue Protection: VPC
+- Detective Controls: CloudTrail, CloudWatch, AWS Config, Glacier
