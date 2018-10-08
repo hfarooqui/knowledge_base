@@ -107,3 +107,35 @@ Security in the cloud consists of 4 areas:
 - Privilege Management: IAM, Multi-factor Authentication (MFA)
 - Infrastructue Protection: VPC
 - Detective Controls: CloudTrail, CloudWatch, AWS Config, Glacier
+
+## Reliability
+- Ability to acquire computing resource
+- Ability to recover from service or infrastructure outage
+
+### Design Principles
+- Test recovery procedures (Choes Monkey, ChoesSnail)
+- Automatically recover from failure
+- Scale horizontally
+- Stop guessing capacity as you might end up sitting on expensive resources
+
+### Definition
+**Foundations**
+- How are you managing AWS service limits for your account?
+- How are you planning your network topology on AWS?
+- Do you have an escalation path to deal with technical issues?
+
+**Change Management** (Auto scaling)
+- How does your system adapt to changes in demand?
+- How are you monitoring system resources?
+- How are you executing change management?
+
+**Failure Management** (CloudWatch, CloudTrail)
+- How are you backingup your data?
+- How does your system withstand component failure?
+- How are you planning for recovery?
+- Ability to identify cause and respond to failure
+
+### Key AWS Services
+- Foundations: VPC, IAM
+- Change Management: CloudTrail
+- Failure Management: CloudFormation, RDS failover
