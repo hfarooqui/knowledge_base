@@ -55,8 +55,8 @@ Can be implemented in following ways
 - Data-driven architecture (Logging helps you make fact based decision)
 - Improve through game days (Schedule game days to simulate production environment. E.g. schedule game day for black friday. Here you pay only for used resources for duration they are used)
 
-### Security
-#### Design Principles
+## Security
+### Design Principles
  - Apply security at all layers within your infrastructure (Subnets, NACL, SG's, Anti-Virus on Windows OS)
  - Enable tracibility (If someone hacks your environment, you should know how he did that)
  - Automate responses to security events (If someone is trying to hack into the system, multiple SSH attempts, you should send SNS)
@@ -64,7 +64,7 @@ Can be implemented in following ways
 - Focus on securing the system (Share responsibility mode. You as a customer what are your responsibilities vs AWS)
 ![Infra_Resp](https://s3.amazonaws.com/hfcontents/kbimages/Infrastructure_Responsibility.png "Infra_Resp")
 
-#### Definition
+### Definition
 Security in the cloud consists of 4 areas:
 **Data protection**
    - Organise and classify your data into segments: Publicly available, Available only to members of your organisation, available to certain members of your organisation, available only to board members
@@ -102,7 +102,7 @@ Security in the cloud consists of 4 areas:
       - Glacier
  - How are you capturing and analyzing AWS logs? Are you using any log management service
 
-#### Key AWS Services
+### Key AWS Services
 - Data Protection: You can encrypt your data both in-transit and at rest using ELB, EBS, S3 and RDS
 - Privilege Management: IAM, Multi-factor Authentication (MFA)
 - Infrastructue Protection: VPC
