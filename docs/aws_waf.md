@@ -1,4 +1,5 @@
 # Well Architected AWS Framework
+https://media.amazonwebservices.com/AWS_Cloud_Best_Practices.pdf
 
 ## Basics
 
@@ -241,10 +242,61 @@ Performance efficiency in the cloud consists of 4 areas
 
 #### Optimizing over time
 - You should keep track of changes made to AWS and constantly re-evaluate your existing architecture (AWS blog, Trusted advisor)
-- How do you manage and consider adoption of new services?
+- How do you manage and/or consider adoption of new services?
 
 ### Key AWS Services
 - Matched Supply and Demand: Autoscaling
 - Cost-effective resources: EC2 (reserved instances), AWS trusted advisor
 - Expenditure awareness: CloudWatch, SNS
 - Optimizing over time: AWS blog, AWS trusted advisor
+
+## Operational Expense
+- Includes operational practices and procedures used to manage production workloads
+- How operational changes are executed as well as responses to unexpected operational events?
+- All the processes and procedures of Operational expense should be documented, tested and reviewed frequently
+
+### Design Principle
+- Perfrom operations with code
+- Align operational expenses to business objectives (collect metrics)
+- Make regular, small, incremental changes
+- Test for responses to unexpected events (Simion army, Cheos Monkey)
+- Learn from operational events and failures
+- Keep operations procedures current
+
+### Definition
+- 3 best practice for Operational Excellence
+    - Preperation
+	- Operation
+	- Response
+
+#### Preperation
+- Operation checklist (prevents unintentional production promotion without effective preperation)
+- Workloads should have: **Runbooks** (Operations guide for daily tasks ) and **Playbooks** (Guidance for responding to unexpected events, should include response plans, escalation path, stakeholder notifications)
+- **CloudFormation** can be used to ensure that environment contains all the required resources when deployed in production thereby reducing any human error
+- **Autoscaling**, allows work loads to automatically respond when business related events effect operational needs
+- Use "**tagging**" to make sure all the resources in the workload can be easily identified
+- Keep Documentation upto date
+- What best practices for cloud operations are you using?
+- How are you doing configuration management for your workload?
+
+#### Operation
+- Operations should be standardize and manageable on a routine basis
+- Focus should be on automation, small frequent changes, regular QE testing
+- Windows 10 onwards MS is going to push updates and not major releases
+- Setup CI/CD pipeline
+- Release management processes should be tested and be based on small incremental changes and tracked versions. You should be able to revert changes
+- How are you evolving your workload while minimizing the impact of change?
+- How do you monitor your workload to ensure it is operating as expected?
+- Routine operations should be automated
+
+#### Response
+- Responses to unexpected operational events should be automated
+- Response should follow predefined playbook
+- Alerting and notification in case of unexpected events
+- How do you respond to unplanned operational events?
+- How is escalation managed when responding to unplanned operational events?
+
+### Key AWS Services
+- Preperation: AWS Config, AWS Service Catalog, Autoscaling, SQS
+- Operation: Code Commit, CodeDepliy, CodePipeline, SDK, CloudTrail
+- Response: CloudWatch, SNS
