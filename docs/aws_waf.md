@@ -199,3 +199,52 @@ Performance efficiency in the cloud consists of 4 areas
 - Storage: S3, EBS, Glacier
 - Database: RDS, DynamoDB, Redshift
 - Space-time tread-off: CloudFront, ElasticCache, RDS Read replica, Direct Connect
+
+## Cost Optimization
+- Reduce cost, Serverless technology
+
+### Design Principle
+- Transparently attribute expenditure (encourage BU to lower cost)
+- Use managed services to reduce cost of ownership
+- Trade capital expense for operational expense
+- Benefit from economies of scale (Amazon buying in bulk and producing thir own as well)
+- Stop spending money on data center operations
+
+### Definition
+- Cost optimization in the cloud consists of 4 areas:
+    - Matched Supply and Demand
+	- Cost-effective resources
+	- Expenditure awareness
+	- Optimizing over time
+
+#### Matched Supply and Demand
+- Autoscaling: Scale with demand
+- Lambda: Execute only when request comes in
+- CloudWatch: Keep track of what your demand is
+- How do you make sure your capacity matches but does not exceeds what you need?
+- How are you optimizing your usage of AWS services?
+
+#### Cost-effective resources
+- Use correct instance type
+- Have you selected the appropriate resource types to meet your cost targets?
+- Have you selected the appropriate pricing model to meet your cost targets?
+- Are there any managed service which would improve your ROI?
+
+#### Expenditure awareness
+- You no longer have to go out and get the quotes on physical hardware, choose a supplier, have those resources delivered and installed
+- You can provision resources in seconds.
+- You can track spending of each account (Dev, QE, SRE), billing alerts
+- What access controls and procedures you have in place to govern AWS costs?
+- How are you monitoring usage and spendings?
+- How do you decomission resources that you no longer need or stop resources that are temporarily not needed
+- How do you consider data transfer charges when designing your architecture?
+
+#### Optimizing over time
+- You should keep track of changes made to AWS and constantly re-evaluate your existing architecture (AWS blog, Trusted advisor)
+- How do you manage and consider adoption of new services?
+
+### Key AWS Services
+- Matched Supply and Demand: Autoscaling
+- Cost-effective resources: EC2 (reserved instances), AWS trusted advisor
+- Expenditure awareness: CloudWatch, SNS
+- Optimizing over time: AWS blog, AWS trusted advisor
