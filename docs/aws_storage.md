@@ -145,6 +145,7 @@ S3 transfer acceleration uses CloudFront's Edge location to accelerate your uplo
   - If the host dies, you lose you lose your instance
   - Root device is created from template stored in S3
   - Provisioning is slow
+  - Cannot be detached and reattached to other instances
   - With instance termination, by default, root volume will be deleted. There is no wy to tell AWS to keep root volume device
 
 # Elastic File System (EFS)
