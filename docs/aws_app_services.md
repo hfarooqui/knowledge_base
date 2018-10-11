@@ -118,7 +118,9 @@
 
 ## Kinesis
 - Platfrom on AWS where you can send your streaming data
+- Used to CONSUME big data (For processing big data use Elastic Map Reduce and Redshift for BI)
 - Kinesis makes it easy to load and analyze streaming data and also providing the ability for you to build your own custom application for your business needs
+- Stream large amount of social media news feeds, logs etc; into the cloud 
 - **Streaming Data**: Data that is generated contineously by thousands of data sources, which typically sends in the data records simultaneously in small sizes E.g.
     - Purchases from online stores
 	- Stocks
