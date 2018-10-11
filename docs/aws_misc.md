@@ -18,3 +18,17 @@
 	- Turn-on CloudTrail in the paying account
 	- Create a bucket policy that allows cross account access
 	- Turn-on CloudTrail in the other accounts and use the bucket in the paying account
+
+### Cross Account Access
+- Identify Account numbers
+- Create a Group in IAM (Developer) -Dev
+- Create User in IAM (John) - Dev
+- Log-in to Production
+- Create "read-write-app-bucket" policy
+- Create "UpdateApp" Cross account role
+- Apply newly create Policy to the Role
+- Login to Developer Account as root user
+- Create new inline policy
+- Apply inline policy to Developer group
+- Login as John
+- Switch Account
