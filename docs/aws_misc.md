@@ -32,3 +32,19 @@
 - Apply inline policy to Developer group
 - Login as John
 - Switch Account
+
+### Tags
+- Key Pair value attached to AWS resources
+- Metadata
+- Tags can be inherited (Autoscaling, CloudFormation, Elastic Beanstalk)
+
+### Resource Groups
+- Makes it easy to group resources based on Tags
+- Resource Group contains information as Region, Name, Health Checks
+- Specific information:
+    - EC2: Public and Private IP address
+	- Port configurations
+	- Database Engine
+- Types:
+	- **Classic Resource Groups**: Global, spans across regions
+	- **AWS System Manager**: Per region, Can execute commands against these RG (E.g. Create image of EC2 instance within this group)
