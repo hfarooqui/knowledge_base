@@ -173,7 +173,14 @@ Amazon's DNService
 API Gateway is essentially a way of creating your own API for your other services to talk to.
 
 - **Direct Connect**
-Direct Connect as a way of running a dedicated line from your corporate head office or datacenter directly into Amazon and it will directly connect into your PC.
+    - Direct Connect as a way of running a dedicated line from your corporate head office or datacenter directly into Amazon and it will directly connect into your PC.
+    - Reduced Cost then using large volume of data
+    - Increased reliability
+    - Increased bandwidth
+    - Direct Connect vs VPN
+        - VPN connections can be configured in minutes and are a good solution if you have an immediate need, have low to modest bandwidth requirement and can tolerate the inherent variability in internet-based connectivity
+        - AWS Direct connect does not involve the internet; instead uses dedicated private network connections between your internet and Amazon VPC
+![Direct_Connect](https://s3.amazonaws.com/hfcontents/kbimages/Direct_Connect.png "Direct_Connect")
 
 #### Developer Tools
 
