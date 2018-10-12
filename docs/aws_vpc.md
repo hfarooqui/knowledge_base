@@ -28,6 +28,8 @@ The first four IP addresses and the last IP address in each subnet CIDR block ar
 - Allows you to connect one VPC to another via a direct network route using private IP address
 - Instances behave as if they were in the same private network
 - You can peer VPC with other AWS account as well as with other VPC's in the same account
+- VPC peering cannot be done across regions
+- VPC peering cannot be done between VPC's that have overlapping CIDR blocks
 - Peering is always in Start Configuration (Hub and Spoke model) where you have 1 Central VPC with 4 other VPC's. There is not TRANSITIVE PEERING (If A can talk to B and A can talk to C, this doesn't me B can talk to C)
 ![VPC_Peering](https://s3.amazonaws.com/hfcontents/kbimages/VPC_Peering.png "VPC_Peering")
 
