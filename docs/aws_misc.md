@@ -48,3 +48,25 @@
 - Types:
 	- **Classic Resource Groups**: Global, spans across regions
 	- **AWS System Manager**: Per region, Can execute commands against these RG (E.g. Create image of EC2 instance within this group)
+
+### Security Token Service (STS)
+- Grants users limited or temporary access to AWS resources.
+- Users can come from 3 sources:
+	- Federation (typically Active Directory)
+		- Uses Security Assertion Markup Language (SAML)
+		- Grants temporary access based off the users active directory credentials. Does not need to an user in IAM
+		Single sign-onallows users to log into AWS console without assigning AWS credentials
+	- Federation with mobile apps
+		- Use Facebook/Amazon/Google or other OpenID providers to login
+	- Cross Account Access
+		- Lets User from one AWS account access resources in another
+
+#### STS Key terms
+- **Federation**
+	- Combining list of users from one domain (IAM) with the list of users in another domain (AD, Facebook)
+- **Identity Broker**
+	- A service that allows you to take identity from Point A and join/federate it with Point B
+- **Identity Store**
+	- Services like AD, Facebook, Google
+- **Identites**
+	- User of a service like Facebook
