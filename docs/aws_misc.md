@@ -137,3 +137,5 @@
 	- Almost 100% of it is used by the application
 
 ### Elastic Container Service (ECS)
+- Highly scalable, fast, container management service that makes it easy to Run, Stop and Manage Docker Containers on a cluster of EC2 instances
+- ECS enables you to launch and stop container based applications with simple API calls, allows you to get state of your cluster from centralized service, and gives you access to many familiar EC2 features
