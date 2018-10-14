@@ -70,3 +70,15 @@
 	- Services like AD, Facebook, Google
 - **Identites**
 	- User of a service like Facebook
+
+### Active Directory (AD) Authentication
+![AD_Auth](https://s3.amazonaws.com/hfcontents/kbimages/AD_Auth.png "AD_Auth")
+
+### Workspaces
+- Cloud based replacement for traditional desktop
+- Available as a bundle of compute resource, storage space and software application access that allows users to perfom day-to-day task just like traditional desktop
+- You do not need AWS account to access workspace
+- WIndows 7 experience provided by Windows 2008 R2
+- By default you are given local administrator access
+- Workspaces are persistant
+- All data is D:\ and is backed up every 12 hours
