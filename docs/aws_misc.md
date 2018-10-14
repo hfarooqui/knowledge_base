@@ -82,3 +82,58 @@
 - By default you are given local administrator access
 - Workspaces are persistant
 - All data is D:\ and is backed up every 12 hours
+
+### Docker
+- Software platform that allows you to build, test and deploy application quickly
+- Highly **Reliable**: you can quickly deploy and scale applications into any environment and know your code will run
+- Infinitely **Scalable**: Running docker in AWS is a great way to run distributed applications at any scale
+- Docker packages applications into standardize units called Containers
+
+#### Containers
+- Allow you to easily package applications code, configuration, dependencies into easy to use building blocks that deliver environmental consistancy, operational efficiency, developer productivity and version control of softwares/dependencies packages in container
+- Escape from dependency hell
+- Consistant progression from Dev > Test > QA > Prod
+- App isolation: Perdormance or stability issues with App A in Container A will not impact App B in Container B
+- Better resource management (You dont have to worry about Guest OS consuming 80% of the resources)
+- Extreme code portability ("shipping containers")
+- Micro services
+
+#### Components
+ - Docker Image (Similar to iso/ami, but only contains required components making it lightweight)
+ - Docker Container (holds everything that is needed to run the application, isolated and secure application platform)
+ - Layers / Union File system
+ 	- Docker images are read-only templates from which containers are launched
+	- Each image consists of series of layers
+	- Docker makes used of Union File system to combine the layers into a single image
+	- Union File System allows Files and Directories of seperate file system known as branches to be transparently overlaid forming a single coherent file system
+	- Layers make docker lightweight
+	- For example if you were to update an application to a new version a new layer is going to be built and thus rather than replacing the whole image or entirely rebuilding as you may do with a virtual machine only that layer is added or updated. So now you don't need to distribute a whole new image to do the update.
+ - DockerFile
+ 	- Images are built from base image using simple and descriptive set of steps called instructions. These instructions create new layer in the image
+	- Instructions include actions like RUN as command, ADD a file or directory or CREATE an environment variable
+	- These instructions are stored in DockerFile and docker reads this file when you request to built an image, executes these instructions and returns a final image
+	
+	- Each instruction creates new layer 
+ - Docker Daemon/Engine
+ 	- Runs on linux
+	- Host daemon communicates with the Docker client to execute commands to build, ship and run containers
+ - Docker Client
+ 	- Interface between you and the Docker Engine and allows creation, manipulation and deletion of Docker containers and control of Docker daemon
+ - Docker repository/ Docker hub
+ 	- Hold Docker Images
+	- There are public or private stores from which you upload and download images
+	- Public Docker registery is provided with Docker and it servers as huge collection of images created by you or others
+
+### Virtualisation vs Containerisation
+![Virtualization_vs_Containerization](https://s3.amazonaws.com/hfcontents/kbimages/Virtualization_vs_Containers.png "Virtualization_vs_Containerization")
+
+- Traditional Virtual Machine
+	- Guest OS uses 80% of resources
+	- Density compromises
+- Containers
+	- Light weight, only contains application and dependecies (bare minimum required to run the application
+	- Doesn't have to package copy of OS)
+	- Higher density and improved portability by removing per container Guest OS
+	- Almost 100% of it is used by the application
+
+### Elastic Container Service (ECS)
