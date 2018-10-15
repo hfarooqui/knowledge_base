@@ -216,4 +216,3 @@
 	- 1000 Tasks per Service (Desired Count)
 	- Max 10 Containers per Task Definition
 	- Max 10 Tasks per instances (host)
-- Hard limits
