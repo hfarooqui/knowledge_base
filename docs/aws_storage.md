@@ -7,7 +7,7 @@
 - Unlimited storage but you pay for usage per GB
 - Files ares stored in buckets (Folder in cloud)
 - S3 is universal namespace i.e. name must be unique globally. 
-E.g. https://s3-<region>.amazonaws.com/<bucket_name>
+E.g. https://<bucket-name>.s3-website-<AWS-region>.amazonaws.com
 - You will receive HTTP 200 if file upload to S3 bucket was successful
 - 99.99% availability
 - 99.99999999999% (11 9's) durability (cannot lose file)
