@@ -9,7 +9,7 @@
 #### VirtualBox
 - Enable ssh to vbox from mac: Add "Bridge Adapter" network to VM
 
--Add fixed IP to vm:
+- Add fixed IP to vm:
 sudo vi /etc/sysconfig/network-scripts/ifcfg-enp0s3
 TYPE=Ethernet
 BOOTPROTO=none
