@@ -1,5 +1,3 @@
-**Systems:**
-
 ## Shell Commands
 
 #### User
