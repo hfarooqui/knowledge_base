@@ -22,3 +22,8 @@ ONBOOT=yes  <br />
 IPADDR=192.168.86.80  <br />
 
 - Enable passwordless access to vm: ssh-copy-id hfarooqui@192.168.86.115 (copies public key from host to authorized_keys on vm)
+
+#### Install
+Java (OpenJDK 8): sudo yum install java-1.8.0-openjdk-devel
+Enable (Jenkins) repository: curl --silent --location http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo | sudo tee /etc/yum.repos.d/jenkins.repo
+Add repository to system: sudo rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key
