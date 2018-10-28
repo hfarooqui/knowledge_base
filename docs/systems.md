@@ -33,5 +33,8 @@ Add repository to system: sudo rpm --import https://jenkins-ci.org/redhat/jenkin
 .bash_profile and .bashrc are specific to bash, whereas .profile is read by many shells in the absence of their own shell-specific config files.
 The idea behind this was that one-time setup was done by .profile (or shell-specific version thereof), and per-shell stuff by .bashrc. For example, you generally only want to load environment variables once per session instead of getting them whacked any time you launch a subshell within a session, whereas you always want your aliases (which aren't propagated automatically like environment variables are).
 
+##### Login or non-login shell?
+When you login (type username and password) via console, either sitting at the machine, or remotely via ssh: .bash_profile is executed to configure your shell before the initial command prompt. But, if you’ve already logged into your machine and open a new terminal window (xterm) inside Gnome or KDE, then .bashrc is executed before the window command prompt. .bashrc is also run when you start a new bash instance by typing /bin/bash in a terminal.
+
 ##### What is difference between "deployment key" and "ssh key" in bit bucket
 Deployment key is used to grant RO access to the repo. Whereas ssh key is used to grant full access to repo
