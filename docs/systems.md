@@ -29,4 +29,9 @@ Enable (Jenkins) repository: curl --silent --location http://pkg.jenkins-ci.org/
 Add repository to system: sudo rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key
 
 #### Definitions
-What are the functional differences between .profile .bash_profile and .bashrc?
+##### What are the functional differences between .profile and .bash_profile?
+.bash_profile and .bashrc are specific to bash, whereas .profile is read by many shells in the absence of their own shell-specific config files.
+The idea behind this was that one-time setup was done by .profile (or shell-specific version thereof), and per-shell stuff by .bashrc. For example, you generally only want to load environment variables once per session instead of getting them whacked any time you launch a subshell within a session, whereas you always want your aliases (which aren't propagated automatically like environment variables are).
+
+##### What is difference between "deployment key" and "ssh key" in bit bucket
+Deployment key is used to grant RO access to the repo. Whereas ssh key is used to grant full access to repo
