@@ -27,3 +27,6 @@ IPADDR=192.168.86.80  <br />
 Java (OpenJDK 8): sudo yum install java-1.8.0-openjdk-devel
 Enable (Jenkins) repository: curl --silent --location http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo | sudo tee /etc/yum.repos.d/jenkins.repo
 Add repository to system: sudo rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key
+
+#### Definitions
+What are the functional differences between .profile .bash_profile and .bashrc?
