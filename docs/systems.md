@@ -38,3 +38,7 @@ When you login (type username and password) via console, either sitting at the m
 
 ##### What is difference between "deployment key" and "ssh key" in bit bucket
 Deployment key is used to grant RO access to the repo. Whereas ssh key is used to grant full access to repo
+
+##### sysctl vs systemctl
+sysctl and systemctl are two completely different things, and none replaced the other.
+sysctl sets or queries certain kernel parameters (see "man sysctl"), while systemctl allows to communicate with systemd.
