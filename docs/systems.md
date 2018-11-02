@@ -5,7 +5,10 @@
 - Set Password: passwd <username>
 - Lock an account: passwd -l <user>
 - Unlock an account: passwd -u <user>
-  
+
+- Set hostname: hostnamectl set-hostname <new_hostname>
+- Open port (centos 7): sudo firewall-cmd --zone=public --permanent --add-port=8090/tcp && sudo service firewalld restart
+
 #### VirtualBox
 - Enable ssh to vbox from mac: Add "Bridge Adapter" network to VM
 
@@ -21,7 +24,10 @@ ONBOOT=no  <br />
 ONBOOT=yes  <br />
 IPADDR=192.168.86.80  <br />
 
-- Enable passwordless access to vm: ssh-copy-id hfarooqui@192.168.86.115 (copies public key from host to authorized_keys on vm)
+- Enable passwordless access to vm: 
+ssh-copy-id hfarooqui@192.168.86.115 (copies public key from host to authorized_keys on vm)
+OR
+cat .ssh/id_rsa.pub | ssh root@<slave_ip> 'cat >> .ssh/authorized_keys'
 
 #### Install
 Java (OpenJDK 8): sudo yum install java-1.8.0-openjdk-devel
