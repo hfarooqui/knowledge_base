@@ -1,4 +1,4 @@
-#Identity Access Management (IAM)
+# Identity Access Management (IAM)
 
 - IAM allows you to manage users and their level of access to AWS console
 - Centralized control of your AWS account
@@ -11,12 +11,12 @@
 - Integrates with many different AWOS services
 - Supports PCI DSS compliance
 
-###Roles
+### Roles
 - IAM Role had Policy (defining all the actions you can perform)
 - Role > Policy > Actions
 - If you planning to use roles CLI from aws instance you should use IAM role. If using from your local machine use credentials
   
-####Pillers
+#### Pillers
 
 - Users: End users
 - Groups: Collection of users under one set of permissions
