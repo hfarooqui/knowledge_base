@@ -16,7 +16,7 @@
 - Role > Policy > Actions
 - If you planning to use roles CLI from aws instance you should use IAM role. If using from your local machine use credentials
   
-#### Pillers
+### Pillers
 
 - Users: End users
 - Groups: Collection of users under one set of permissions
