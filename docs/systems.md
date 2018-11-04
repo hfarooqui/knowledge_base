@@ -6,8 +6,10 @@
 - Lock an account: <b> passwd -l $USERNAME </b>
 - Unlock an account: <b> passwd -u $USERNAME </b>
 - Login as service user: <b> sudo -u $SERVICE_USER bash </b>
-  
+- Add user to group: <b> sudo usermod -a -G $GROUPNAME $USERNAME </b>
 - Set hostname: <b> hostnamectl set-hostname $NEW_HOSTNAME </b>
+
+
 - Open port (centos 7): <b> sudo firewall-cmd --zone=public --permanent --add-port=8090/tcp && sudo service firewalld restart </b>
 
 #### VirtualBox
