@@ -1,14 +1,14 @@
 ## Shell Commands
 
 #### User
-- Create user: usermod <username>
-- Set Password: passwd <username>
-- Lock an account: passwd -l <user>
-- Unlock an account: passwd -u <user>
-- Login as service user: sudo -u <service_user> bash
+- Create user: <b> usermod $USERNAME </b>
+- Set Password: <b> passwd $USERNAME </b>
+- Lock an account: <b> passwd -l $USERNAME </b>
+- Unlock an account: <b> passwd -u $USERNAME </b>
+- Login as service user: <b> sudo -u $SERVICE_USER bash </b>
   
-- Set hostname: hostnamectl set-hostname <new_hostname>
-- Open port (centos 7): sudo firewall-cmd --zone=public --permanent --add-port=8090/tcp && sudo service firewalld restart
+- Set hostname: <b> hostnamectl set-hostname $NEW_HOSTNAME </b>
+- Open port (centos 7): <b> sudo firewall-cmd --zone=public --permanent --add-port=8090/tcp && sudo service firewalld restart </b>
 
 #### VirtualBox
 - Enable ssh to vbox from mac: Add "Bridge Adapter" network to VM
@@ -26,9 +26,9 @@ ONBOOT=yes  <br />
 IPADDR=192.168.86.80  <br />
 
 - Enable passwordless access to vm: 
-ssh-copy-id hfarooqui@192.168.86.115 (copies public key from host to authorized_keys on vm)
+<b>ssh-copy-id hfarooqui@192.168.86.115</b> (copies public key from host to authorized_keys on vm)
 OR
-cat .ssh/id_rsa.pub | ssh root@<slave_ip> 'cat >> .ssh/authorized_keys'
+<b>cat .ssh/id_rsa.pub | ssh root@<slave_ip> 'cat >> .ssh/authorized_keys'</b>
 Make sure permission on /home/$USER (vm) is 755 or 700 (else it will still prompt for password)
 
 #### Install
