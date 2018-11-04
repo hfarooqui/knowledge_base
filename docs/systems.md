@@ -25,10 +25,10 @@ ONBOOT=no  <br />
 ONBOOT=yes  <br />
 IPADDR=192.168.86.80  <br />
 
-- Enable passwordless access to vm: 
-<b>ssh-copy-id hfarooqui@192.168.86.115</b> (copies public key from host to authorized_keys on vm)
-OR
-<b>cat .ssh/id_rsa.pub | ssh root@<slave_ip> 'cat >> .ssh/authorized_keys'</b>
+- Enable passwordless access to vm:  </br>
+<b>ssh-copy-id hfarooqui@192.168.86.115</b> (copies public key from host to authorized_keys on vm) </br>
+OR </br>
+<b>cat .ssh/id_rsa.pub | ssh root@<slave_ip> 'cat >> .ssh/authorized_keys'</b> </br>
 Make sure permission on /home/$USER (vm) is 755 or 700 (else it will still prompt for password)
 
 #### Install
