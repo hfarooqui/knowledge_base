@@ -5,7 +5,8 @@
 - Set Password: passwd <username>
 - Lock an account: passwd -l <user>
 - Unlock an account: passwd -u <user>
-
+- Login as service user: sudo -u <service_user> bash
+  
 - Set hostname: hostnamectl set-hostname <new_hostname>
 - Open port (centos 7): sudo firewall-cmd --zone=public --permanent --add-port=8090/tcp && sudo service firewalld restart
 
@@ -28,6 +29,7 @@ IPADDR=192.168.86.80  <br />
 ssh-copy-id hfarooqui@192.168.86.115 (copies public key from host to authorized_keys on vm)
 OR
 cat .ssh/id_rsa.pub | ssh root@<slave_ip> 'cat >> .ssh/authorized_keys'
+Make sure permission on /home/$USER (vm) is 755 or 700 (else it will still prompt for password)
 
 #### Install
 Java (OpenJDK 8): sudo yum install java-1.8.0-openjdk-devel
