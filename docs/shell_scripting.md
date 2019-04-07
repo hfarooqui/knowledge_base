@@ -18,6 +18,6 @@ The shell uses standard syntax for all commands.
 There are over 250 standard commands plus numerous others provided through 3rd party software.
 All the commands come along with various options.
 
-**Files and Directories** − All the data of Unix is organized into files.
-All files are then organized into directories. 
+**Files and Directories** − All the **data** of Unix is organized into **files**.
+All files are then organized into **directories**.
 These directories are further organized into a **tree-like structure** called the **filesystem**.
