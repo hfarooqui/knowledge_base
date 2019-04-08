@@ -147,3 +147,93 @@ To set the SUID and SGID bits for any directory try the following command:
 *$ chmod **ug+s **dirname
 $ ls -l
 d**rwsr-s**r-x 2 root root  4096 Jun 19 06:45 dirname*
+
+### Environement
+When you log in to the system, the shell undergoes a phase called **initialization** to **set up the environment**. This is usually a two-step process that involves the shell reading the following files in the order:
+- /etc/profile
+- ~/.profile
+**Note** − The shell initialization process detailed here applies to all Bourne type shells, but some additional files are used by **bash** and **ksh**.
+
+The file **/etc/profile** is maintained by the **system administrator** of your Unix machine and contains shell initialization information required by **all users** on a system.
+
+#### PS1 and PS2 Variables
+The file** .profile **is maintaned by **you**. You can add as much shell **customization** information as you want to this file. The minimum set of information that you need to configure includes −
+The type of terminal you are using.
+A list of directories in which to locate the commands.
+A list of variables affecting the look and feel of your terminal.
+
+The characters that the shell displays as your **command (Primary) prompt** are stored in the variable **PS1**.
+*$PS1='=>'
+=>
+=>
+=>*
+Your prompt will become =>. To set the value of PS1 so that it shows the working directory, issue the command −
+*=>PS1="[\u@\h \w]\$"
+[root@ip-72-167-112-17 /var/www/tutorialspoint/unix]$
+[root@ip-72-167-112-17 /var/www/tutorialspoint/unix]$*
+The result of this command is that the prompt displays the user's username, the machine's name (hostname), and the working directory.
+
+The default** secondary prompt** is > (the greater than sign), but can be changed by re-defining the** PS2** shell variable
+Following is the example which uses the default secondary prompt:
+*$ echo "this is a
+>  test"
+this is a
+test
+$
+
+The example given below re-defines PS2 with a customized prompt:
+*$ PS2="secondary prompt->"
+$ echo "this is a
+secondary prompt->test"
+this is a
+test*
+$
+
+#### Escape Sequence & Description
+**\t**		Current time, expressed HH:MM :SS
+
+**\d**		Current date, expressed as Weekday Month Date
+
+**\n**		Newline
+
+**\s**		Current shell environment
+
+**\W**		Working directory
+
+**\w**		Full path of the working directory
+
+**\u**		Current user’s username
+
+**\h**		Hostname of the current machine
+
+**\#**		Command number of the current command. Increases when a new command is entered
+
+**\$**		If the effective UID is 0 (that is, if you are logged in as root), end the prompt with the # character; otherwise, use the $ sign
+
+#### Environment Variables
+Following is the partial list of important environment variables. These variables are set and accessed as mentioned below −
+
+**DISPLAY**			Contains the identifier for the display that X11 programs should use by default.
+
+**HOME**		Indicates the home directory of the current user: the default argument for the cd built-in command.
+
+**IFS**			Indicates the Internal Field Separator that is used by the parser for word splitting after expansion.
+
+**LANG**		LANG expands to the default system locale; LC_ALL can be used to override this. For example, if its value is pt_BR, then the language is set to (Brazilian) Portuguese and the locale to Brazil.
+
+**LD_LIBRARY_PATH**			A Unix system with a dynamic linker, contains a colonseparated list of directories that the dynamic linker should search for shared objects when building a process image after exec, before searching in any other directories.
+
+**PATH**		Indicates the search path for commands. It is a colon-separated list of directories in which the shell looks for commands.
+
+**PWD**			Indicates the current working directory as set by the cd command.
+
+**RANDOM**			Generates a random integer between 0 and 32,767 each time it is referenced.
+
+**SHLVL**		Increments by one each time an instance of bash is started. This variable is useful for determining whether the built-in exit command ends the current session.
+
+**TERM**		Refers to the display type.
+
+**TZ**			Refers to Time zone. It can take values like GMT, AST, etc.
+
+
+**UID**			Expands to the numeric user ID of the current user, initialized at the shell startup.
