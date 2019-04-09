@@ -237,3 +237,71 @@ Following is the partial list of important environment variables. These variable
 
 
 **UID**			Expands to the numeric user ID of the current user, initialized at the shell startup.
+
+
+#### The grep Command
+There are various options which you can use along with the grep command −
+
+**-v**			Prints all lines that do not match pattern.
+
+**-n**			Prints the matched line and its line number.
+
+**-l**			Prints only the names of files with matching lines (letter "l")
+
+**-c**			Prints only the count of matching lines.
+
+**-i**			Matches either upper or lowercase.
+
+#### The sort Command
+
+**-n**			Sorts numerically (example: 10 will sort after 2), ignores blanks and tabs.
+
+**-r**			Reverses the order of sort.
+
+**-f**			Sorts upper and lowercase together.
+
+**+x**			Ignores first x fields when sorting.
+
+**Listing Running Processes**
+**ps axu** 	  Display all processes in BSD format.
+ ps -A			Display every active process on a Linux system in generic (Unix/Linux) format.
+ps -ef			full-format listing
+ps -x			select all processes owned by you
+ps -fG apache			list all processes owned by a certain group
+ps -fp 2226,1154,1146			Make selection using PID list
+ps -e --forest			Print Process Tree
+ ps -T -p <pid>			show threads for a process
+
+#### Stopping Processes
+**Process is running in the foreground mode:**
+Ctrl + C is used to kill a process with signal SIGINT , in other words it is a polite kill
+Ctrl + Z is used to suspend a process by sending it the signal SIGTSTP , which is like a sleep signal, that can be undone and the process can be resumed again.
+**Process is running in the background**
+kill -9 <PID>
+9 **SIGKILL**
+
+#### Orphan Process
+Normally, when a child process is killed, the parent process is updated via a **SIGCHLD** signal. Then the parent can do some other task or restart a new child as needed. However, sometimes the **parent process is killed before its child is killed**. In this case, the "parent of all processes," the** init** process, becomes the new PPID (parent process ID). In some cases, these processes are called orphan processes.Orphan process are still **running** even if the parent process dies
+
+#### Zombie Process
+When a process is **killed**, a **ps **listing may still **show** the process with a **Z state**. This is a zombie or defunct process. The process is **dead** and not being used. These processes are different from the orphan processes. They have **completed** execution but still find an **entry** in the **process table**.
+
+#### Background process 
+Runs without being connected to your keyboard. It has standard streams (input, output, error) **connected to that parent** (Shell). The most common type is when you run a shell program with a trailing** &**
+
+#### Daemon Processes
+Daemons are **system-related background processes** that often run with the permissions of **root** and services requests from other processes.
+A daemon has **no controlling terminal.**  If you do a "**ps -ef**" and look at the tty field, all daemons will have a **?** for the tty. **No Parent**
+
+Daemon is a process that runs in the background, usually **waiting** for something to happen that it is capable of working with. For example, a printer daemon waiting for print commands.
+
+#### The top Command
+Diagnostic tool
+The top command is a very useful tool for quickly showing processes sorted by various criteria.
+
+#### Job ID Versus Process IDJob ID Versus Process ID
+**Background and suspended processes** are usually manipulated via **job number** (job ID). This number is different from the process ID and is used because it is shorter.
+In addition, a** job can consist of multiple processes** running in a series or at the same time, in parallel. Using the job ID is easier than tracking individual processes.
+
+#### SIGNALS
+**kill -l**
