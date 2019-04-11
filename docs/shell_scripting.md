@@ -308,19 +308,19 @@ In addition, a** job can consist of multiple processes** running in a series or 
 
 ### Shell script
 
-*echo "What is your name?"</b>
+echo "What is your name?"</b>
 read PERSON</b>
-echo "Hello, $PERSON"*</b>
+echo "Hello, $PERSON"</b>
 
-*NAME="Haris Farooqui"</b>
-readonly NAME*</b>
+NAME="Haris Farooqui"</b>
+readonly NAME</b>
 
-*NAME="Haris Farooqui"</b>
+NAME="Haris Farooqui"</b>
 unset NAME</b>
-echo $NAME*</b>
+echo $NAME</b>
 
-*LST=(haris rashid farooqui)</b>
-echo ${LST[@]}*</b>
+LST=(haris rashid farooqui)</b>
+echo ${LST[@]}</b>
 
 There must be **spaces between operators and expressions**.
 For example, 2+2 is not correct; it should be written as 2 + 2.
@@ -413,14 +413,14 @@ It is very important to understand that all the conditional expressions should b
 - **-b** file is a block special file
 - **-c** file is a character special file
 - **-d** file is a directory
-- **-f ** file is an ordinary file as opposed to a directory or special file
+- **-f** file is an ordinary file as opposed to a directory or special file
 - **-g** file has its set group ID (SGID) bit set
 - **-k** file has its sticky bit set
 - **-p** file is a named pipe
 - **-t** file descriptor is open and associated with a terminal
 - **-u** file has its Set User ID (SUID) bit set
-- **-r ** file is readable
-- **-w ** file is writable
-- **-x ** file is executable
-- **-s ** file has size greater than 0
-- **-e ** file exists; is true even if file is a directory but exists   
+- **-r** file is readable
+- **-w** file is writable
+- **-x** file is executable
+- **-s** file has size greater than 0
+- **-e** file exists; is true even if file is a directory but exists   
