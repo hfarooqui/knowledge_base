@@ -305,3 +305,122 @@ In addition, a** job can consist of multiple processes** running in a series or 
 
 #### SIGNALS
 **kill -l**
+
+### Shell script
+
+*echo "What is your name?"</b>
+read PERSON</b>
+echo "Hello, $PERSON"*</b>
+
+*NAME="Haris Farooqui"</b>
+readonly NAME*</b>
+
+*NAME="Haris Farooqui"</b>
+unset NAME</b>
+echo $NAME*</b>
+
+*LST=(haris rashid farooqui)</b>
+echo ${LST[@]}*</b>
+
+There must be **spaces between operators and expressions**.
+For example, 2+2 is not correct; it should be written as 2 + 2.
+val=`expr 2 + 2`
+
+The complete expression should be enclosed between ‘ ‘, called the backtick.
+echo "Total value : $val"
+
+
+### Shell Types
+two major types of shells:
+
+<b>Bourne shell</b> −$ character is the default prompt.
+
+<b>C shell</b> − % character is the default prompt.
+
+The Bourne Shell has the following subcategories −
+- Bourne shell (sh)
+- Korn shell (ksh)
+- Bourne Again shell (bash)
+- POSIX shell (sh)
+
+The different C-type shells follow −
+- C shell (csh)
+- TENEX/TOPS C shell (tcsh)
+
+### Variable Types
+When a shell is running, three main types of variables are present −
+
+<b>Local Variables</b>: Available only to shell instance
+NAME="Haris Faroqui"
+
+<b>Environment Variables</b>:Available to any child process of the shell
+
+<b>Shell Variables</b>:Variable that is set by the shell
+- <b>$0</b>      The filename of the current script.
+- <b>$?</b>      The exit status of the last command executed.
+- <b>$!</b>      The process number of the last background command.
+- <b>$n</b>      Value for nth argument
+- <b>$#</b>      The number of arguments supplied to a script.
+- <b>$$</b>      The process ID of the current shell.
+- <b>$*</b>      All the arguments are double quoted.
+- <b>$@</b>      All the arguments are individually double quoted.</br>
+    $* and $@ both will act the same unless they are enclosed in double quotes, "".</br>
+    Both the parameters specify the command-line arguments.</br>
+    However, the "$*" special parameter takes the entire list as one argument with spaces</br> 
+    "$@" special parameter takes the entire list and separates it into separate arguments.</br>
+
+### Exit status
+- 0 Successful
+- 1 Unsuccessful
+
+### Operators
+<b>Arithmetic operators</b>
+
+-     + (Addition)	    `expr $a + $b` will give 30
+-     - (Subtraction)	    `expr $a - $b` will give -10
+-     * (Multiplication)	`expr $a \* $b` will give 200
+-     / (Division)	    `expr $b / $a` will give 2
+-     % (Modulus)	        `expr $b % $a` will give 0
+-     = (Assignment)	    a = $b would assign value of b into a
+-     == (Comparision)	[ $a == $b ] would return false.
+-     != (Not Equality)	[ $a != $b ] would return true.
+
+It is very important to understand that all the conditional expressions should be inside <b>square braces with spaces </b> around them, for example [ $a == $b ] is correct whereas, [$a==$b] is incorrect.
+
+
+<b>Relational Operators</b>
+- **-eq**		two operands are equal or not; if yes, then the condition becomes true.
+- **-ne		**two operands are equal or not; if not equal, then the condition becomes true.
+- **-gt	** left operand is greater than right operand
+- **-lt	**left operand is less than the value of right operand
+- **-ge**	left operand is **greater than or equal **to the value of right operand; 
+- **-le**	left operand is **less than or equal** to the value of right operand;
+- It is very important to understand that all the conditional expressions should be placed inside **square braces with spaces around them**. For example, [ $a <= $b ] is correct whereas, [$a <= $b] is incorrect.
+
+**Boolean Operators**
+- **!**	This is logical negation. [ ! false ] is true.
+- **-o**	This is logical OR. If one of the operands is true, then the condition becomes true.	</br>[ $a -lt 20 -o $b -gt 100 ] is true.
+- **-a**	This is logical AND. If both the operands are true, then the condition becomes true otherwise false. [ $a -lt 20 -a $b -gt 100 ] is false.
+
+**String Operators**
+- **=**	 two operands are equal or not; [ $a = $b ] is not true.
+- **!=**	two operands are equal or not;  	[ $a != $b ] is true.
+- **-z**	string operand size is zero;
+- **-n**	operand size is non-zero;
+- **str**	Checks if str is not the empty string; if it is empty, then it returns false.	[ $a ] is not false.
+
+**File Test Operators**
+- **-b** file is a block special file
+- **-c** file is a character special file
+- **-d** file is a directory
+- **-f ** file is an ordinary file as opposed to a directory or special file
+- **-g** file has its set group ID (SGID) bit set
+- **-k** file has its sticky bit set
+- **-p** file is a named pipe
+- **-t** file descriptor is open and associated with a terminal
+- **-u** file has its Set User ID (SUID) bit set
+- **-r ** file is readable
+- **-w ** file is writable
+- **-x ** file is executable
+- **-s ** file has size greater than 0
+- **-e ** file exists; is true even if file is a directory but exists   
