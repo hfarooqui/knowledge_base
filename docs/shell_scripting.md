@@ -405,9 +405,22 @@ It is very important to understand that all the conditional expressions should b
 **String Operators**
 - **=**	 two operands are equal or not; [ $a = $b ] is not true.
 - **!=**	two operands are equal or not;  	[ $a != $b ] is true.
-- **-z**	string operand size is zero;
-- **-n**	operand size is non-zero;
-- **str**	Checks if str is not the empty string; if it is empty, then it returns false.	[ $a ] is not false.
+- **-z**	string operand size is zero
+
+```
+if [ ! -z "$str3" ]; then
+        echo "Str3 is not null"
+fi
+```
+
+- **-n**	operand size is non-zero
+- **str**	Checks if str is not the empty string; if it is empty, then it returns false.[ $a ] is not false.
+
+```
+if [ ! "$str" ];then
+   echo NULL
+fi
+```
 
 **File Test Operators**
 - **-b** file is a block special file
