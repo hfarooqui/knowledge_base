@@ -717,7 +717,8 @@ number_two () {
 
 # Calling function one.
 number_one
-#################################
+```
+```
 #!/bin/sh
 
 # Define your function here
