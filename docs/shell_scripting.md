@@ -304,7 +304,10 @@ The top command is a very useful tool for quickly showing processes sorted by va
 In addition, a** job can consist of multiple processes** running in a series or at the same time, in parallel. Using the job ID is easier than tracking individual processes.
 
 #### SIGNALS
-**kill -l**
+```
+➜  argus_host git:(argus-poc) ✗ kill -l
+HUP INT QUIT ILL TRAP ABRT EMT FPE KILL BUS SEGV SYS PIPE ALRM TERM URG STOP TSTP CONT CHLD TTIN TTOU IO XCPU XFSZ VTALRM PROF WINCH INFO USR1 USR2
+```
 
 ### Shell script
 
