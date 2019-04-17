@@ -308,20 +308,24 @@ In addition, a** job can consist of multiple processes** running in a series or 
 
 ### Shell script
 
-echo "What is your name?"</b>
-read PERSON</b>
-echo "Hello, $PERSON"</b>
-
-NAME="Haris Farooqui"</b>
-readonly NAME</b>
-
-NAME="Haris Farooqui"</b>
-unset NAME</b>
-echo $NAME</b>
-
-LST=(haris rashid farooqui)</b>
-echo ${LST[@]}</b>
-
+```
+echo "What is your name?"
+read PERSON
+echo "Hello, $PERSON"
+```
+```
+NAME="Haris Farooqui"
+readonly NAME
+```
+```
+NAME="Haris Farooqui"
+unset NAME
+echo $NAME
+```
+```
+LST=(haris rashid farooqui)
+echo ${LST[@]}
+```
 There must be **spaces between operators and expressions**. </br>
 For example, 2+2 is not correct; it should be written as 2 + 2.</br>
 val=````expr 2 + 2````
