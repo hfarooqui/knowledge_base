@@ -446,3 +446,247 @@ fi
 - **-x** file is executable
 - **-s** file has size greater than 0
 - **-e** file exists; is true even if file is a directory but exists   
+
+### Decision making
+```
+#!/bin/sh
+
+a=10
+b=20
+
+if [ $a == $b ]
+then
+   echo "a is equal to b"
+elif [ $a -gt $b ]
+then
+   echo "a is greater than b"
+elif [ $a -lt $b ]
+then
+   echo "a is less than b"
+else
+   echo "None of the condition met"
+fi
+```
+
+```
+#!/bin/sh
+FRUIT="kiwi"
+case "$FRUIT" in
+   "apple") 
+   echo "Apple pie is quite tasty." 
+   ;;
+   "banana") 
+   echo "I like banana nut bread." 
+   ;;
+   "kiwi") 
+   echo "New Zealand is famous for kiwi." 
+   ;;
+esac
+```
+
+### Loops
+- The **break** statement, exits the loop
+- The **continue** statement, exits the current iteration
+- while...do...done
+- for...in...do...done
+- until...do...done
+```
+################################
+E.g.1
+################################
+#!/bin/sh
+a=0
+while [ "$a" -lt 10 ]    # this is loop1
+do
+   b="$a"
+   while [ "$b" -ge 0 ]  # this is loop2
+   do
+      echo -n "$b " # echo -n to avoid printing newline character
+      b=`expr $b - 1`
+   done
+   echo
+   a=`expr $a + 1`
+done
+################################
+E.g.2
+################################
+#!/bin/sh
+a=0
+while [ $a -lt 10 ]
+do
+   echo $a
+   if [ $a -eq 5 ]
+   then
+      break
+   fi
+   a=`expr $a + 1`
+done
+################################
+E.g.3
+################################
+#!/bin/sh
+for var1 in 1 2 3
+do
+   for var2 in 0 5
+   do
+      if [ $var1 -eq 2 -a $var2 -eq 0 ]
+      then
+         break 2 ###### Break out of inner and outer loop
+      else
+         echo "$var1 $var2"
+      fi
+   done
+done
+```
+
+### Substitution
+```
+#!/bin/sh
+
+a=10
+echo -e "Value of a is $a \n"
+```
+You will receive the following result. Here the -e option enables the interpretation of backslash escapes.
+```
+Value of a is 10
+```
+Following is the result without -e option −
+```
+Value of a is 10\n
+```
+
+#### Command substitution
+```
+#!/bin/sh
+
+DATE=`date`
+echo "Date is $DATE"
+
+USERS=`who | wc -l`
+echo "Logged in user are $USERS"
+
+UP=`date ; uptime`
+```
+```
+Date is Thu Jul  2 03:59:57 MST 2009
+Logged in user are 1
+Uptime is Thu Jul  2 03:59:57 MST 2009
+03:59:57 up 20 days, 14:03,  1 user,  load avg: 0.13, 0.07, 0.15
+echo "Uptime is $UP"
+```
+
+#### Variable substitution
+**${var}**
+Substitute the value of var.
+
+**${var:-word}**
+If var is null or unset, word is substituted for var. The value of var does not change.
+	
+**${var:=word}**
+If var is null or unset, var is set to the value of word.
+	
+**${var:?message}**
+If var is null or unset, message is printed to standard error. This checks that variables are set correctly.
+	
+**${var:+word}**
+If var is set, word is substituted for var. The value of var does not change.
+
+```
+#!/bin/sh
+
+echo ${var:-"Variable is not set"}
+echo "1 - Value of var is ${var}"
+
+echo ${var:="Variable is not set"}
+echo "2 - Value of var is ${var}"
+
+unset var
+echo ${var:+"This is default value"}
+echo "3 - Value of var is $var"
+
+var="Prefix"
+echo ${var:+"This is default value"}
+echo "4 - Value of var is $var"
+
+echo ${var:?"Print this message"}
+echo "5 - Value of var is ${var}"
+```
+```
+Variable is not set
+1 - Value of var is
+Variable is not set
+2 - Value of var is Variable is not set
+
+3 - Value of var is
+This is default value
+4 - Value of var is Prefix
+Prefix
+5 - Value of var is Prefix
+```
+
+**Here Document**
+Here the shell interprets the << operator as an instruction to read input until it finds a line containing the specified delimiter. All the input lines up to the line containing the delimiter are then fed into the standard input of the command.
+The delimiter tells the shell that the here document has completed. Without it, the shell continues to read the input forever. The delimiter must be a single word that does not contain spaces or tabs.
+```
+$wc -l << EOF
+   This is a simple lookup program 
+	for good (and bad) restaurants
+	in Cape Town.
+EOF
+3
+$
+```
+```
+#!/bin/sh
+
+cat << EOF
+This is a simple lookup program 
+for good (and bad) restaurants
+in Cape Town.
+EOF
+```
+```
+This is a simple lookup program
+for good (and bad) restaurants
+in Cape Town.
+```
+**Input Redirection**
+```
+$ wc -l users
+2 users
+$
+```
+```
+$ wc -l < users
+2
+$
+```
+**Output Redirection**
+**>** wipes out the contents
+**>>** appends to existing contents
+```
+$ who > users
+
+$ cat users
+oko         tty01   Sep 12 07:30
+ai          tty15   Sep 12 13:32
+ruth        tty21   Sep 12 10:10
+pat         tty24   Sep 12 13:07
+steve       tty25   Sep 12 13:03
+$
+
+$ echo line 1 > users
+$ cat users
+line 1
+$
+
+$ echo line 2 >> users
+$ cat users
+line 1
+line 2
+$
+```
+
+**Discard the output**
+Don't display output to the screen
+```command > /dev/null```
