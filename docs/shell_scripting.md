@@ -322,9 +322,9 @@ echo $NAME</b>
 LST=(haris rashid farooqui)</b>
 echo ${LST[@]}</b>
 
-There must be **spaces between operators and expressions**.
-For example, 2+2 is not correct; it should be written as 2 + 2.
-val=`expr 2 + 2`
+There must be **spaces between operators and expressions**. </br>
+For example, 2+2 is not correct; it should be written as 2 + 2.</br>
+val=````expr 2 + 2````
 
 The complete expression should be enclosed between ‘ ‘, called the backtick.
 echo "Total value : $val"
@@ -395,12 +395,14 @@ It is very important to understand that all the conditional expressions should b
 - **-lt	**left operand is less than the value of right operand
 - **-ge**	left operand is **greater than or equal **to the value of right operand; 
 - **-le**	left operand is **less than or equal** to the value of right operand;
-- It is very important to understand that all the conditional expressions should be placed inside **square braces with spaces around them**. For example, [ $a <= $b ] is correct whereas, [$a <= $b] is incorrect.
+- It is very important to understand that all the conditional expressions should be placed inside **square braces with spaces around them**. For example, ```[ $a <= $b ]``` is correct whereas, ```[$a <= $b]``` is incorrect.
 
 **Boolean Operators**
 - **!**	This is logical negation. [ ! false ] is true.
-- **-o**	This is logical OR. If one of the operands is true, then the condition becomes true.	</br>[ $a -lt 20 -o $b -gt 100 ] is true.
-- **-a**	This is logical AND. If both the operands are true, then the condition becomes true otherwise false. [ $a -lt 20 -a $b -gt 100 ] is false.
+- **-o**	This is logical OR. If one of the operands is true, then the condition becomes true.	</br>
+```[ $a -lt 20 -o $b -gt 100 ]``` is true.
+- **-a**	This is logical AND. If both the operands are true, then the condition becomes true otherwise false. 
+```[ $a -lt 20 -a $b -gt 100 ]``` is false.
 
 **String Operators**
 - **=**	 two operands are equal or not; [ $a = $b ] is not true.
