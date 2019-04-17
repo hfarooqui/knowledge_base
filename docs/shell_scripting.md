@@ -688,5 +688,49 @@ $
 ```
 
 **Discard the output**
-Don't display output to the screen
+**0 STDIN
+1 STDOUT
+2 STDERR**
+
+Following retains stderr, but suppresses stdout.
 ```command > /dev/null```
+
+Same as above. Here it redirect stderr to stdout and stdout to /dev/null in order to get only stderr on your terminal
+```command 2>&1 > /dev/null```
+
+To discard both output of a command and its error output, use standard redirection to redirect STDERR to STDOUT −
+```$ command > /dev/null 2>&1```
+
+### Shell functions
+```
+#!/bin/sh
+
+# Calling one function from another
+number_one () {
+   echo "This is the first function speaking..."
+   number_two
+}
+
+number_two () {
+   echo "This is now the second function speaking..."
+}
+
+# Calling function one.
+number_one
+#################################
+#!/bin/sh
+
+# Define your function here
+Hello () {
+   echo "Hello World $1 $2"
+   return 10
+}
+
+# Invoke your function
+Hello Haris Farooqui
+
+# Capture value returnd by last command
+ret=$?
+
+echo "Return value is $ret"
+```
