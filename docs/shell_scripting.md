@@ -662,6 +662,7 @@ $ wc -l < users
 $
 ```
 **Output Redirection**
+
 **>** wipes out the contents
 **>>** appends to existing contents
 ```
@@ -688,9 +689,11 @@ $
 ```
 
 **Discard the output**
-**0 STDIN
-1 STDOUT
-2 STDERR**
+**
+- 0 STDIN
+- 1 STDOUT
+- 2 STDERR
+**
 
 Following retains stderr, but suppresses stdout.
 ```command > /dev/null```
