@@ -878,3 +878,26 @@ $ cat phone.txt | sed 's/\(.*)\)\(.*-\)\(.*$\)/Area \
 Area code: (555) Second: 555- Third: 1212 
 Area code: (555) Second: 555- Third: 1213 
 ```
+
+#### Less vs more
+Learn Linux 'less' Command. Similar to more, less command allows you to **view the contents of a file and navigate through file.** The main difference between more and less is that** less command is faster because it does not load the entire file at once** and allows navigation though file using page up/down keys.
+
+```
+### disk free
+$df -k
+Filesystem      1K-blocks      Used   Available Use% Mounted on
+/dev/vzfs        10485760   7836644     2649116  75% /
+/devices                0         0           0   0% /devices
+```
+```
+### disk usage
+$du -h /etc
+5k    /etc/cron.d
+63k   /etc/default
+3k    /etc/dfs
+```
+
+#### mount
+```
+mount -t file_system_type device_to_mount directory_to_mount_to
+```
