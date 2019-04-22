@@ -699,7 +699,8 @@ Following retains stderr, but suppresses stdout.
 Same as above. Here it redirect stderr to stdout and stdout to /dev/null in order to get only stderr on your terminal
 ```command 2>&1 > /dev/null```
 
-To discard both output of a command and its error output, use standard redirection to redirect STDERR to STDOUT −
+To discard both output of a command and its error output, use standard redirection to redirect STDERR to STDOUT
+Here ">" redirects STDOUT to /dev/null and 2>&1 redirects STDERR to STDOUT. Hence the net effect is NO OUTPUT
 ```$ command > /dev/null 2>&1```
 
 ### Shell functions
