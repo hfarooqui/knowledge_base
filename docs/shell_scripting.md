@@ -900,4 +900,5 @@ $du -h /etc
 #### mount
 ```
 mount -t file_system_type device_to_mount directory_to_mount_to
+umount device_to_mount
 ```
