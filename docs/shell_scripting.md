@@ -689,9 +689,11 @@ $
 ```
 
 **Discard the output**
+**
 - 0 STDIN
 - 1 STDOUT
 - 2 STDERR
+**
 
 Following retains stderr, but suppresses stdout.
 ```command > /dev/null```
@@ -699,8 +701,7 @@ Following retains stderr, but suppresses stdout.
 Same as above. Here it redirect stderr to stdout and stdout to /dev/null in order to get only stderr on your terminal
 ```command 2>&1 > /dev/null```
 
-To discard both output of a command and its error output, use standard redirection to redirect STDERR to STDOUT
-Here ">" redirects STDOUT to /dev/null and 2>&1 redirects STDERR to STDOUT. Hence the net effect is NO OUTPUT
+To discard both output of a command and its error output, use standard redirection to redirect STDERR to STDOUT −
 ```$ command > /dev/null 2>&1```
 
 ### Shell functions
@@ -736,4 +737,144 @@ Hello Haris Farooqui
 ret=$?
 
 echo "Return value is $ret"
+```
+
+### sed
+
+**p**  Prints the line
+`sed -n '1,2p' `
+`sed -n '/haris/p'`  Prints all matching lines which has haris in it
+**d**  Deletes the line
+`sed '1d' `
+
+**s** substitutes string
+`s/pattern1/pattern2/`  Substitutes the first occurrence of pattern1 with pattern2
+`sed '10s/a/b/g'` Replaces 'a' with 'b' on 10th line
+`s|pattern1/|pattern2/` . Alternative String Separator ('|' instead of '/')
+
+**g**  Replaces all matches, not just the first match. `s/pattern1/pattern2/`
+
+**sed delete**
+```
+➜  ~ cat file.txt
+Haris Farooqui
+Omar Farooqui
+Osman Farooqui
+Amina Ahmad
+Yasir Ahmad
+```
+```
+➜  ~ cat file.txt | sed '1d' |more
+Omar Farooqui
+Osman Farooqui
+Amina Ahmad
+Yasir Ahmad
+```
+**sed range**
+```
+➜  ~ cat file.txt | sed '2, 4d' |more
+Haris Farooqui
+Yasir Ahmad
+```
+```
+➜  ~ cat file.txt | sed -n '1,2p' |more
+Haris Farooqui
+Omar Farooqui
+```
+```
+➜  ~ cat file.txt | sed s/Yasir/Hafsa/g |more
+Haris Farooqui
+Omar Farooqui
+Osman Farooqui
+Amina Ahmad
+Hafsa Ahmad
+```
+
+**'4,10d'**		Lines starting from the 4th till the 10th are deleted
+**'10,4d'**		Only 10th line is deleted, because the sed does not work in reverse direction
+**'4,+5d'**		This matches line 4 in the file, deletes that line, continues to delete the next five lines, and then ceases its deletion and prints the rest
+**'2,5!d'**		This deletes everything except starting from 2nd till 5th line
+**'1~3d'**		This deletes the first line, steps over the next three lines, and then deletes the fourth line. Sed continues to apply this pattern until the end of the file.
+**'2~2d'**This tells sed to delete the second line, step over the next line, delete the next line, and repeat until the end of the file is reached
+**'4,10p'**		Lines starting from 4th till 10th are printed
+**'4,d'**		This generates the syntax error
+**',10d'**		This would also generate syntax error
+`~ Does not work in zsh`
+
+#### Regular Expressions
+**^**		Matches the beginning of lines
+
+**$**		Matches the end of lines
+
+**.**		Matches any single character
+**/a.c/**		Matches lines that contain strings such as **a+c**, **a-c**, **abc**, **match**, and **a3c**
+
+**\***		Matches zero or more occurrences of the previous character
+**/a*c/**		Matches the same strings along with strings such as **ace**, **yacc**, and **arctic**
+
+**[chars]**		Matches any one of the characters given in chars, where chars is a sequence of characters. You can use the - character to indicate a range of characters.
+**/[tT]he/**		Matches the string The and the
+
+**/^$/**		Matches blank lines
+**/^.*$/**		Matches an entire line whatever it is
+**/ */**		Matches one or more spaces
+
+
+**[a-z]**		Matches a single lowercase letter
+**[A-Z]**		Matches a single uppercase letter
+**[a-zA-Z]**		Matches a single letter
+**[0-9]**		Matches a single number
+**[a-zA-Z0-9]**		Matches a single letter or number
+
+**[[:alnum:]]**		Alphanumeric [a-z A-Z 0-9]
+**[[:alpha:]]**		Alphabetic [a-z A-Z]
+**[[:blank:]]**		Blank characters (spaces or tabs)
+**[[:cntrl:]]**		Control characters
+**[[:digit:]]**		Numbers [0-9]
+**[[:graph:]]**		Any visible characters (excludes whitespace)
+**[[:lower:]]**		Lowercase letters [a-z]
+**[[:print:]]**		Printable characters (non-control characters)
+**[[:punct:]]**		Punctuation characters
+**[[:space:]]**		Whitespace
+**[[:upper:]]**		Uppercase letters [A-Z]
+**[[:xdigit:]]**		Hex digits [0-9 a-f A-F]
+```
+$ cat phone.txt
+5555551212
+5555551213
+
+$ sed -e 's/^[[:digit:]][[:digit:]][[:digit:]]/(&)/g' phone.txt
+(555)5551212
+(555)5551213
+```
+
+**Aampersand Referencing**
+```
+➜  ~ sed -e 's/^.*/(&)/g' file.txt
+(Haris Farooqui)
+(Omar Farooqui)
+(Osman Farooqui)
+(Amina Ahmad)
+(Yasir Ahmad)
+```
+
+**Multiple sed command**
+```
+$ sed -e 's/^[[:digit:]]\{3\}/(&)/g'  \ 
+   -e 's/)[[:digit:]]\{3\}/&-/g' phone.txt 
+(555)555-1212 
+(555)555-1213 
+```
+
+**Back References**
+To do back references, you have to first define a **region** and then refer back to that region. To define a region, you insert** backslashed parentheses \\(...\\)** around each region of interest. The first region that you surround with backslashes is then **referenced** by **\1**, the second region by** \2,** and so on.
+```
+➜  ~ cat phone.txt
+(555)555-1212
+(555)555-1213
+
+$ cat phone.txt | sed 's/\(.*)\)\(.*-\)\(.*$\)/Area \ 
+   code: \1 Second: \2 Third: \3/' 
+Area code: (555) Second: 555- Third: 1212 
+Area code: (555) Second: 555- Third: 1213 
 ```
