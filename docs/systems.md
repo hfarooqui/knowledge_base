@@ -1,3 +1,23 @@
+## Linux Distributions
+3 main distributions
+#### Debian based
+  - The grand daddy. Supported by largest community
+  - Very stable
+  - Use debian vanilla in production
+  - For Desktop envionments use Ubuntu, LinuxMint(Not very secure, was breached Feb 2016, popular among non-technical users)
+#### REHL based
+  - Managed by RedHat enterprise which provides support. Useful for business critical environments.
+  - Very reliable and secure
+  - Use lightwight CentOS in production
+  - For Desktop environments use Fedora
+  - Little behind Debian community in terms of package availability
+#### Arch based
+  - Run by the so called elites
+  - Had latest and greatest packages
+  - Not very stable if using 'AUR' (builds program for you with single command line). Uses "pacman" package manager
+  - Use Manjaro to get your hands dirty
+
+Other distrbutions include Gentu, ClearOS(Intel)
 ## Shell Commands
 
 #### User
