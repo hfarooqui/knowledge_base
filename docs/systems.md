@@ -72,3 +72,17 @@ Deployment key is used to grant RO access to the repo. Whereas ssh key is used t
 ##### sysctl vs systemctl
 sysctl and systemctl are two completely different things, and none replaced the other.
 sysctl sets or queries certain kernel parameters (see "man sysctl"), while systemctl allows to communicate with systemd.
+
+#### PID 1
+Process ID 1 is usually the init process primarily responsible for starting and shutting down the system. 
+Similarly when new PID namespace is created first process started in that namespace gets PID 1 (the PID as seen by the processes in that namespace, in the parent namespace it gets assigned other PID).
+
+The process with PID 1 differs from the other processes in the following ways:
+
+- When the process with pid 1 die for any reason, all other processes are killed with KILL signal
+- When any process having children dies for any reason, its children are reparented to process with PID 1
+- Many signals which have default action of Term do not have one for PID 1.
+
+At a glance, first issue looks like the most annoying. But in practice the most inconvenient one is the last one. For development purposes it effectively means you can’t stop process by sending SIGTERM or SIGINT, if process have not installed a signal handler.
+
+swapper or sched has process ID 0 and is responsible for paging, and is actually part of the kernel rather than a normal user-mode process.
