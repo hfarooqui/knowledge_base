@@ -61,7 +61,7 @@ Docker provides three ways to mount data to the container: volumes, bind mounts,
 - <b>tmpfs</b> are in the host's `in-memory space`, and never get written into the filesystem.
 Deleting container does not deletes volume. It needs to be deleted seperately
 
-### Definations
+### Definitions
 <b>Docker Architecture</b> Server (docker daemon), REST API, CLI (which calls rest api)
 
 <b>Dockerfile</b> Dockerfile is a text document that contains all the commands a user could call on the command line to assemble an image.
