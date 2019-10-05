@@ -40,17 +40,18 @@ When you start Docker, a `default bridge network` (also called bridge) is create
 
 ### Hypervisors, Virtulization, Containers
 - Hypervisor is a software that makes Virtulization possible
-- Hypervisor divides the host system and allocates the resources to each divided virtual environment. You can basically have multiple OS on a single host system. 
-- Two types of hypervisors - Native hypervisor (runs directly on host system) and Hosted hypervisor (makes uses of host system)
-- Container - an application that is being developed and deployed is bundled and wrapped together with all its configuration files and dependencies. This bundle is called a container.
-- Each container shares the host OS kernel and, usually, the binaries and libraries, too. Shared components are read-only
+- `Hypervisor divides the host system` and allocates the resources to each divided virtual environment. You can basically have multiple OS on a single host system. 
+- Two types of hypervisors - `Native hypervisor` (runs directly on host system) and `Hosted hypervisor` (makes uses of host system)
+- Container - an `application` that is being developed and deployed is `bundled and wrapped together with all its configuration files and dependencies`. This bundle is called a container.
+- Each `container shares the host OS kernel` (usually, the binaries and libraries) running as `isolated processes in user space` on the host operating system. Shared components are read-only.
+- Docker containers are basically `runtime instances of Docker images`.
 
 #### Virtulization vs Containers
 - Containers are an abstraction of the application layer. Each container is a different application
-- Containers virtualize OS to run multiple wrokloads(services) in single OS instance
-- VM virtualizes Hardware to run multiple OS instance
-- Virtual machines are an abstraction of the hardware layer. Each VM is a physical machine
--
+- `Containers virtualize OS` to run `multiple wrokloads(services) in single OS instance`
+- `VM virtualizes Hardware` to run `multiple OS instance`
+- Virtual machines are an `abstraction of the hardware layer`. Each VM is a physical machine
+
 
 ### Adding storage to Docker containers
 Docker provides three ways to mount data to the container: volumes, bind mounts, and tmpfs storage
@@ -59,3 +60,43 @@ Docker provides three ways to mount data to the container: volumes, bind mounts,
 - <b>Bind mounts</b> `can be anywhere` on the host, but `can be modified` by other applications
 - <b>tmpfs</b> are in the host's `in-memory space`, and never get written into the filesystem.
 Deleting container does not deletes volume. It needs to be deleted seperately
+
+### Definations
+<b>Docker Architecture</b> Server (docker daemon), REST API, CLI (which calls rest api)
+
+<b>Dockerfile</b> Dockerfile is a text document that contains all the commands a user could call on the command line to assemble an image.
+
+<b>Docker compose</b> Docker Compose is a YAML file which contains details about the services, networks, and volumes for setting up the Docker application. So, you can use Docker Compose to create separate containers, host them and get them to communicate with each other. Each container will expose a port for communicating with other containers
+
+<b>Container lifecycle</b>
+- Create a container
+- Run the container
+- Pause the container(optional)
+- Un-pause the container(optional)
+- Start the container
+- Stop the container
+- Restart the container
+- Kill the container
+- Destroy the container
+
+<b>Docker Machine</b> Docker machine is a tool that lets you install Docker Engine on virtual hosts. These hosts can now be managed using the docker-machine commands
+
+<b>Detached mode</b> shown by the option `--detach` or `-d`, means that a Docker container runs in the background of your terminal. It does not receive input or display output
+```
+docker run -d IMAGE
+```
+
+<b>Docker commit</b> use a container, edit it and build (new image)
+```
+$ docker commit <conatainer id> <username/imagename>
+```
+
+<b>Docker prune</b> 
+The above command is used to remove all the stopped containers, all the networks that are not used, all dangling images and all build caches. It’s one of the most useful docker commands
+```
+docker system prune
+```
+
+<b>Docker stats</b> provides CPU and memory usage of the container
+
+<b>Docker events</b> provide information about the activities taking place in the docker daemon.
