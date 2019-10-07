@@ -1,5 +1,6 @@
 ## Kubernetes
 
+
 - Kubernetes is an `open-source container management platform` which holds the responsibilities of container deployment, scaling & descaling of containers & load balancing
 - Docker builds the containers and these containers communicate with each other via Kubernetes. Containers running on multiple hosts can be manually linked and orchestrated using Kubernetes
 - Kubernetes is cloud-agnostic and can run on any public/private providers 
@@ -59,3 +60,7 @@ If you encounter a problem, you can stop the rolling update midway and revert to
 ```
 kubectl rolling-update my-nginx --rollback
 ```
+
+### Taint and Tolerations
+
+### Node selector
