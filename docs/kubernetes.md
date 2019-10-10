@@ -1,5 +1,8 @@
 ## Kubernetes
 
+![](https://github.com/hfarooqui/knowledge_base/blob/master/images/Kubernetes_Architecture.png)
+
+<TODO: Describe each resource in the architecture>
 
 - Kubernetes is an `open-source container management platform` which holds the responsibilities of container deployment, scaling & descaling of containers & load balancing
 - Docker builds the containers and these containers communicate with each other via Kubernetes. Containers running on multiple hosts can be manually linked and orchestrated using Kubernetes
