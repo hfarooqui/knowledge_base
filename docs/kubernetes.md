@@ -61,8 +61,6 @@ If you encounter a problem, you can stop the rolling update midway and revert to
 kubectl rolling-update my-nginx --rollback
 ```
 
-### Taint and Tolerations
-
 ### Node selector
 - nodeSelector is the simplest recommended form of node selection constraint
 - nodeSelector is a field of PodSpec. It specifies a map of key-value pairs
@@ -121,3 +119,32 @@ spec:
   ```
 This node affinity rule says the pod can only be placed on a node with a label whose key is `kubernetes.io/e2e-az-name` and whose value is either `e2e-az1 or e2e-az2`. In addition, among nodes that meet that criteria, nodes with a label whose key is `another-node-label-key` and whose value is `another-node-label-value` should be preferred.
 If you specify both nodeSelector and nodeAffinity, both must be satisfied for the pod to be scheduled onto a candidate node.
+
+### Taint and Tolerations
+- Node affinity is a property of pods that attracts them to a set of nodes (either as a preference or a hard requirement). - 
+- Taints are the opposite – they allow a node to repel a set of pods.
+- Taints and tolerations work together to ensure that pods are not scheduled onto inappropriate nodes. 
+- One or more `Taints are applied to a node` this marks that the node should not accept any pods that do not tolerate the taints. 
+- `Tolerations are applied to pods`, and allow (but do not require) the pods to schedule onto nodes with matching taints.
+```
+kubectl taint nodes node1 key=value:NoSchedule
+```
+
+You specify a toleration for a pod in the PodSpec. Both of the following tolerations “match” the taint created by the kubectl taint line above, and thus a pod with either toleration would be able to schedule onto node1:
+```
+tolerations:
+- key: "key"
+  operator: "Equal"
+  value: "value"
+  effect: "NoSchedule"
+```
+```
+tolerations:
+- key: "key"
+  operator: "Exists"
+  effect: "NoSchedule"
+```
+A toleration “matches” a taint if the keys are the same and the effects are the same, and:
+- the operator is Exists (in which case no value should be specified), or
+- the operator is Equal and the values are equal
+Operator defaults to Equal if not specified.
