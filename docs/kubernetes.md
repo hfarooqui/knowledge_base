@@ -1,6 +1,6 @@
-## Kubernetes
+# Kubernetes
 
-## Overview
+### Overview
 - Kubernetes is an `open-source container management platform` which holds the responsibilities of container deployment, scaling & descaling of containers & load balancing
 - Docker builds the containers and these containers communicate with each other via Kubernetes. Containers running on multiple hosts can be manually linked and orchestrated using Kubernetes
 - Kubernetes is cloud-agnostic and can run on any public/private providers 
@@ -229,6 +229,37 @@ tolerations:
   tolerationSeconds: 3600
 ```
 means that if this pod is running and a matching taint is added to the node, then the pod will stay bound to the node for 3600 seconds, and then be evicted. If the taint is removed before that time, the pod will not be evicted.
+
+### 4C’s of Cloud Native Security
+#### Cloud
+- `Infrastructure security`: VPC, Security Groups, Private network/DNS, TLS, Private, dedicated connections
+- `DDoS Mitigation`: ASG, Amazon CloudFront and Amazon Route 53 help to mitigate DDoS
+- `Data Encryption`: KMS, Message encryption (SQS), Data encryption (RDS,EBS), CloudHSM
+- `Inventory and Configuration`:  `Amazon Inspector`, that automatically assesses applications for vulnerabilities or deviations from best practices, including impacted networks, OS, and attached storage
+- `Monitoring and Logging`: CloudWatch, CloudTrail
+- `IAM`
+- `Penetration testing`
+
+#### Cluster
+- Use `Transport Layer Security` (TLS) for all API traffic
+- `API Authentication`: IAM, LDAP
+- `API Authorization`: RBAC, NodeRestriction (to avoid updating labels)
+- `Kubelet authentication/authorization `(by default provides unauthenticaetd access to the API)
+- Limiting resource usage on a cluster
+  - `Resource quota` limits the number or capacity of resources (CPU, Memory, Disk) granted to a namespace.
+  - `Limit ranges` restrict the maximum or minimum size of some of the resources (Memory)
+- Restricting cloud `metadata API access` (http://169.254.169.254/latest/meta-data/instance-id)
+- Restricting `network access`: The network policies for a namespace allows application authors to restrict which pods in other namespaces may access pods and ports within their namespaces
+- `Controlling which nodes pods may access`: NodeSelector, Taint and Tolerance, NodeAffinity
+- `Restrict access to etcd`
+- `etcd encryption`
+- Enable `audit logging`
+- Restrict access to `alpha or beta features`
+- Review `third party integrations` before enabling them
+- `Encrypt secrets at rest` (ETCD, config files)
+
+#### Container
+#### Code
 
 ### Definitions
 <b>Metrics Server</b> is a cluster-wide aggregator of resource usage data. Resource metrics are used by components like kubectl top and the Horizontal Pod Autoscaler to scale workloads
