@@ -259,7 +259,16 @@ means that if this pod is running and a matching taint is added to the node, the
 - `Encrypt secrets at rest` (ETCD, config files)
 
 #### Container
+-  On regular basis you should `scan your containers for known vulnerabilities` with a tool such as `CoreOS’s Clair`
+- `Signing container images` and maintaining a system of trust for the content of your containers. `Docker Content Trust`, `IBM’s Portieris`
+- `Disallow privileged users`: create users inside of the containers that have the least level of operating system privilege necessary in order to carry out the goal of the container.
+
 #### Code
+- TLS access
+- Limiting port ranges of communication
+- 3rd Party Dependency Security with no CVE’s currently filed against them
+- Static Code Analysis: scan codebases for common security errors using code analysis tools
+- Dynamic probing attacks: Use automated tools to detect SQL injection, CSRF, and XSS
 
 ### Definitions
 <b>Metrics Server</b> is a cluster-wide aggregator of resource usage data. Resource metrics are used by components like kubectl top and the Horizontal Pod Autoscaler to scale workloads
