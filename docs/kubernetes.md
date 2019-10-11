@@ -9,7 +9,7 @@
 - Load balancing
 - Rolling updates
 
-![](https://github.com/hfarooqui/knowledge_base/blob/master/images/Kubernetes_Architecture.png)
+![](https://github.com/hfarooqui/knowledge_base/blob/master/images/k8s_arch.png)
 
 ### Master Components
 #### kube-apiserver
