@@ -1,5 +1,14 @@
 ## Kubernetes
 
+## Overview
+- Kubernetes is an `open-source container management platform` which holds the responsibilities of container deployment, scaling & descaling of containers & load balancing
+- Docker builds the containers and these containers communicate with each other via Kubernetes. Containers running on multiple hosts can be manually linked and orchestrated using Kubernetes
+- Kubernetes is cloud-agnostic and can run on any public/private providers 
+- Automated Scheduling
+- Self healing
+- Load balancing
+- Rolling updates
+
 ![](https://github.com/hfarooqui/knowledge_base/blob/master/images/Kubernetes_Architecture.png)
 
 ### Master Components
@@ -41,16 +50,16 @@
 
 ### Node Components
 
-- Kubernetes is an `open-source container management platform` which holds the responsibilities of container deployment, scaling & descaling of containers & load balancing
-- Docker builds the containers and these containers communicate with each other via Kubernetes. Containers running on multiple hosts can be manually linked and orchestrated using Kubernetes
-- Kubernetes is cloud-agnostic and can run on any public/private providers 
-- Automated Scheduling
-- Self healing
-- Load balancing
-- Rolling updates
+#### kubelet
+- An agent that runs on each node in the cluster. It `makes sure that containers are running in a pod.`
 
-<b>Metrics Server</b> is a cluster-wide aggregator of resource usage data. Resource metrics are used by components like kubectl top and the Horizontal Pod Autoscaler to scale workloads
-<b>Prometheus Adapter</b> To autoscale based upon a custom metric
+#### kube-proxy 
+- `Network proxy` that runs on each node in your cluster, implementing part of the `Kubernetes Service` concept.
+- kube-proxy `maintains network rules` on nodes. These network rules `allow network communication to your Pods` from network sessions inside or outside of your cluster.
+- kube-proxy uses the operating system `packet filtering layer` if there is one and it’s available. Otherwise, kube-proxy forwards the traffic itself.
+
+#### Container Runtime
+The container runtime is the software that is responsible for running containers (dockerd, containerd, rktlet)
 
 ### Horizontal Pod Autoscaler (hpa)
 
@@ -221,3 +230,6 @@ tolerations:
 ```
 means that if this pod is running and a matching taint is added to the node, then the pod will stay bound to the node for 3600 seconds, and then be evicted. If the taint is removed before that time, the pod will not be evicted.
 
+### Definitions
+<b>Metrics Server</b> is a cluster-wide aggregator of resource usage data. Resource metrics are used by components like kubectl top and the Horizontal Pod Autoscaler to scale workloads
+<b>Prometheus Adapter</b> To autoscale based upon a custom metric
