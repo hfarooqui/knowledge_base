@@ -2,7 +2,44 @@
 
 ![](https://github.com/hfarooqui/knowledge_base/blob/master/images/Kubernetes_Architecture.png)
 
-<TODO: Describe each resource in the architecture>
+### Master Components
+#### kube-apiserver
+- API server is a component of the Kubernetes control plane that exposes the Kubernetes API. T
+- API server is the front end for the Kubernetes control plane.
+- Main implementation of a Kubernetes API server is `kube-apiserver`. 
+- `kube-apiserver` is designed to `scale horizontally`— that is, it scales by deploying more instances. You can run several instances of kube-apiserver and balance traffic between those instances.
+
+#### etcd
+- Consistent and `highly-available key value store` used as `Kubernetes’ backing store` for all cluster data.
+
+#### kube-scheduler
+- Component on the master that `watches newly created pods` that have no node assigned, and `selects a node` for them to run on.
+- Factors taken into account for scheduling decisions include individual and collective resource requirements, `hardware/software/policy constraints, affinity and anti-affinity specifications`, data locality, inter-workload interference and deadlines.
+
+#### kube-controller-manager
+- Component on the master that runs controllers.
+- Logically, `each controller is a separate process`, but to reduce complexity, they are all `compiled into a single binary and run in a single process`.
+- These controllers include:
+  - <b>Node Controller</b>: Responsible for noticing and responding when nodes go down.
+  - <b>Replication Controller</b>: Responsible for maintaining the correct number of pods for every replication controller object in the system.
+  - <b>Endpoints Controlle</b>r: Populates the Endpoints object (that is, joins Services & Pods).
+  - <b>Service Account & Token Controllers</b>: Create default accounts and API access tokens for new namespaces.
+
+#### cloud-controller-manager
+- cloud-controller-manager `runs controllers that interact with the underlying cloud providers.` 
+- The cloud-controller-manager binary is an alpha feature `introduced in Kubernetes release 1.6.`
+- cloud-controller-manager `runs cloud-provider-specific controller loops only`. You must disable these controller loops in the kube-controller-manager. 
+- You can disable the controller loops by setting the `--cloud-provider=external` when starting the kube-controller-manager.
+- cloud-controller-manager `allows the cloud vendor’s code and the Kubernetes code to evolve independently of each other`. 
+- In prior releases, the `core Kubernetes code was dependent upon cloud-provider-specific code` for functionality. 
+- In future releases, code specific to cloud vendors should be maintained by the cloud vendor themselves, and linked to cloud-controller-manager while running Kubernetes.
+- The following controllers have cloud provider dependencies:
+  - <b>Node Controller</b>: For checking the cloud provider to determine if a node has been deleted in the cloud after it stops responding
+  - <b>Route Controller</b>: For setting up routes in the underlying cloud infrastructure
+  - <b>Service Controller</b>: For creating, updating and deleting cloud provider load balancers
+  - <b>Volume Controller</b>: For creating, attaching, and mounting volumes, and interacting with the cloud provider to orchestrate volumes
+
+### Node Components
 
 - Kubernetes is an `open-source container management platform` which holds the responsibilities of container deployment, scaling & descaling of containers & load balancing
 - Docker builds the containers and these containers communicate with each other via Kubernetes. Containers running on multiple hosts can be manually linked and orchestrated using Kubernetes
