@@ -198,6 +198,11 @@ A toleration “matches” a taint if the keys are the same and the effects are 
 - the operator is Equal and the values are equal
 Operator defaults to Equal if not specified.
 
+Effect types:
+`NoSchedule` - No pod will be able to schedule onto node unless it has a matching toleration.
+`PreferNoSchedule` - This is a “preference” or “soft” version of NoSchedule – the system will try to avoid placing a pod that does not tolerate the taint on the node, but it is not required
+`NoExecute` - Any pods that do not tolerate the taint will be evicted immediately, and pods that do tolerate the taint will never be evicted
+
 For example, imagine you taint a node like this
 ```
 kubectl taint nodes node1 key1=value1:NoSchedule
