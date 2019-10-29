@@ -299,7 +299,7 @@ Daemon is a process that runs in the background, usually **waiting** for somethi
 Diagnostic tool
 The top command is a very useful tool for quickly showing processes sorted by various criteria.
 
-#### Job ID Versus Process IDJob ID Versus Process ID
+#### Job ID vs Process ID
 **Background and suspended processes** are usually manipulated via **job number** (job ID). This number is different from the process ID and is used because it is shorter.
 In addition, a** job can consist of multiple processes** running in a series or at the same time, in parallel. Using the job ID is easier than tracking individual processes.
 
