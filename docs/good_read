@@ -1,0 +1,3 @@
+Some people advocate creating artifacts (packages, tarballs, anything), 
+so that you have an authoritative, unchangable source of truth for your deployed application revisions on the contrary to
+deploying directly from git branches, which are fungible and can be rewritten or destroyed.
