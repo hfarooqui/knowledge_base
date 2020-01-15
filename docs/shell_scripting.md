@@ -54,29 +54,32 @@ Every file in Unix has the following attributes:
 #### Changing Permissions
 To change the file or the directory permissions, you use the chmod (change mode) command. There are two ways to use chmod — the symbolic mode and the absolute mode.
 
-**Using chmod in Symbolic ModeUsing chmod in Symbolic Mode**
+**Using chmod in Symbolic Mode**
 
 Sr.No. Chmod operator & Description
-1 + Adds the designated permission(s) to a file or directory.
+1 + Adds the designated permission(s) to a file or directory.<br>
 
-2 - Removes the designated permission(s) from a file or directory.
+2 - Removes the designated permission(s) from a file or directory.<br>
 
-3 = Sets the designated permission(s).
+3 = Sets the designated permission(s).<br>
 
-g Group
-u User
-o Other
+g Group<br>
+u User<br>
+o Other<br>
 
 E.g.
 
 *$ls -l testfile
 -rwxrwxr--  1 amrood   users 1024  Nov 2 00:10  testfile
+
 $chmod o+wx testfile
 $ls -l testfile
 -rwxrwxrwx  1 amrood   users 1024  Nov 2 00:10  testfile
+
 $chmod u-x testfile
 $ls -l testfile
 -rw-rwxrwx  1 amrood   users 1024  Nov 2 00:10  testfile
+
 $chmod g = rx testfile
 $ls -l testfile
 -rw-r-xrwx  1 amrood   users 1024  Nov 2 00:10  testfile*
