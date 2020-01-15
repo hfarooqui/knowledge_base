@@ -56,38 +56,38 @@ To change the file or the directory permissions, you use the chmod (change mode)
 
 **Using chmod in Symbolic Mode**
 
-Sr.No. Chmod operator & Description
-1 + Adds the designated permission(s) to a file or directory.<br>
+Sr.No. Chmod operator  Description
+1      + 	       Adds the designated permission(s) to a file or directory.<br>
 
-2 - Removes the designated permission(s) from a file or directory.<br>
+2      -               Removes the designated permission(s) from a file or directory.<br>
 
-3 = Sets the designated permission(s).<br>
+3      =               Sets the designated permission(s).<br>
 
 g Group<br>
 u User<br>
 o Other<br>
 
-E.g.
+E.g.<br>
 
-*$ls -l testfile
--rwxrwxr--  1 amrood   users 1024  Nov 2 00:10  testfile
+*$ls -l testfile<br>
+-rwxrwxr--  1 amrood   users 1024  Nov 2 00:10  testfile<br>
 
-$chmod o+wx testfile
-$ls -l testfile
--rwxrwxrwx  1 amrood   users 1024  Nov 2 00:10  testfile
+$chmod o+wx testfile<br>
+$ls -l testfile<br>
+-rwxrwxrwx  1 amrood   users 1024  Nov 2 00:10  testfile<br>
 
-$chmod u-x testfile
-$ls -l testfile
--rw-rwxrwx  1 amrood   users 1024  Nov 2 00:10  testfile
+$chmod u-x testfile<br>
+$ls -l testfile<br>
+-rw-rwxrwx  1 amrood   users 1024  Nov 2 00:10  testfile<br>
 
-$chmod g = rx testfile
-$ls -l testfile
--rw-r-xrwx  1 amrood   users 1024  Nov 2 00:10  testfile*
+$chmod g = rx testfile<br>
+$ls -l testfile<br>
+-rw-r-xrwx  1 amrood   users 1024  Nov 2 00:10  testfile*<br>
 
-Here's how you can combine these commands on a single line −
-*$chmod o+wx,u-x,g = rx testfile
-$ls -l testfile
--rw-r-xrwx  1 amrood   users 1024  Nov 2 00:10  testfile*
+Here's how you can combine these commands on a single line −<br>
+*$chmod o+wx,u-x,g = rx testfile<br>
+$ls -l testfile<br>
+-rw-r-xrwx  1 amrood   users 1024  Nov 2 00:10  testfile*<br>
 
 **Using chmod with Absolute Permissions**
 
@@ -102,15 +102,15 @@ Number	Octal Permission Representation	 Ref
 7	         All permissions: 4 (read) + 2 (write) + 1 (execute) = 7	       rwx
 
 E.g.
-*$ chmod 755 testfile
-$ls -l testfile
--rwxr-xr-x  1 amrood   users 1024  Nov 2 00:10  testfile
-$chmod 743 testfile
-$ls -l testfile
--rwxr---wx  1 amrood   users 1024  Nov 2 00:10  testfile
-$chmod 043 testfile
-$ls -l testfile
-----r---wx  1 amrood   users 1024  Nov 2 00:10  testfile*
+*$ chmod 755 testfile<br>
+$ls -l testfile<br>
+-rwxr-xr-x  1 amrood   users 1024  Nov 2 00:10  testfile<br>
+$chmod 743 testfile<br>
+$ls -l testfile<br>
+-rwxr---wx  1 amrood   users 1024  Nov 2 00:10  testfile<br>
+$chmod 043 testfile<br>
+$ls -l testfile<br>
+----r---wx  1 amrood   users 1024  Nov 2 00:10  testfile*<br>
 
 #### Changing Owners and Groups
 **chown** − The chown command stands for "change owner" and is used to change the owner of a file.
