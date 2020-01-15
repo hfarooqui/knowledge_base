@@ -136,10 +136,10 @@ The SUID and SGID bits will appear as the letter **"s" **if the permission is av
 
 For example, the command −
 
-*$ ls -l /usr/bin/passwd
--r-**s**r-xr-x  1   root   bin  19031 Feb 7 13:47  /usr/bin/passwd**
+*$ ls -l /usr/bin/passwd<br>
+-r-**s**r-xr-x  1   root   bin  19031 Feb 7 13:47  /usr/bin/passwd**<br>
 
-Shows that the SUID bit is set and that the command is owned by the root. A capital letter **S** in the execute position instead of a lowercase s indicates that the** execute bit is not set**.
+Shows that the SUID bit is set and that the command is owned by the root. A capital letter **S** in the execute position instead of a lowercase s indicates that the **execute bit is not set**.
 
 If the sticky bit is enabled on the directory, files can only be removed if you are one of the following users:
 The owner of the sticky directory
