@@ -91,15 +91,15 @@ $ls -l testfile<br>
 
 **Using chmod with Absolute Permissions**
 
-Number	Octal Permission Representation	 Ref
-0	         No permission	                                                                   ---
-1	         Execute permission	                    									    --x
-2	         Write permission	                                                              -w-
-3	         Execute and write permission: 1 (execute) + 2 (write) = 3	    -wx
-4	         Read permission	                                                              r--
-5	         Read and execute permission: 4 (read) + 1 (execute) = 5	  r-x
-6	         Read and write permission: 4 (read) + 2 (write) = 6	           rw-
-7	         All permissions: 4 (read) + 2 (write) + 1 (execute) = 7	       rwx
+Number	Octal Permission Representation	 Ref<br>
+0	         No permission	        <br>
+1	         Execute permission 	x<br>
+2	         Write permission	w<br>
+3	         Execute and write permission: 1 (execute) + 2 (write) = 3	    wx<br>
+4	         Read permission	                                            r<br>
+5	         Read and execute permission: 4 (read) + 1 (execute) = 5	    r-x<br>
+6	         Read and write permission: 4 (read) + 2 (write) = 6	            rw<br>
+7	         All permissions: 4 (read) + 2 (write) + 1 (execute) = 7	    rwx<br>
 
 E.g.
 *$ chmod 755 testfile<br>
