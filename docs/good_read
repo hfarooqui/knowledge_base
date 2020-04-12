@@ -9,6 +9,17 @@ I didn’t like this because the latter required previous knowledge of a specifi
 Amazon - “Create a method that finds the Nth term in the Fibonacci sequence both recursively and iteratively and 
 the efficiency analysis for both”. I liked this because the efficiency analysis solutions were fairly unique.
 
+1. DFS
+2. BFS
+3. Matching Parenthesis problem
+4. Using Hash Tables
+5. Variables/Pointers manipulation
+6. reverse linked list (duplicates , removing duplicates)
+7. sorting fundamentals (quicksort, mergesort,bubblesort techniques, runtime of a sort,time space complexity)
+8. Recursion
+9. custom data structures (object oriented programming)
+10.Binary search
+
 Facebook - “Sort this list of an object that has 3 states.” 
 The interviewer then iterated the problem around 4 times, forcing out 5 different solutions with 4 different optimizations. 
 For example, One utilized indexes, another had a no extra memory constraint, another had a constraint of being stable. 
