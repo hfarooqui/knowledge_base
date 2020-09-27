@@ -1,0 +1,45 @@
+Some people advocate creating artifacts (packages, tarballs, anything), 
+so that you have an authoritative, unchangable source of truth for your deployed application revisions on the contrary to
+deploying directly from git branches, which are fungible and can be rewritten or destroyed.
+
+Google - I was asked “How would you create your own hash function?” and 
+“How would you implement a red-black tree?”. 
+I didn’t like this because the latter required previous knowledge of a specific algorithm and the former required math knowledge.
+
+Amazon - “Create a method that finds the Nth term in the Fibonacci sequence both recursively and iteratively and 
+the efficiency analysis for both”. I liked this because the efficiency analysis solutions were fairly unique.
+
+1. DFS
+2. BFS
+3. Matching Parenthesis problem
+4. Using Hash Tables
+5. Variables/Pointers manipulation
+6. reverse linked list (duplicates , removing duplicates)
+7. sorting fundamentals (quicksort, mergesort,bubblesort techniques, runtime of a sort,time space complexity)
+8. Recursion
+9. custom data structures (object oriented programming)
+10.Binary search
+
+Facebook - “Sort this list of an object that has 3 states.” 
+The interviewer then iterated the problem around 4 times, forcing out 5 different solutions with 4 different optimizations. 
+For example, One utilized indexes, another had a no extra memory constraint, another had a constraint of being stable. 
+He had me code several of these solutions and one of the solutions in the last 4 minutes of the interview.
+
+https://www.reddit.com/r/cscareerquestions/comments/e095pv/how_i_got_7_offers_heres_what_i_learned/
+https://www.teamblind.com/article/New-Year-Gift---Curated-List-of-Top-100-LeetCode-Questions-to-Save-Your-Time-OaM1orEU
+https://softskills.audio/
+https://darknetdiaries.com/
+https://www.reddit.com/r/cscareerquestions/comments/657p31/leetcode_discount/
+
+FB:
+  System design
+    https://syedali.net/engineer-interview-questions/
+    https://github.com/chassing/linux-sysadmin-interview-questions
+    https://github.com/0xAX/linux-insides
+    https://github.com/shashank88/system_design
+    https://www.techmockinterview.com/
+  
+  Coding
+    Other sites you can check out for practice coding questions are Hackerrank and Careercup!
+
+

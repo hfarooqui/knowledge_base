@@ -54,60 +54,63 @@ Every file in Unix has the following attributes:
 #### Changing Permissions
 To change the file or the directory permissions, you use the chmod (change mode) command. There are two ways to use chmod — the symbolic mode and the absolute mode.
 
-**Using chmod in Symbolic ModeUsing chmod in Symbolic Mode**
+**Using chmod in Symbolic Mode**
 
-Sr.No. Chmod operator & Description
-1 + Adds the designated permission(s) to a file or directory.
+Sr.No. Chmod operator  Description
+1      + 	       Adds the designated permission(s) to a file or directory.<br>
 
-2 - Removes the designated permission(s) from a file or directory.
+2      -               Removes the designated permission(s) from a file or directory.<br>
 
-3 = Sets the designated permission(s).
+3      =               Sets the designated permission(s).<br>
 
-g Group
-u User
-o Other
+g Group<br>
+u User<br>
+o Other<br>
 
-E.g.
+E.g.<br>
 
-*$ls -l testfile
--rwxrwxr--  1 amrood   users 1024  Nov 2 00:10  testfile
-$chmod o+wx testfile
-$ls -l testfile
--rwxrwxrwx  1 amrood   users 1024  Nov 2 00:10  testfile
-$chmod u-x testfile
-$ls -l testfile
--rw-rwxrwx  1 amrood   users 1024  Nov 2 00:10  testfile
-$chmod g = rx testfile
-$ls -l testfile
--rw-r-xrwx  1 amrood   users 1024  Nov 2 00:10  testfile*
+*$ls -l testfile<br>
+-rwxrwxr--  1 amrood   users 1024  Nov 2 00:10  testfile<br>
 
-Here's how you can combine these commands on a single line −
-*$chmod o+wx,u-x,g = rx testfile
-$ls -l testfile
--rw-r-xrwx  1 amrood   users 1024  Nov 2 00:10  testfile*
+$chmod o+wx testfile<br>
+$ls -l testfile<br>
+-rwxrwxrwx  1 amrood   users 1024  Nov 2 00:10  testfile<br>
+
+$chmod u-x testfile<br>
+$ls -l testfile<br>
+-rw-rwxrwx  1 amrood   users 1024  Nov 2 00:10  testfile<br>
+
+$chmod g = rx testfile<br>
+$ls -l testfile<br>
+-rw-r-xrwx  1 amrood   users 1024  Nov 2 00:10  testfile*<br>
+
+Here's how you can combine these commands on a single line −<br>
+*$chmod o+wx,u-x,g = rx testfile<br>
+$ls -l testfile<br>
+-rw-r-xrwx  1 amrood   users 1024  Nov 2 00:10  testfile*<br>
 
 **Using chmod with Absolute Permissions**
 
-Number	Octal Permission Representation	 Ref
-0	         No permission	                                                                   ---
-1	         Execute permission	                    									    --x
-2	         Write permission	                                                              -w-
-3	         Execute and write permission: 1 (execute) + 2 (write) = 3	    -wx
-4	         Read permission	                                                              r--
-5	         Read and execute permission: 4 (read) + 1 (execute) = 5	  r-x
-6	         Read and write permission: 4 (read) + 2 (write) = 6	           rw-
-7	         All permissions: 4 (read) + 2 (write) + 1 (execute) = 7	       rwx
+Number	Octal Permission Representation	 Ref<br>
+0	         No permission	        <br>
+1	         Execute permission 	x<br>
+2	         Write permission	w<br>
+3	         Execute and write permission: 1 (execute) + 2 (write) = 3	    wx<br>
+4	         Read permission	                                            r<br>
+5	         Read and execute permission: 4 (read) + 1 (execute) = 5	    r-x<br>
+6	         Read and write permission: 4 (read) + 2 (write) = 6	            rw<br>
+7	         All permissions: 4 (read) + 2 (write) + 1 (execute) = 7	    rwx<br>
 
 E.g.
-*$ chmod 755 testfile
-$ls -l testfile
--rwxr-xr-x  1 amrood   users 1024  Nov 2 00:10  testfile
-$chmod 743 testfile
-$ls -l testfile
--rwxr---wx  1 amrood   users 1024  Nov 2 00:10  testfile
-$chmod 043 testfile
-$ls -l testfile
-----r---wx  1 amrood   users 1024  Nov 2 00:10  testfile*
+*$ chmod 755 testfile<br>
+$ls -l testfile<br>
+-rwxr-xr-x  1 amrood   users 1024  Nov 2 00:10  testfile<br>
+$chmod 743 testfile<br>
+$ls -l testfile<br>
+-rwxr---wx  1 amrood   users 1024  Nov 2 00:10  testfile<br>
+$chmod 043 testfile<br>
+$ls -l testfile<br>
+----r---wx  1 amrood   users 1024  Nov 2 00:10  testfile*<br>
 
 #### Changing Owners and Groups
 **chown** − The chown command stands for "change owner" and is used to change the owner of a file.
@@ -133,10 +136,10 @@ The SUID and SGID bits will appear as the letter **"s" **if the permission is av
 
 For example, the command −
 
-*$ ls -l /usr/bin/passwd
--r-**s**r-xr-x  1   root   bin  19031 Feb 7 13:47  /usr/bin/passwd**
+*$ ls -l /usr/bin/passwd<br>
+-r-**s**r-xr-x  1   root   bin  19031 Feb 7 13:47  /usr/bin/passwd**<br>
 
-Shows that the SUID bit is set and that the command is owned by the root. A capital letter **S** in the execute position instead of a lowercase s indicates that the** execute bit is not set**.
+Shows that the SUID bit is set and that the command is owned by the root. A capital letter **S** in the execute position instead of a lowercase s indicates that the **execute bit is not set**.
 
 If the sticky bit is enabled on the directory, files can only be removed if you are one of the following users:
 The owner of the sticky directory
@@ -299,7 +302,7 @@ Daemon is a process that runs in the background, usually **waiting** for somethi
 Diagnostic tool
 The top command is a very useful tool for quickly showing processes sorted by various criteria.
 
-#### Job ID Versus Process IDJob ID Versus Process ID
+#### Job ID vs Process ID
 **Background and suspended processes** are usually manipulated via **job number** (job ID). This number is different from the process ID and is used because it is shorter.
 In addition, a** job can consist of multiple processes** running in a series or at the same time, in parallel. Using the job ID is easier than tracking individual processes.
 
