@@ -9,7 +9,7 @@
 - Load balancing
 - Rolling updates
 
-![](https://github.com/hfarooqui/knowledge_base/blob/master/images/k8s_arch.png)
+![](images/k8s_arch.png)
 
 ### Master Components
 #### kube-apiserver
@@ -101,8 +101,8 @@ replicationcontroller "my-nginx-v4" rolling updated
 kubectl rolling-update frontend-v1 frontend-v2 --image=image:v2
 
 # Update the pods of frontend, keeping the replication controller name
+```
 kubectl rolling-update frontend --image=image:v2
-
 ```
 
 If you encounter a problem, you can stop the rolling update midway and revert to the previous version using --rollback:
@@ -132,8 +132,7 @@ spec:
   nodeSelector:
     disktype: ssd
  ```
-<b>NodeRestriction</b> admission plugin prevents kubelets from setting or modifying labels with a node-restriction.kubernetes.io/ prefix. SUpported in v1.11+
-Add labels under the node-restriction.kubernetes.io/ prefix to your Node objects, and use those labels in your node selectors. For example, example.com.node-restriction.kubernetes.io/fips=true or example.com.node-restriction.kubernetes.io/pci-dss=true.
+`NodeRestriction` admission plugin prevents kubelets from setting or modifying labels with a node-restriction.kubernetes.io/ prefix. Supported in v1.11+ Add labels under the node-restriction.kubernetes.io/ prefix to your Node objects, and use those labels in your node selectors. For example, example.com.node-restriction.kubernetes.io/fips=true or example.com.node-restriction.kubernetes.io/pci-dss=true.
 
 ### Node Affinity
 - Node affinity is conceptually similar to nodeSelector – it allows you to constrain which nodes your pod is eligible to be scheduled on, based on labels on the node
@@ -165,7 +164,6 @@ spec:
   containers:
   - name: with-node-affinity
     image: k8s.gcr.io/pause:2.0
-<<<<<<< HEAD
 ```
 
 #### Inter-pod affinity and anti-affinity 
@@ -217,7 +215,6 @@ spec:
   It says that the pod cannot be scheduled onto a node if that node is in the same zone as a pod with label having key "security" and value "S2".
 
 - 
-=======
   ```
 This node affinity rule says the pod can only be placed on a node with a label whose key is `kubernetes.io/e2e-az-name` and whose value is either `e2e-az1 or e2e-az2`. In addition, among nodes that meet that criteria, nodes with a label whose key is `another-node-label-key` and whose value is `another-node-label-value` should be preferred.
 If you specify both nodeSelector and nodeAffinity, both must be satisfied for the pod to be scheduled onto a candidate node.
@@ -331,4 +328,3 @@ means that if this pod is running and a matching taint is added to the node, the
 ### Definitions
 <b>Metrics Server</b> is a cluster-wide aggregator of resource usage data. Resource metrics are used by components like kubectl top and the Horizontal Pod Autoscaler to scale workloads
 <b>Prometheus Adapter</b> To autoscale based upon a custom metric
->>>>>>> a0a1268ecbdbb9b7456a5b8356b74e374f3a34fa
