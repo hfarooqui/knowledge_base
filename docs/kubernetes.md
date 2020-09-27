@@ -283,6 +283,7 @@ TLS For Kubernetes Ingress
 - Dynamic probing attacks (SQL injection, CSRF, and XSS. One of the most popular dynamic analysis tools is the OWASP Zed Attack proxy tool)
 
 ## Kubernetes Design Patterns
+![](images/k8s_desing_pattern.png)
 ### Foundational patterns
 Represent the principles and best practices that containerized applications
 - Health Probe pattern - Define `probes` for `liveness` and `rediness` checks
