@@ -64,7 +64,7 @@ On an object storage system, you'd need to retrieve the object, add the new line
 
 1300+ services
 
-### AWS Global InfrastructureAWS Global Infrastructure
+### AWS Global Infrastructure
 
 #### Region
 Region is a **physical location** in the world which consists of 2 or more AZ (around 60)
@@ -97,7 +97,7 @@ What you do is you could basically create a lambda function that puts the text o
 It then senses that this image has been uploaded and then based on the inputs that they give you would try to you know takes over that image and outputted that's a good example of lamda we will use Lamda
 
 - **Lightsail**
- - Amazon's VPService or virtual private service service this is basically designed for people who just don't really want to understand anything about AWOS and the underlying infrastructure.They don't want to know about the PCs or security groups or anything like that. So essentially this just provision you with the server it'll give you a fixed IP address that you can log into the server from and will give you either ODP access for Windows or S-sh access for Linux. And then it comes with the really cool management console you can go in and manage that server using management console.
+ - Amazon's  Virtual private service service this is basically designed for people who just don't really want to understand anything about the underlying infrastructure. They don't want to know about the PCs or security groups or anything like that. So essentially this just provision you with the server it'll give you a fixed IP address that you can log into the server from and will give you either ODP (Windows) or SSH access (Linux). And then it comes with the really cool management console you can go in and manage that server using management console.
  - Watered down version of EC2
 
 - **Batch**
@@ -292,7 +292,7 @@ API Gateway is essentially a way of creating your own API for your other service
 #### Game Development
 - **GameLift**
 
-###OpsWorks vs CloudFormation
+### OpsWorks vs CloudFormation
 CF is like Terraform, its is fully coded automation of almost every service in AWS. So use if you have a very extensive service that requires full description of environments or templated stacks to cover low level services like auto scaling, spot instance, redshift, Cloudwatch alarmss and much more. The configuration time is much more extensive, and time consuming.
 
 OW is basically AWS managed Chef. It has some great features for automation via the GUI, and you can configure most things. The great thing about Opsworks is that a good Devops can script the system, so someone that has little knowledge of infrastructure or cloud can still deploy apps super simply, and in very little time. However it is not as powerful as CF

@@ -31,7 +31,7 @@ It's just a  virtual machine in the cloud and it reduces the time required to ob
   - Can be purchesed on-demand (hourly)
 
 ### EC2 instance types
-![EC2_Types](https://s3.amazonaws.com/hfcontents/kbimages/EC2_Types.png "EC2_Types")
+![EC2_Types](images/EC2_Types.png "EC2_Types")
 FIGHT DR MC PX
 
 ### System Status Check
@@ -56,6 +56,8 @@ In case of failure reboot the instance so that it gets launched on different hos
    If you create an inbound rule allowing traffic in, that traffic is automatically allowed back out again
  - You cannot block specific IP address using security groups instead use Network Access Control List (STATELESS)
  - You can specify allow rules but not deny rules
+ - 60 Inbound or outbound rules per security group
+ - 2500 VPC security groups per Region
 
 # Elastic Block Storage (EBS)
 
@@ -114,7 +116,7 @@ RAID arrays are used when you are not getting the desired IO
 - **RAID 1**:
   - Mirrored: You got one disk and you mirror exact copy of it to another disk
   - Redundancy: If one disk fails you can still use the RAID array using another disk
-  - **RAID 5:**
+- **RAID 5:**
     - You get 3 disks or more and you are writing parity to another disk
 	- Amazon discourages you from making RAID 5 array on EBS volumes
 	- Parity is a checksum. If one of the disks fails, you can read the RAID array and using checksum you can find what the missing data is
@@ -173,7 +175,7 @@ You can select AMI based on:
     - Best suited for load balancing HTTP/HTTPS traffic
 	- Operates at layer 7 and are application aware (X-forwarded, Sticky sessions)
 	  - X-Forwarded-For header: Forwards public IP of the client to EC2 instance passing through load balancers. Verious API's are available which can tell Country, Organisation where the Public IP request is coming from
-![x_forwaded](https://s3.amazonaws.com/hfcontents/kbimages/X-Forwaded.png "x_forwaded")
+![x_forwaded](images/X-Forwaded.png "x_forwaded")
 
   - ** Network Load Balancer (NLB)**
     - Best suited for load balancing TCP traffic where extreme performane is required
@@ -201,7 +203,7 @@ CloudWatch is for Monitoring and logging whereas AuditTrails is for Auditing (Ro
 
 # EC2 instance metadata
 Instance metadata is data about your instance that you can use to configure or manage the running instance.
-
+```
 [root@jump_host1.hf2254.aries.mobileiron.net 2018-09-22--07-34-17 ~ #] curl http://169.254.169.254/latest/meta-data/
 ami-id
 ami-launch-index
@@ -224,10 +226,11 @@ public-ipv4
 public-keys/
 reservation-id
 security-groups
+```
 
 # Placement Groups
 You can launch or start instances in a placement group, which determines how instances are placed on underlying hardware
-####Types
+#### Types
 You specify one of the following strategies for the group:
   - **Cluster**
     - A cluster placement group is a logical grouping of instances within a single Availability Zone. A placement group can span peered VPCs in the same region.
@@ -272,7 +275,7 @@ You specify one of the following strategies for the group:
 
 # Lambda
 
-![Cloud_History](https://s3.amazonaws.com/hfcontents/kbimages/Cloud_History.png "Cloud_History")
+![Cloud_History](images/Cloud_History.png "Cloud_History")
 
   - AWS Lambda is a compute service where you can upload your code and create a Lambda function
   - AWS Lambda takes care of provisioning and managing the server required to run your code
@@ -287,7 +290,7 @@ You specify one of the following strategies for the group:
   - Serverless, Continuous scaling, Cheap
   - Usecase: You can use AWS Lambda to execute code in response to triggers such as changes in data, shifts in system state, or actions by users. Lambda can be directly triggered by AWS services such as S3, DynamoDB, Kinesis, SNS, and CloudWatch, or it can be orchestrated into workflows by AWS Step Functions. This allows you to build a variety of real-time serverless data processing systems.
 
-![Lambda_Usecase](https://s3.amazonaws.com/hfcontents/kbimages/Lambda_Usecase.png "Lambda_Usecase")
+![Lambda_Usecase](images/Lambda_Usecase.png "Lambda_Usecase")
 
 # Misc
 - Bootstrap scripts

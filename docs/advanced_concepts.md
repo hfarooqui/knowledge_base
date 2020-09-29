@@ -25,9 +25,63 @@ Cloud-init will identify the cloud it is running on during boot, read any provid
 
 
 ## Service Mesh
-### Service Mesh vs API Gateway
+- `Network communication infrastructure` which allows your to `decouple and offload most of the application network functions` from your service code.
+- Hence when you do service-to-service communication, `you don’t need to implement resilient communication patterns such as Circuit breakers, timeouts in your service’s code`. 
+- Service mesh provides other functionalities such as service discovery, observability etc.
+- East-West
+- Service mesh is used alongside most of the service implementations as a `sidecar` and it’s independent of the business functionality of the services.
+
+### API Gateway
+- API Gateway: `Exposes your services as managed APIs`
+- Single point of entry for any microservice call
+- Works as a proxy service to route a request to the concerned microservice
+- Can aggregate the results to send back to the consumer
+- Can also convert the protocol request and respond????
+- Can also offload the authentication/authorization responsibility of the microservice.
+- North-South
+- API Gateways also come inbuilt support for:
+    - Service discovery
+    - Analytics(observability: Metrics, monitoring, distributed logging, distributed tracing) 
+    - Security
+    - Circuit Breakers
+    - Timeouts, Caching
+    - Load Balancing/Failover
+
+> **_NOTE:_** An `edge service` is a component which is `exposed to the public internet`. It acts as a `gateway to all other services`, which we will refer to as platform services. For example, consider an Nginx reverse proxy in front of some web resource servers. Here, Nginx acts as an edge service by routing public HTTP requests to the appropriate platform service.
+
+### [Service Mesh vs API Gateway](https://medium.com/microservices-in-practice/service-mesh-vs-api-gateway-a6d814b9bf56)
+| API Gateway  | Service Mesh
+|---|---
+|  Part of the business functionality of your solution (Hosts all API services). API Gateway may have in-built inter-service communication capabilities but that doesn’t prevent API Gateway using service mesh to call downstream services(API Gateway->service mesh->microservices).|  Service mesh is used alongside most of the service implementations as a sidecar and it’s independent of the business functionality of the services.
+
+> **_NOTE:_** At API Management level, you can either use in-built inter-service communication capabilities of API Gateway or API Gateway can call downstream services via service mesh by offloading application network functions to service mesh.
 
 ## Consistent hashing
+
+## [Microservice service pattern](https://medium.com/@madhukaudantha/microservice-architecture-and-design-patterns-for-microservices-e0e5013fd58a)
+- Observability Patterns
+    - Log Aggregation
+    - Performance Metrics
+    - Distributed Tracing
+    - Health Check
+- Cross-Cutting Concern Patterns
+    - Service Discovery Pattern
+    - Circuit Breaker Pattern: - Rate limiting </br>
+    When the number of consecutive failures crosses a threshold, the circuit breaker trips, and for the duration of a timeout period, all attempts to invoke the remote service will fail immediately. After the timeout expires the circuit breaker allows a limited number of test requests to pass through. If those requests succeed, the circuit breaker resumes normal operation.
+    - Blue-Green Deployment Pattern
+- Integration Patterns
+    - API Gateway Pattern
+    - Aggregator Pattern : Aggregate and send response 
+    - Chained Microservice Pattern </br>
+    The request received by a microservice-1, which is then communicating with microservice-2 and it may be communicating with microservice-3. All these services are synchronous calls.
+    - Saga Pattern </br>
+        - Choreography </br>
+        ![](images/chreography_pattern.png)
+        When there is no central coordination, each service produces and listens to another service’s events and decides if an action should be taken or not. Choreography is a way of specifying how two or more parties; none of which has any control over the other parties’ processes, or perhaps any visibility of those processes — can coordinate their activities and processes to share information and value. Use choreography when coordination across domains of control/visibility is required. You can think of choreography, in a simple scenario, as like a network protocol. It dictates acceptable patterns of requests and responses between parties.
+        - Orchestration </br>
+        ![](images/Orchestration_pattern.png)
+        An orchestrator (object) takes responsibility for a saga’s decision making and sequencing business logic. when you have control over all the actors in a process. when they’re all in one domain of control and you can control the flow of activities. This is, of course, most often when you’re specifying a business process that will be enacted inside one organization that you have control over.
+    
 
 ## Architecture considerations
 - Tools - Infrastructure management, Configuration management
@@ -41,3 +95,4 @@ Cloud-init will identify the cloud it is running on during boot, read any provid
 - Deployment - CI/CD
 - Observability Monitoring
 - Logging
+

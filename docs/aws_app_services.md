@@ -12,23 +12,23 @@
  - Default retention period is 4 days
  - SQS gurantees that your message will be processed atleast once
 
-![SQS1](https://s3.amazonaws.com/hfcontents/kbimages/SQS1.png "SQS1")
+![SQS1](images/SQS1.png "SQS1")
 
-![SQS2](https://s3.amazonaws.com/hfcontents/kbimages/SQS2.png "SQS2")
+![SQS2](images/SQS2.png "SQS2")
 
  ### Standard Queues
   - Default queue type
   - Allows you to have unlimited number of transactions per second
   - Messages are delivered atleast once. Ocassionally more than one copy of message might be delivered out of order
   - Messages are generally delivered in the same order as they arrive
- ![SQS_Standard](https://s3.amazonaws.com/hfcontents/kbimages/SQS_Standard.png "SQS_Standard")
+ ![SQS_Standard](images/SQS_Standard.png "SQS_Standard")
 
  ### FIFO queues
  - Messages are STRICTLY delivered in the same order as they arrive
  - Messages are delivered ONCE and remains in the queue until consumer processes and deletes it
  - Duplicates are not introduced in the queue
  - Limited to 300 transactions per second
-![SQS_FIFO](https://s3.amazonaws.com/hfcontents/kbimages/SQS_FIFO.png "SQS_FIFO")
+![SQS_FIFO](images/SQS_FIFO.png "SQS_FIFO")
 
   ### Visibility timeout
  - Amount of time message is invisible in SQS queue after reader picks up that message. 
@@ -46,7 +46,7 @@
 - Makes it easy to coordinate work across distributed application components
 - Tasks represents verious processing steps in an application which can be performed  by executable code, web service, human interaction and scripts
 - Maximum workflow can be one year and it measured in seconds
-![SWF1](https://s3.amazonaws.com/hfcontents/kbimages/SWF.png "SWF1")
+![SWF1](images/SWF.png "SWF1")
 
 ### SWF Workers
 - Programs that interact with SWF to get tasks, process received tasks, return the results
@@ -63,7 +63,7 @@
 ### SWF Domains
  - Your workflow, its execution and activity types are all scoped to a domain
  - Domain isolate set of types, executions and task lists from others within the same account
-![SWF_Domain](https://s3.amazonaws.com/hfcontents/kbimages/SWF_Domain "SWF_Domain")
+![SWF_Domain](images/SWF_Domain "SWF_Domain")
 
 ## SWS vs SQS
  - SWF represents task oriented API's whereas SQS represents message oriented API's
@@ -90,7 +90,7 @@
 ## Elastic Transcoder
 - Allows you to convert media files from original source format into different format that will play on smartphones, tablets, PC's
 - Pay based on the minutes that you transcode and the resolution at which you transcode
-![Elastic_Transcoder](https://s3.amazonaws.com/hfcontents/kbimages/Elastic_Transcoder.png "Elastic_Transcoder")
+![Elastic_Transcoder](images/Elastic_Transcoder.png "Elastic_Transcoder")
 
 ## API Gateway
 - Fully managed service that makes it easy for developers to publish, maintain, monitor and secure API's at scale
@@ -134,16 +134,16 @@
     - 5 transactions per second for reads, upto a maximum total data read rate of 2MB/sec and upto 1000 records/second for writes, up to a maximum total data write rate of 1MB/sec
 - The total capacity of your stream is sum of the capacities of its shards
 - Data retention period is between 24 hours (default) upto 7 days
-![Kinesis_Streams](https://s3.amazonaws.com/hfcontents/kbimages/Kinesis_Streams.png "Kinesis_Streams")
+![Kinesis_Streams](images/Kinesis_Streams.png "Kinesis_Streams")
 
 ### Kinesis Firehose
 - You dont have to worry about shards or streams and also consumers going and mining that data
 - Analytics of data is optional
 - No data retention window. As soon as the data arrives it is either analyzed or sent to S3 or other locations (RedShift via S3, ElasticSearch)
 - Automated way of doing Kinesis
-![Kinesis_Firehose](https://s3.amazonaws.com/hfcontents/kbimages/Kinesis_Firehose.png "Kinesis_Firehose")
+![Kinesis_Firehose](images/Kinesis_Firehose.png "Kinesis_Firehose")
 
 ### Kinesis Analytics
 - Way of analysing data that is inside Kinesis
 - Allows you to run sql queries on data that exists in Kinesis Firehose or Kinesis Stream and the results are forwaded to S3, redshift or ElasticSearch cluster.
-![Kinesis_Analytics](https://s3.amazonaws.com/hfcontents/kbimages/Kinesis_Analytics.png "Kinesis_Analytics")
+![Kinesis_Analytics](images/Kinesis_Analytics.png "Kinesis_Analytics")

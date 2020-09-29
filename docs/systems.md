@@ -87,9 +87,31 @@ At a glance, first issue looks like the most annoying. But in practice the most 
 
 swapper or sched has process ID 0 and is responsible for paging, and is actually part of the kernel rather than a normal user-mode process.
 
+#### Symbolic Links
+Hard links - Same inode in the file directory, Cannot span across filesystem, Can be applied only to files
+Soft links - Seperate inode, Can span across filesystem, Can be applied to files and directories
 
-#### What happens when you type a command
-ls -l
+#### inode
+- Struct that is used by the kernel to manipulate a file or directory
+- When you create a new file, it is assigned a file name and inode number. Both are stored as entries in a directory
+  - Size
+  - Owner
+  - Date/time
+  - Permissions and access control
+  - Location on the disk
+  - File types
+  - Number of links
+  - Additional metadata about the file
+
+#### [What happens when you type a command E.g. ls -1](https://levelup.gitconnected.com/what-happens-where-you-type-ls-l-in-a-linux-shell-98ad95430cbf#:~:text=A%20shell%20hides%20the%20details,input%20after%20you%20press%20Enter.)
+- `$` - The shell prompt is displayed
+- `getline` - The shell reads the command from standard input that was entered by the user -`getline(&buffer,&size,stdin);`
+- `Tokenization` -Parse user input -  `String tokenization function` is called which splits the command line into tokens. In our shell, we used a function called `strtok()` E.g. `[ls][-la][/]`
+- `Checks if the first token is an alias`, and if so, replaces the alias with the actual command
+- Execution - Calls `fork` to create a new process and launch our command in it.
+- `fork() system call is used to create child processes`. fork() is used where `parallel processing` is required in your application
+- `Cleanup` - frees up memory and exits
+![](images/fork.png)
 
 
 ## Boot Process
@@ -199,3 +221,60 @@ deploy-initrd-kernel
 initrd-ramdisk (for hlinix)
 vmlinuz-kernel (for hlinux)
 hlinux os image (user image for hlinux)
+
+## inode
+
+## Commands
+uptime
+stat
+iostat
+
+## Hashing
+Hashing
+A hash table is a collection of items which are stored in such a way as to make it easy to find them later. 
+Given a collection of items, a hash function that maps each item into a unique slot is referred to as a perfect hash function
+One way to always have a perfect hash function is to increase the size of the hash table so that each possible value in the item range can be accommodated. This guarantees that each item will have a unique slot. Although this is practical for small numbers of items, it is not feasible when the number of possible items is large. For example, if the items were nine-digit Social Security numbers, this method would require almost one billion slots. If we only want to store data for a class of 25 students, we will be wasting an enormous amount of memory.
+
+Once the hash values have been computed, we can insert each item into the hash table at the designated position as shown in Figure 5. Note that 6 of the 11 slots are now occupied. This is referred to as the load factor, and is commonly denoted by λ=numberofitemstablesizeλ=numberofitemstablesize. For this example, λ=611λ=611.
+
+Types of hash functions:
+remainder method - h(item)=item%no_of_slots
+folding method - 436-555-4601 > 43+65+55+46+0143+65+55+46+01 = 210 > 210%no_of_slots
+mid-square method - item*items= 1934 > extracting the middle two digits, 93 > 93%no_of_slots
+
+
+Item
+Hash Value (item%no_of_slots)
+54
+10
+26
+4
+93
+5
+17
+6
+77
+0
+31
+9
+
+
+
+You can probably already see that this technique is going to work only if each item maps to a unique location in the hash table. For example, if the item 44 had been the next item in our collection, it would have a hash value of 0 (44%11==044%11==0). Since 77 also had a hash value of 0, we would have a problem. According to the hash function, two or more items would need to be in the same slot. This is referred to as a collision (it may also be called a “clash”)
+
+Collision Resolution
+Linear probing - By systematically visiting each slot one at a time (until we find empty slot), we are performing an open addressing technique called linear probing
+
+Clustering - if many collisions occur at the same hash value, a number of surrounding slots will be filled by the linear probing resolution.  This will have an impact on other items that are being inserted
+
+Rehashing - The general name for the process of looking for another slot after a collision:
+newhashvalue=rehash(oldhashvalue) 
+E.g. rehash(pos)=(pos+CONST)%sizeoftable
+
+quadratic probing - Instead of using a constant “skip” value, we use a rehash function that increments the hash value by 1, 3, 5, 7, 9, and so on
+
+
+
+Chaining: Allows many items to exist at the same location in the hash table
+
+
